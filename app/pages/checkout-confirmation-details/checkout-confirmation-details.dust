@@ -1,0 +1,78 @@
+{>"global/checkoutBase"/}
+
+{<contentBlock}
+    <div class="u-margin-bottom-xlg u-padding">
+        <h1 class="u-text-align-center u-margin-bottom-lg">Order Confirmation</h1>
+
+        {?orderInfo}
+            <div class="c-section u-border u-margin-bottom-lg">
+                {#orderInfo}
+                    <div class="c-arrange">
+                        <div class="c-arrange__item">
+                            {label}
+                        </div>
+                        <div class="c-arrange__item c--shrink">
+                            <strong>{value}</strong>
+                        </div>
+                    </div>
+                {/orderInfo}
+            </div>
+        {/orderInfo}
+
+        {#billingAddress}
+            <div class="u-margin-bottom-lg">
+                {>"components/address-card/address-card"/}
+            </div>
+        {/billingAddress}
+
+        {#paymentDetails}
+            <div class="u-margin-bottom-lg">
+                <h3 class="c-heading c--4 c--no-border u-margin-bottom-sm">{sectionTitle}</h3>
+                {#cards}
+                    <div>{cardName}</div>
+                    <div>{cardInfo}</div>
+                {/cards}
+            </div>
+        {/paymentDetails}
+
+        {?shippingAddress}
+            {#shippingAddress}
+                <div class="u-margin-bottom-lg">
+                    {>"components/address-card/address-card"/}
+                </div>
+            {/shippingAddress}
+        {/shippingAddress}
+
+        <div class="t-confirmation-details__order-items u-padding-top">
+            {#orderItems}
+                {>"components/items-shipping/items-shipping"/}
+            {/orderItems}
+        </div>
+
+        {#totals}
+            <div class="u-margin-top-lg">
+                <h3 class="c-heading c--4 c--no-border u-margin-bottom-sm">Order Summary</h3>
+                {>"components/ledger/ledger" /}
+            </div>
+        {/totals}
+    </div>
+
+    {>"components/sheet/sheet" effect="modalCenter" cssClass="c--dialog c--no-header-text" class="js-tooltip-pinny" bodyClass="t-cart-tooltip-pinny js-tooltip-content"/}
+
+    {#shippingInfo}
+        {>"components/sheet/sheet" effect="sheetBottom" coverage="100%" class="c--white-sheet js-shipping-details-pinny" /}
+    {/shippingInfo}
+{/contentBlock}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/checkout-confirmation-details/ui.js
+    (function(require) {
+        require(["global/ui", "pages/checkout-confirmation-details/checkout-confirmation-details-ui"], function(globalUI, checkoutConfirmationDetailsUI) {
+            globalUI();
+            checkoutConfirmationDetailsUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}

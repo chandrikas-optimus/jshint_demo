@@ -1,0 +1,28 @@
+{>"pages/product/product"/}
+
+{<productOptions}
+    <div class="js-product-options t-product__options">
+    </div>
+{/productOptions}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/product-bundle/product-bundle-ui.js
+    (function(require) {
+        require([
+            "global/ui",
+            "pages/product/product-ui",
+            "pages/product-bundle/product-bundle-ui"
+        ], function(
+            globalUI,
+            productUI,
+            productBundleUI
+        ) {
+            globalUI();
+            productUI();
+            productBundleUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}

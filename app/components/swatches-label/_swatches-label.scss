@@ -1,0 +1,96 @@
+// Swatch with label
+// ===
+//
+// This component uses the client's images of swatches. It is different from
+// c-swatch in that it.
+//
+// 1. Fixed with (same as c-swatches-label__image) allows text label to wrap,
+//    instead of dictating width.
+
+.c-swatches-label {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    text-align: center;
+
+    &:not(.c--full) {
+        width: $tap-size; // 1
+    }
+
+    &.c--small {
+        width: $small-tap-size;
+    }
+
+    &.c--selected {
+        .c-swatches-label__image {
+            position: relative;
+
+            &::before {
+                content: '';
+
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+
+                display: block;
+                border: 2px solid $black;
+            }
+        }
+    }
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+// Swatch's image
+// ---
+//
+// 1. Stretch swatch image size to squeeze into the same width and height,
+//    regrdless of original image size.
+// 2. Space out label underneath swatch image.
+
+.c-swatches-label__image {
+    display: block;
+    width: $tap-size; // 1
+    height: $small-tap-size; // 1
+    margin-bottom: $sub-unit; // 2
+
+    .c--small & {
+        width: $small-tap-size;
+    }
+
+    .c--large & {
+        height: $tap-size;
+    }
+
+    .c--full & {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+// Swatch's label
+// ---
+//
+// 1. Some swatch labels (e.g. "Charcoal") need to juuuust extend outside the
+//    boundaries of the swatch, otherwise the poke out to far on the right.
+
+.c-swatches-label__text {
+    display: block;
+    margin: 0 (-$sub-unit); // 1
+
+    color: $label-color;
+    font-size: $xx-small-font-size;
+    line-height: 1;
+    letter-spacing: 0.035em;
+    text-align: center;
+    text-transform: lowercase;
+}

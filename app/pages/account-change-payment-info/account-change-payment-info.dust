@@ -1,0 +1,66 @@
+{>"global/base"/}
+
+{<contentBlock}
+
+    <div class="js-error-messages" hidden>
+        {! No errors at the moment !}
+        {>"components/alert/alert"/}
+    </div>
+
+    {>"components/breadcrumbs/breadcrumbs"/}
+
+    {#pageTitle}
+       <h1 class="c-heading c--1 u-text-align-center u-padding-top-md u-margin-bottom-xlg u-text-capitalize">
+            {.}
+       </h1>
+    {/pageTitle}
+
+    {#intro}
+        {@element el=. addClass="u-padding u-margin-bottom-md" /}
+    {/intro}
+
+    {#.changePaymentInfoForm}
+        <div class="u-padding u-margin-bottom-xxlg">
+            {.form|openTag|s}
+                {.hiddenInputs}
+
+                {?.errorsContainer}
+                    <div hidden>{.errorsContainer}</div>
+                {/.errorsContainer}
+
+
+                {#.inputs}
+                    <div class="c-field-row">
+                        {>"components/field/field":./}
+                    </div>
+                {/.inputs}
+
+                {?.expirationDate}
+                    <div class="c-field-row">
+                        {#.expirationDate}
+                            {>"components/field/field":.month/}
+                            {>"components/field/field":.year/}
+                        {/.expirationDate}
+                    </div>
+                {/.expirationDate}
+
+                <div class="c-field-row">
+                    {@element el=.button addClass="c-button c--full-width"/}
+                </div>
+            {.form|closeTag|s}
+        </div>
+    {/.changePaymentInfoForm}
+{/contentBlock}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/account-change-payment-info/account-change-payment-info-ui.js
+    (function(require) {
+        require(["global/ui", "pages/account-change-payment-info/account-change-payment-info-ui"], function(globalUI, accountChangePaymentInfoUI) {
+            globalUI();
+            accountChangePaymentInfoUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}

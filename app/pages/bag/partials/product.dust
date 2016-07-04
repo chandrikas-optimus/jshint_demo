@@ -1,0 +1,120 @@
+<div class="c-cart-item js-cart-item">
+    <div class="c-arrange u-margin-bottom-md">
+
+        <div class="c-cart-item__image c-arrange__item">
+            <div class="js-product-image"></div>
+            {.remove}
+        </div>
+
+        <div class="c-cart-item__details c-arrange__item">
+            <a href="{.prodHref}">
+                <h3 class="u-margin-bottom-sm c-cart-item__name u-text-default">
+                    {.prodName|s}
+                </h3>
+            </a>
+
+            <div class="u-margin-bottom-sm js-item-container">
+                <em class="c-cart-item__item-number">Item #{.prodNum}</em>
+            </div>
+
+            <div class="u-margin-bottom-md">
+                <div class="js-options"></div>
+
+                <div class="js-availability"></div>
+
+            </div>
+
+            <div class="c-cart-item__personalization u-padding-top-md u-padding-bottom-md u-border-top u-border-bottom-none u-border-right-left-none u-border-dashed u-border-gray js-personalization u-text-capitalize" hidden></div>
+
+            <div class="c-arrange c--align-middle u-margin-bottom-md u-padding-top-md u-padding-bottom-md u-border-top-bottom u-border-right-left-none u-border-dashed u-border-gray">
+                <div class="c-arrange__item">
+                    <label class="c-label">Quantity</label>
+                </div>
+                <div class="c-arrange__item c--shrink">
+                    {#stepper}
+                        {^staticQuantity}
+                            {>"components/stepper/stepper" decreaseIcon="minus" decreaseTitle="Reduce Quantity" increaseIcon="plus" increaseTitle="Increase Quantity" decreaseClass="js-stepper js--minus" increaseClass="js-stepper js--add" countClass="js-val" class="t-cart__stepper js-qty"/}
+                        {:else}
+                            {staticQuantity}
+                        {/staticQuantity}
+                    {/stepper}
+                </div>
+            </div>
+
+            <div>
+                {#price}
+                    {>"components/price/price"/}
+                    <div class="c-note">
+                        {! CF-619: Match the labels on the PDP !}
+                        {! See the ticket comments for a table showing the labels !}
+                        {?tier1}
+                            {priceSingle}
+                        {/tier1}
+
+                        {?tier2}
+                            <span class="u-text-sale">Sale {itemSalePrice}</span>
+                            <del>Was {priceSingle}</del>
+                        {/tier2}
+
+                        {?tier2Promo}
+                            <span class="u-text-sale">Promo {discountPrice}</span>
+                            <del>Was {priceSingle}</del>
+                        {/tier2Promo}
+
+                        {?tier3}
+                            <span class="u-text-sale">Promo {discountPrice}</span>
+                            <del>Was {itemSalePrice}</del>
+                            <del>{priceSingle}</del>
+                        {/tier3}
+
+                        {?freeItemMessage}
+                            <div class="c-note">
+                                {freeItemMessage}
+                            </div>
+                        {:else}
+                            <span> (x{quantity})</span>
+                        {/freeItemMessage}
+                    </div>
+
+                    {?promoText}
+                        <div class="c-note">
+                            {promoText}
+                            <a href="#" class="js-tooltip-button js-promo-tooltip-button u-inline-block" data-target=".js-promo-tooltip">
+                                {@icon name="ask--no-whitespace--thick" class="c--tiny u-text-brand u-margin-start-sm u-align-middle"/}
+                            </a>
+                            {!-- CF-492: Hardcode promo tooltip title --!}
+                            <div class="js-promo-tooltip" data-title="Promotion" hidden>{promoTooltip}</div>
+                        </div>
+                    {/promoText}
+
+                    {shippingSurcharge}
+                {/price}
+            </div>
+
+            <div class="c-cart-item__side">
+                {.edit}
+            </div>
+
+        </div>
+    </div>
+
+    {registryMessage}
+
+    {?giftCheckbox.input}
+        <div class="c-arrange c--align-middle c-section">
+            <div class="c-arrange__item c--shrink">
+                {#giftCheckbox}
+                    {>"components/field/field" /}
+                {/giftCheckbox}
+            </div>
+            <div class="c-arrange__item c--shrink">
+                <a href="#" class="u-text-brand js-tooltip-button js-gift-tooltip-button c-arrange c--align-middle u-margin-start" data-target=".js-gift-tooltip">
+                    {@icon name="ask--no-whitespace--thick" class="c--tiny" /}
+                </a>
+                {!-- CF-492: Hardcode gift tooltip title --!}
+                <div class="js-gift-tooltip" data-title="Gift" hidden>{giftCheckbox.tooltipContentDOM}</div>
+            </div>
+        </div>
+    {/giftCheckbox.input}
+    {>"components/cart-item/partials/desktop-content"/}
+</div>

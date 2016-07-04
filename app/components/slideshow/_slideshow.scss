@@ -1,0 +1,66 @@
+// Slideshow
+// ===
+//
+// Note: This component is *generally* found inside the c-scroller component.
+
+// Root
+// ---
+//
+// 1. Remove the ~4px of space that exists between inline-block items
+// 2. Stop inline-block items from moving down to a new line
+
+.c-slideshow {
+    font-size: 0; // 1, [a]
+    white-space: nowrap; // 2
+}
+
+
+// Scroller Slides
+// ---
+//
+// 1. Reset font size from 0 (See [a])
+// 2. Reset white space from parent to make text visible (See [a])
+// 3. Item aligned to top to fix white space issue on top
+
+.c-slideshow__slide {
+    display: inline-block;
+
+    font-size: $font-size; // 1
+    white-space: normal; // 2
+    vertical-align: top; // 3
+
+    & + & {
+        margin-left: $sub-unit; // 4px
+
+        .c--large-gutters & {
+            margin-left: $unit*1.5;
+        }
+    }
+
+    &:first-child {
+        margin-left: $unit*1.5;
+    }
+
+    &:last-child {
+        margin-right: $unit*1.5;
+    }
+
+    &.c--active {
+        opacity: 0.3;
+    }
+
+    img {
+        display: block;
+    }
+}
+
+
+// Scroller Slide Image
+// ---
+//
+// 1. Hax to get rid of the ~3px of empty space below <img>'s (especially useful if
+//    they are the only element in the slide)
+
+.c-slideshow__image {
+    display: block; // 1
+}

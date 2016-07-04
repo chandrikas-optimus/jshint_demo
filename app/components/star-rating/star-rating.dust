@@ -1,0 +1,12 @@
+<div class="c-star-ratings {.class}">
+
+    <div class="c-star-ratings__container" aria-label="Rated {.rating} stars out of 5">
+        {#ratingStar}
+            <span class="c-star-ratings__item {?ratingFilled}c--filled{/ratingFilled} {?ratingFilledHalf}c--filled-half{/ratingFilledHalf}">
+                <span class="u-visually-hidden">Star</span>
+            </span>
+        {/ratingStar}
+    </div>
+
+    <span class="c-star-ratings__reviews">{.reviews}</span>
+</div>

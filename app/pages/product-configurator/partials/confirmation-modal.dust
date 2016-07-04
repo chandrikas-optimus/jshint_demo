@@ -1,0 +1,12 @@
+<div class="u-margin-bottom-lg">
+    {message}
+</div>
+
+<div>
+    {?primaryBtnText}
+        <button type="button" class="c-button c--full-width js-confirmation__primary-button u-margin-bottom-lg">{primaryBtnText}</button>
+    {/primaryBtnText}
+    {?secondaryBtnText}
+        <button type="button" class="c-button c--outline c--full-width js-confirmation__secondary-button">{secondaryBtnText}</button>
+    {/secondaryBtnText}
+</div>

@@ -1,0 +1,25 @@
+// Checkout Header
+// ===
+
+.t-checkout-header__top {
+    height: $x-header__height;
+}
+
+.t-checkout-header__bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $unit*3;
+    padding: $unit*1.5;
+    border-top: $border;
+    border-bottom: $border;
+
+    background-color: $neutral-20;
+
+    .c-checkout-steps {
+        flex: 1 1 auto;
+    }
+}
+
+.t-checkout-header__progress-label {
+    margin-right: $unit*4;
+}

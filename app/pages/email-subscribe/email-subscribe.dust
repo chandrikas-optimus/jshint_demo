@@ -1,0 +1,34 @@
+{>"global/base"/}
+
+{<contentBlock}
+    <div class="u-padding">
+
+        <h1 class="c-heading c--1 u-text-align-center u-padding-top u--loose u-margin-bottom-xlg">
+            {pageHeaderText}
+        </h1>
+
+        {emailInfo}
+
+        <div class="t-email-subscribe__iframe u-padding-top u-padding-bottom">
+            {emailForm}
+        </div>
+
+        <div class="t-email-subscribe__privacy u-margin-bottom-lg">
+            {privacyInfo}
+        </div>
+
+    </div>
+{/contentBlock}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/email-subscribe/email-subscribe-ui.js
+    (function(require) {
+        require(["global/ui", "pages/email-subscribe/email-subscribe-ui"], function(globalUI, emailSubscribeUI) {
+            globalUI();
+            emailSubscribeUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}

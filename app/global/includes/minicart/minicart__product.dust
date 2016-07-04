@@ -1,0 +1,23 @@
+{#.minicart}
+    <div class="c-minicart__product-list">
+        {?.topButton}
+            {! href for this anchor set dynamically when content is available !}
+            <a class="c-button c--full-width u-margin-bottom-xxlg js-minicart-checkout">
+                Checkout
+            </a>
+        {/.topButton}
+
+        <div class="c-stack c--dashed u-margin-bottom-xxlg">
+            {#.items}
+                <div class="c-stack__item c--xlarge">
+                    {>"components/product-summary/product-summary" imageContainerClass="c--medium" leftColumnClass="c--shrink"/}
+                </div>
+            {/.items}
+        </div>
+
+        {! href for this anchor set dynamically when content is available !}
+        <a class="c-button c--full-width js-minicart-checkout">
+            Checkout
+        </a>
+    </div>
+{/.minicart}

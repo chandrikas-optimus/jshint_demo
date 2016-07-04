@@ -1,0 +1,51 @@
+// Date Picker for Calendar
+// ===
+//
+// 1. Add !important so wont apply inline hidden style
+// 2. Set cells same width
+
+.c-datepicker {
+    display: block !important; // 1
+
+    table {
+        table-layout: fixed; // 2
+    }
+
+    thead {
+        background-color: $white;
+    }
+
+    th,
+    td {
+        padding: 0;
+    }
+
+    th span,
+    td span,
+    td a {
+        display: block;
+        padding: $sub-unit*3 $sub-unit;
+
+        text-align: center;
+    }
+
+    .ui-datepicker-unselectable,
+    .ui-state-disabled {
+        opacity: 0.2;
+        background-color: $neutral-20;
+    }
+
+    a.ui-state-default { // sass-lint:disable-line no-qualifying-elements
+        background-color: $neutral-20;
+
+        color: $neutral-80;
+    }
+
+    .ui-datepicker-today a {
+        background-color: $light-brand-color;
+    }
+}
+
+.c-datepicker__select {
+    min-width: 85px;
+}

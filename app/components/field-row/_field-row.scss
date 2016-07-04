@@ -1,0 +1,45 @@
+// Field Row
+// ===
+//
+// 1. Align items to bottom of c-field-row, for example when there are two side by side inputs and one doesn't have a label above it
+
+.c-field-row {
+    display: flex;
+    align-items: flex-end; // 1
+
+    &.c--column {
+        flex-direction: column;
+    }
+
+    &.c--3-4 {
+        .c-field:first-child {
+            flex: 1 1 40%;
+        }
+
+        .c-field:last-child {
+            flex: 1;
+        }
+    }
+
+    &.c--5-3-3 {
+        .c-field:first-child {
+            flex: 5;
+        }
+
+        .c-field:nth-child(2) {
+            flex: 3;
+        }
+
+        .c-field:last-child {
+            flex: 3;
+        }
+    }
+
+    & + .c-field-row {
+        margin-top: $unit*2;
+    }
+
+    &:not(.c--column):not(.c--no-space) .c-field + .c-field {
+        margin-left: $unit*1.5;
+    }
+}

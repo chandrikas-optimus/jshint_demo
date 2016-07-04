@@ -1,0 +1,56 @@
+// Divider
+// ===
+
+.c-divider {
+    margin: ($sub-unit * 2) 0;
+    border-bottom-width: 1px;
+    border-bottom-style: dashed;
+    border-bottom-color: currentColor;
+
+    &.c--solid {
+        border-bottom-style: solid;
+    }
+
+    &.c--double {
+        padding-top: 2px;
+        border-top-width: 1px;
+        border-top-style: solid;
+        border-top-color: currentColor;
+    }
+
+    &.c--bleed {
+        margin-right: -$unit*1.5;
+        margin-left: -$unit*1.5;
+    }
+
+    &.c--grey {
+        border-color: $neutral-40;
+    }
+
+    &.c--no-margin {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    &.c--or {
+        position: relative;
+
+        &::after {
+            content: 'or';
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            padding: 0 $unit;
+
+            background: $white;
+
+            color: $neutral-50;
+            font-style: italic;
+            font-size: $x-small-font-size;
+
+            transform: translate(-50%, -50%);
+        }
+    }
+}

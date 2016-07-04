@@ -1,0 +1,33 @@
+<h1 class="c-heading c--1 u-text-align-center u-padding-top u--tight u-margin-bottom-lg u-text-capitalize">
+    {.headerText}
+    <em>{.searchQuery}</em>
+</h1>
+
+<div class="u-padding u-margin-bottom-xxlg u-text-align-center">
+    {@icon name="search" class="c--large"/}
+    <h2 class="c-heading c--3 u-padding">
+        {.message}
+    </h2>
+</div>
+
+<div class="u-padding u-margin-bottom-xxlg">
+    <hr class="c-divider">
+</div>
+
+<div class="u-padding u-margin-bottom-xxlg">
+    <div class="u-margin-bottom-lg u-text-align-center">
+        <strong>{searchHeading}</strong>
+    </div>
+    <ul class="c-bullet-list">
+        {#searchTips}
+            {.}
+        {/searchTips}
+    </ul>
+</div>
+
+<div class="c-section u-margin-bottom-xxlg u-text-align-center">
+    <h2 class="c-heading c--2 u-padding-top u--loose u-margin-bottom-lg u-text-capitalize">{popularSearchText}</h2>
+    {#popularSearchItems}
+        {>"components/option-blocks/option-blocks"/}
+    {/popularSearchItems}
+</div>

@@ -1,0 +1,41 @@
+{>"global/base"/}
+
+{<contentBlock}
+
+    {>"components/breadcrumbs/breadcrumbs"/}
+
+    {#pageTitle}
+       <h1 class="c-heading c--1 u-text-align-center u-padding-top-md u-margin-bottom-xlg u-text-capitalize">
+            {.}
+       </h1>
+    {/pageTitle}
+
+    <div class="c-text-content u-padding u-margin-bottom-lg ">
+        {#intro}
+            {@element el=. addClass="" /}
+        {/intro}
+    </div>
+
+    {! Container for dynamic address list !}
+    <section class="u-padding u-margin-bottom-lg js-order-history-list">
+        {>"components/loading/loading" class="c--placeholder"/}
+    </section>
+
+    <div hidden>
+        {@element el=.orderContainer addClass="js-order-history-list-source" /}
+    </div>
+
+{/contentBlock}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/account-order-history/account-order-history-ui.js
+    (function(require) {
+        require(["global/ui", "pages/account-order-history/account-order-history-ui"], function(globalUI, accountOrderHistoryUI) {
+            globalUI();
+            accountOrderHistoryUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}

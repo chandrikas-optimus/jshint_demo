@@ -1,0 +1,39 @@
+{>"global/base"/}
+
+{<contentBlock}
+
+    {>"components/breadcrumbs/breadcrumbs"/}
+
+    {#pageTitle}
+       <h1 class="c-heading c--1 u-text-align-center u-padding-top u--tight u-margin-bottom-lg u-text-capitalize">
+            {.}
+       </h1>
+    {/pageTitle}
+
+    {?hasNav}
+        <div class="u-text-align-center u-margin-bottom-lg">
+            <button type="button" class="c-button c--small c--outline c--strip js-customer-service-navigation-button">
+                Customer Service
+                {@icon name="arrow-forward" class="c-button__icon"/}
+            </button>
+        </div>
+    {/hasNav}
+
+    {@element el=pageContent addClass="u-padding u-margin-bottom-md" /}
+
+    {>"global/includes/sidenav/sidenav"/}
+
+{/contentBlock}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/customer-service-privacy-policy/customer-service-privacy-policy-ui.js
+    (function(require) {
+        require(["global/ui", "pages/customer-service-privacy-policy/customer-service-privacy-policy-ui"], function(globalUI, customerServicePrivacyPolicyUI) {
+            globalUI();
+            customerServicePrivacyPolicyUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}

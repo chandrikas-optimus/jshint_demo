@@ -1,0 +1,27 @@
+<div class="c-cart-item {.class}">
+
+    <div class="c-arrange">
+        <div class="c-cart-item__image c-arrange__item">
+            {.productImage}
+        </div>
+
+        <div class="c-cart-item__details c-arrange__item">
+            <h3 class="c-cart-item__name u-text-capitalize u-margin-bottom-sm">{.productName}</h3>
+
+            <div class="c-cart-item__item-number u-margin-bottom-sm">
+                {.productSku}
+            </div>
+
+            <div class="c-cart-item__personalization u-margin-bottom-lg">
+                {>"pages/checkout-review-and-payment/partials/options":productOptions/}
+                {#.stock}
+                    <p {?.class}class="{.class}"{/.class}>Availability: {.text}</p>
+                {/.stock}
+            </div>
+
+            <div class="c-price">
+                <span class="c-price__retail">{.productPrice}</span>
+            </div>
+        </div>
+    </div>
+</div>

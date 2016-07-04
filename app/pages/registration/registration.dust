@@ -1,0 +1,69 @@
+{>"global/base"/}
+
+{<contentBlock}
+    <div class="t-registration__body">
+
+        <div hidden id="gwt-error-placement-div">
+            {! Error messages to be populated by desktop script !}
+        </div>
+        <div hidden class="js-error-messages">
+            {! No errors at the moment !}
+            {>"components/alert/alert"/}
+        </div>
+
+        <div class="u-padding">
+            <h1 class="c-heading c--1 u-text-align-center u-padding-top u--loose u-margin-bottom-xxlg">
+                {.pageTitle}
+            </h1>
+
+            {@element el=.intro addClass="u-margin-bottom-md"/}
+        </div>
+
+        <div class="c-section u-margin-bottom-md">
+            <strong>{.passwordRequirement|innerHTML|s}</strong>
+        </div>
+
+        <div class="u-padding u-margin-bottom-xxlg">
+            {#.registrationForm}
+                {.form|openTag|s}
+                    {.hiddenInputs}
+
+                    <div class="c-field-row">
+                        {>"components/field/field":.email/}
+                    </div>
+                    <div class="c-field-row">
+                        {>"components/field/field":.confirmEmail/}
+                    </div>
+                    <div class="c-field-row">
+                        {>"components/field/field":.password/}
+                    </div>
+                    <div class="c-field-row">
+                        {>"components/field/field":.confirmPassword/}
+                    </div>
+
+                    <div class="c-field-row">
+                        {>"components/field/field":.receiveEmails/}
+                    </div>
+
+                    <div class="c-field-row">
+                        {@element el=.button addClass="c-button c--full-width js-sign-in-button"/}
+                    </div>
+                {.form|closeTag|s}
+            {/.registrationForm}
+        </div>
+
+    </div>
+{/contentBlock}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/registration/registration-ui.js
+    (function(require) {
+        require(["global/ui", "pages/registration/registration-ui"], function(globalUI, registrationUI) {
+            globalUI();
+            registrationUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}

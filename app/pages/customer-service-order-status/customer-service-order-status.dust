@@ -1,0 +1,63 @@
+{>"global/base"/}
+
+{<contentBlock}
+    {! Need to wrap inside mainContent so desktop script can pick up!}
+    <div id="gwt-error-placement-div" hidden>
+        {! For desktop to inject errors !}
+    </div>
+    
+    <div hidden class="js-error-messages">
+        {! No errors at the moment !}
+        {>"components/alert/alert"/}
+    </div>
+
+    {#errorText}
+        {>"components/error-text/error-text"/}
+    {/errorText}
+
+    {#pageTitle}
+       <h1 class="c-heading c--1 u-text-align-center u-padding-top u-margin-bottom-lg u-text-capitalize">
+            {.}
+       </h1>
+    {/pageTitle}
+
+    <div class="u-padding u-margin-top-sm u-margin-bottom-md">
+        {mainImage}
+    </div>
+
+    {#pageContent}
+        {@element el=. addClass="u-padding u-margin-bottom-md" /}
+    {/pageContent}
+
+    {#.orderStatusForm}
+        <div class="u-padding u-margin-bottom-xxlg">
+            {.form|openTag|s}
+                {.hiddenInputs}
+
+                {#.inputs}
+                    <div class="c-field-row">
+                        {>"components/field/field":./}
+                    </div>
+                {/.inputs}
+
+                <div class="c-field-row">
+                    {@element el=.button addClass="c-button c--full-width"/}
+                </div>
+            {.form|closeTag|s}
+        </div>
+    {/.orderStatusForm}
+
+{/contentBlock}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/customer-service-order-status/customer-service-order-status-ui.js
+    (function(require) {
+        require(["global/ui", "pages/customer-service-order-status/customer-service-order-status-ui"], function(globalUI, customerServiceOrderStatusUI) {
+            globalUI();
+            customerServiceOrderStatusUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}

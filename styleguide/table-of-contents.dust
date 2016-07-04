@@ -1,0 +1,18 @@
+<div class="almanac__toc">
+    <form class="almanac__search js-almanac-search" id="component-search-form">
+        <input class="almanac__search-field" type="text" placeholder="Search for a component..." id="autocomplete" autofocus>
+        <input class="almanac__search-button" type="submit" value="Search">
+    </form>
+
+    <hr class="almanac__toc-or"/>
+
+    <ul>
+        {#items}
+            <li class="almanac__toc-tile">
+                <a href="{href}" class="almanac__toc-anchor js-component-anchor">
+                    {body}
+                </a>
+            </li>
+        {/items}
+    </ul>
+</div>

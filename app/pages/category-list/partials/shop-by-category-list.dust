@@ -1,0 +1,11 @@
+<ul class="c-stack">
+    {#categories}
+        <li class="c-stack__item c--small">
+            <a href="{.href}" class="c-list-item c--default-fonts u-text-capitalize">
+                <div class="c-list-item__content u-padding">
+                    {.name}
+                </div>
+            </a>
+        </li>
+    {/categories}
+</ul>

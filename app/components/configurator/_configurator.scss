@@ -1,0 +1,75 @@
+// Configurator
+// ===
+
+.c-configurator {
+    &.c--push {
+        padding-top: $x-header__height;
+    }
+}
+
+
+// Configurator Banner
+// ---
+//
+// 1. When the .c--stick class gets applied via the ui, the borders and shadow
+//    will fade into the place.
+
+.c-configurator__nav {
+    position: relative;
+    z-index: 1;
+
+    overflow: hidden;
+    height: $x-header__height;
+    border-top: $border;
+    border-bottom: $border;
+
+    background: $white;
+    box-shadow: 0 0 0 rgba($black, 0);
+
+    transition: all 0.15s ease-out; // 1
+
+    &.c--sticky {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1000;
+
+        border-color: rgba($black, 0); // 1
+
+        box-shadow: $shadow; // 1
+    }
+}
+
+.c-configurator__nav-image {
+    max-height: 50px;
+    margin-top: $sub-unit;
+    margin-bottom: -$sub-unit;
+}
+
+
+// Configurator Item Bellow
+// ---
+
+.c-configurator__header {
+    padding: $unit*1.5;
+    border-bottom: $border;
+
+    background: $neutral-20;
+}
+
+.c-configurator__content {
+    border-bottom: $border;
+}
+
+.c-configurator__selected-swatch {
+    .c-swatches-label__image {
+        border: 1px solid $white;
+
+        outline: $border;
+
+        img {
+            height: 100%;
+        }
+    }
+}

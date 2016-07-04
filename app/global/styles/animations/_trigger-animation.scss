@@ -1,0 +1,40 @@
+// Force Repaint
+// ===
+
+// Used for detecting when GWT modals are being rendered on the page. Hack to allow javascript to bind
+// on animation trigger.
+@keyframes triggerAnimation__welcome {
+    from {
+        opacity: .99;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modalAdded {
+    from {
+        opacity: 0.99;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+// product details page, add to cart popup
+@keyframes addedToCart {
+    from {
+        opacity: .99;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.gwt_addtocart_div { // sass-lint:disable-line class-name-format
+    animation-name: addedToCart;
+    animation-duration: .001s;
+}

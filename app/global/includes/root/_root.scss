@@ -1,0 +1,43 @@
+// sass-lint:disable class-name-format
+
+// Root (HTML)
+// ===
+
+.x-root {
+    .gwt-dialogbox:not(.js-transformed) {
+        width: 1px;
+        height: 1px;
+    }
+
+    #gwt_welcome_window {
+        animation-name: triggerAnimation__welcome;
+        animation-duration: .001s;
+    }
+
+    .gwt-PopupPanel {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        padding: $unit*5 $unit*2 $unit;
+
+        animation-name: triggerAnimation__welcome;
+        animation-duration: .001s;
+    }
+
+    .gwt-PopupPanelGlass {
+        position: absolute;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+
+        width: 100% !important;
+        height: 100% !important;
+
+        animation-name: modalAdded;
+        animation-duration: 0.001s;
+    }
+}

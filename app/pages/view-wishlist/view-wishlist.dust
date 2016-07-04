@@ -1,0 +1,129 @@
+{>"global/base"/}
+
+{<contentBlock}
+    <div class="u-padding">
+
+        {>"components/breadcrumbs/breadcrumbs"/}
+
+        <h1 class="c-heading c--1 u-text-align-center u-padding-top u--tight u-margin-bottom-lg">
+            {wishlistName}
+        </h1>
+
+        <div class="c-arrange c--gutters u-margin-bottom-lg js-filters">
+            <div class="c-arrange__item t-product-list__filter-select">
+                {#sortBySelect}
+                    {form|openTag|s}
+                        <div hidden>{hiddenContents}</div>
+                        <div class="c-button c--small c--outline c--full-width c--strip u-padding-end-0 u-padding-start-sm">
+                            {.select}
+                            {@icon name="arrow-downward" class="c-button__icon" /}
+                        </div>
+                    {form|closeTag|s}
+                {/sortBySelect}
+            </div>
+            <div class="c-arrange__item t-product-list__filter-button">
+                <button class="c-button c--small c--outline c--full-width c--strip u-padding-end-0 u-padding-start-sm u-text-capitalize js-select-wishlist">
+                    <div class="c-arrange">
+                        <div class="c-arrange__item u-text-align-start">
+                            {selectAnotherWishlistLabel}
+                        </div>
+                        <div class="c-arrange__item c--shrink">
+                            {@icon name="arrow-forward" class="c-button__icon" /}
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        {#itemCountMessage}
+            <div class="c-section u-text-align-center u-margin-top-lg u-margin-bottom-lg">
+                <strong>{count} {message}</strong>
+            </div>
+        {/itemCountMessage}
+
+        {?isEmpty}
+            <div class="u-margin-bottom-lg">
+                {emptyListMessage}
+            </div>
+            {addProductsButton}
+        {:else}
+            {#itemsForm}
+                {form|openTag|s}
+                    {hiddenInputs}
+                    {#products}
+                        {>"components/cart-item/cart-item" /}
+                    {/products}
+                {form|closeTag|s}
+            {/itemsForm}
+
+            {>"components/add-to-cart/partials/cart-alert"/}
+            {>"components/sheet/sheet" effect="sheetBottom" class="js-generic-pinny" coverage="100%" /}
+        {/isEmpty}
+
+        <hr class="c-divider c--solid c--grey u-bleed-horizontal u-margin-top-xlg u-margin-bottom-xlg">
+
+        <div class="u-margin-bottom-lg u-margin-top-lg">
+            {^isEmpty}
+                <div class="u-margin-bottom-lg">
+                    {addItemsToCart}
+                </div>
+            {/isEmpty}
+
+            <div class="c-arrange c--gutters">
+                <div class="c-arrange__item">
+                    {deleteButton}
+                </div>
+                <div class="c-arrange__item">
+                    {createButton}
+                </div>
+            </div>
+        </div>
+
+        <div class="js-select-wishlist-list" hidden>
+            <div class="c-stack u-margin-top-sm">
+                {#wishlists}
+                    <div class="c-stack__item">
+                        <a href="{href}" class="u-display-block u-text-black-link">{label}</a>
+                    </div>
+                {/wishlists}
+            </div>
+        </div>
+
+        {?socialButtons}
+            <hr class="c-divider c--solid c--bleed c--grey u-margin-top-lg u-margin-bottom-lg">
+
+            <div class="">
+                {socialButtons}
+            </div>
+
+            <hr class="c-divider c--solid c--bleed c--grey u-margin-top-0 u-margin-bottom-lg">
+        {/socialButtons}
+
+        <div hidden>
+            {hiddenForms}
+            {wishlistLink}
+        </div>
+
+    </div>
+
+    {>"components/sheet/sheet" effect="sheetBottom" class="js-wishlist-pinny" coverage="100%" /}
+
+    {>"components/sheet/sheet" effect="modalCenter"  cssClass="c--dialog" class="js-delete-pinny" /}
+
+    {>"components/sheet/sheet" effect="modalCenter" cssClass="c--dialog" bodyClass="u-padding-all-0" class="t-view-wishlist__details js-details-pinny"/}
+
+    {>"components/sheet/sheet" effect="modalCenter" cssClass="t-cart-tooltip-pinny c--no-header-text c--dialog" class="js-tooltip-pinny" bodyClass="js-tooltip-content"/}
+{/contentBlock}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/view-wishlist/ui.js
+    (function(require) {
+        require(["global/ui", "pages/view-wishlist/view-wishlist-ui"], function(globalUI, viewWishlistUI) {
+            globalUI();
+            viewWishlistUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}

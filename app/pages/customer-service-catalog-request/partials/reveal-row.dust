@@ -1,0 +1,18 @@
+{#.}
+    {?.isHTML}
+        <div class="c-heading c--4 u-padding-top">
+            {.HTMLContent}
+        </div>
+    {/.isHTML}
+    {?.isRow}
+        <div class="c-field-row {class}">
+            {#.rows}
+                {>"components/field/field":./}
+            {/.rows}
+        </div>
+    {:else}
+        <div class="c-field-row">
+            {>"components/field/field":./}
+        </div>
+    {/.isRow}
+{/.}

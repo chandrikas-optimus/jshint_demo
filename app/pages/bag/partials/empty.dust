@@ -1,0 +1,4 @@
+<div class="t-bag__empty u-text-align-center u-padding">
+    {@icon name="bag" class="c--large"/}
+    <p>{emptyBag}</p>
+</div>

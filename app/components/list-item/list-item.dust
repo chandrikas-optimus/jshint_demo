@@ -1,0 +1,33 @@
+{?.href} <a href="{.href}" {+listItemAttributes /}>
+{:else}<button type="{?type}{type}{:else}button{/type}"{+listItemAttributes /}>{/.href}
+    {#prefix}
+        <div class="c-list-item__affix">
+            {@icon name=. /}
+        </div>
+    {/prefix}
+
+    <div class="c-list-item__content">
+        {content}
+    </div>
+
+    {#suffix}
+        <div class="c-list-item__affix">
+            {?checkRadio}
+                {#checkRadio}
+                    {>"components/check-radio/check-radio"/}
+                {/checkRadio}
+            {:else}
+                {@icon name=. /}
+            {/checkRadio}
+        </div>
+    {/suffix}
+{?.href} </a>
+{:else}</button>{/.href}
+
+{<listItemAttributes}
+    class="c-list-item {.class}"
+    {?id}id="{.id}"{/id}
+    {?role}role="{.role}"{/role}
+    {?onclick}onclick="{.onclick}"{/onclick}
+    {.attr}
+{/listItemAttributes}

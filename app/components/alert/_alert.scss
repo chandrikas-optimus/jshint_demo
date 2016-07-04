@@ -1,0 +1,74 @@
+// Alert
+// ===
+//
+// 1. Allow the dismiss button to be absolutely positioned
+// 2. Should be over Pinny
+
+.c-alert {
+    position: relative; // 1
+
+    overflow: hidden;
+    padding: $vertical-padding $horizontal-padding;
+
+    background: $neutral-20;
+    box-shadow: $shadow;
+
+    &.c--hide {
+        display: none;
+    }
+
+    &.c--fixed {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: $frontrow-layer + 1; // 2
+    }
+}
+
+
+// Dismiss Button
+// ---
+
+.c-alert__dismiss {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+
+// List
+// ---
+//
+// 1. Ensure that the list content does not overlap the dismiss button
+
+.c-alert__list {
+    @extend %c-bullet-list;
+
+    padding-right: $tap-size; // 1
+
+    color: $error-color;
+    font-size: $small-font-size;
+}
+
+
+// List Item
+// ---
+
+.c-alert__list-item {
+    @extend %c-bullet-list__item;
+
+    & + & {
+        margin-top: $sub-unit;
+    }
+}
+
+
+// Revealable
+// ---
+//
+// Content that is revealed via the `c-reveal` component
+
+.c-alert__revealable {
+    margin-top: $sub-unit; // 1
+}

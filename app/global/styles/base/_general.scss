@@ -1,0 +1,87 @@
+// General
+// ===
+
+// Document
+// ---
+//
+// 1. Provide default line-height as a ratio rather than a fixed value.
+//    http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/
+// 2. Applying styles to *::before or *::after is a performance issue on some
+//    legacy Android devices (4.1.x). As such, these are disabled by default.
+// 3. CF-199: Fira Sans needs letterspacing for easier readability.
+// 4. CF-236: Fix document width on Android when position fixed is set
+
+// *::before, // 2
+// *::after, // 2
+* {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%; // 4
+
+    color: $font-color;
+    font-family: $font-family;
+    font-size: $font-size;
+    line-height: $line-height/$font-size; // 1
+    letter-spacing: 0.0125em; // 3
+}
+
+
+// Focused Elements
+// ---
+//
+// 1. Nexus5/Chrome and Kindle Fire HD 7''
+
+*:focus {
+    outline: none !important;
+
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-tap-highlight-color: transparent;  // 1
+}
+
+
+// Misc Elements
+// ---
+
+hr {
+    border: 0;
+}
+
+img {
+    max-width: 100%;
+    margin: 0;
+}
+
+iframe {
+    width: 100%;
+    border: 0;
+}
+
+address {
+    font-style: normal;
+}
+
+
+// Hidden
+// ---
+//
+// Hide visually and from screen readers. The html5 `hidden` attribute is
+// preferred to a `u-hidden` class because it exactly matches our intent and
+// has machine-readable semantics.
+
+[hidden] {
+    display: none !important;
+}
+
+
+// GWT Modal Styles
+// ---
+//
+// 1. Force modal to display our sheet
+
+.gwt-DialogBox {
+    &.c--contains-sheet {
+        clip: auto !important; // 1
+    }
+}

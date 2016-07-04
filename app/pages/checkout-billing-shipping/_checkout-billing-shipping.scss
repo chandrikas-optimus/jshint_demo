@@ -1,0 +1,14 @@
+// Checkout Billing Shipping
+// ===
+
+.t-checkout-billing-shipping {
+
+    .c-reveal__trigger {
+        padding-top: 0;
+
+        button &,
+        .c-label {
+            font-weight: bold;
+        }
+    }
+}

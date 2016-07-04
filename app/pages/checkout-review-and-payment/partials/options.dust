@@ -1,0 +1,60 @@
+{?shouldHide}
+    {!-- CF-523: Use reveal component --!}
+    <div class="c-reveal">
+        <button class="c-reveal__trigger c--show c--plain c--brand c--plus c--no-min-height u-padding-none  u-margin-bottom-sm js-details-toggle" type="button">
+            + Show item details
+        </button>
+
+        <div class="c-reveal__content c--is-hidden" aria-hidden="true">
+
+            <div class="u-text-capitalize js-details-container">
+                {#options}
+                    <p {?indent}class="u-text-weight-bold u-margin-top-sm"{/indent}>{label}: {value}</p>
+
+                    {?summary}
+                        {#summary}
+                            <div {?indent}class="u-padding-start-md u-border-left"{/indent}>{label}: {value}</div>
+                        {/summary}
+                    {/summary}
+                    {?personalization}
+                        {#personalization}
+                            {?indent}
+                                <div {?indent}class="u-padding-start-md u-border-left"{/indent}>{label}: {value}</div>
+                            {:else}
+                                <div>
+                                    {title}
+                                    <div>{label}: {value}</div>
+                                </div>
+                            {/indent}
+                        {/personalization}
+                    {/personalization}
+                {/options}
+            </div>
+
+            <button class="c-reveal__trigger c--hide u-margin-bottom-sm" type="button">
+                - Hide item details
+            </button>
+
+        </div>
+    </div>
+{:else}
+    <div class="u-text-capitalize js-details-container">
+        {#options}
+            <p>{label}: {value}</p>
+
+            {?summary}
+            {#summary}
+                <span >{label}: {value}</span>
+            {/summary}
+            {/summary}
+            {?personalization}
+            {#personalization}
+                <div>
+                    {title}
+                    <div>{label}: {value}</div>
+                </div>
+            {/personalization}
+            {/personalization}
+        {/options}
+    </div>
+{/shouldHide}

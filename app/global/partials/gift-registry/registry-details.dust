@@ -1,0 +1,205 @@
+{?isView}
+    {?backToManageLink}
+        {backToManageLink|openTag|s}
+            <div class="c-arrange c--align-middle c--justify-center u-text-soft u-text-size-small">
+                <div class="c-arrange c--shrink u-bleed-start">
+                    {@icon name="arrow-backward" class="c--small" /}
+                </div>
+
+                <div class="c-arrange c--shrink">
+                    {backToManageLink|innerHTML|s}
+                </div>
+            </div>
+        {backToManageLink|closeTag|s}
+    {/backToManageLink}
+
+    <div class="c-section u-text-align-center u-margin-top-lg u-margin-bottom-lg">
+        {countDown}
+    </div>
+
+    <div class="c-stack c--dashed">
+        <div class="c-stack__item">
+            <h5 class="u-border-bottom-none">Registrant Name:</h5>
+            <div>{registryName}</div>
+        </div>
+
+        {#details}
+            {#date}
+                <div class="c-stack__item">
+                    <h5 class="u-border-bottom-none">{.title}</h5>
+                    <div>{.data}</div>
+                </div>
+            {/date}
+        {/details}
+
+        {#message}
+            <div class="c-stack__item">
+                <h5 class="u-border-bottom-none">{.title}</h5>
+                <div>{.content}</div>
+            </div>
+        {/message}
+    </div>
+
+{:else}
+    {#chooseRegistry}
+        <div class="u-text-align-center">
+            <button class="c-button c--small c--outline c--strip js-reg-nav__trigger">
+                {label}
+                {@icon name="arrow-forward" class="c-button__icon" /}
+            </button>
+        </div>
+        <div class="js-reg-nav" hidden>
+            {select}
+        </div>
+    {/chooseRegistry}
+
+    <div class="c-section u-text-align-center u-margin-top-lg u-margin-bottom-lg">
+        {countDown}
+    </div>
+
+    <div class="c-stack c--dashed">
+        {#details}
+            {#number}
+                <div class="c-stack__item">
+                    <div class="c-arrange">
+                        <div class="c-arrange__item">
+                            <h4 class="u-text-weight-bold u-border-bottom-none">{.title}</h4>
+                            <div>{.data}</div>
+                        </div>
+                        {?href}
+                            <a href="{.href}" class="c-arrange__item c--shrink u-text-weight-bold u-text-size-small u-padding-top-sm">edit</a>
+                        {/href}
+                    </div>
+                </div>
+            {/number}
+            {#type}
+                <div class="c-stack__item">
+                    <div class="c-arrange">
+                        <div class="c-arrange__item">
+                            <h4 class="u-text-weight-bold u-border-bottom-none">{.title}</h4>
+                            <div>{.data}</div>
+                        </div>
+                        {?href}
+                            <a href="{.href}" class="c-arrange__item c--shrink u-text-weight-bold u-text-size-small u-padding-top-sm">edit</a>
+                        {/href}
+                    </div>
+                </div>
+            {/type}
+            {#privacy}
+                 <div class="c-stack__item">
+                    <div class="c-arrange">
+                        <div class="c-arrange__item">
+                            <h4 class="u-text-weight-bold u-border-bottom-none">{.data}</h4>
+                        </div>
+                        {?href}
+                            <a href="{.href}" class="c-arrange__item c--shrink u-text-weight-bold u-text-size-small u-padding-top-sm">edit</a>
+                        {/href}
+                    </div>
+                </div>
+            {/privacy}
+            {#name}
+                <div class="c-stack__item">
+                    <div class="c-arrange">
+                        <div class="c-arrange__item">
+                            <h4 class="u-text-weight-bold u-border-bottom-none">{.title}</h4>
+                            <div>{.data}</div>
+                        </div>
+                        {?href}
+                            <a href="{.href}" class="c-arrange__item c--shrink u-text-weight-bold u-text-size-small u-padding-top-sm">edit</a>
+                        {/href}
+                    </div>
+                </div>
+            {/name}
+            {#date}
+                <div class="c-stack__item">
+                    <div class="c-arrange">
+                        <div class="c-arrange__item">
+                            <h4 class="u-text-weight-bold u-border-bottom-none">{.title}</h4>
+                            <div>{.data}</div>
+                        </div>
+                        {?href}
+                            <a href="{.href}" class="c-arrange__item c--shrink u-text-weight-bold u-text-size-small u-padding-top-sm">edit</a>
+                        {/href}
+                    </div>
+                </div>
+            {/date}
+        {/details}
+
+        {#shipTo}
+            <div class="c-stack__item js-shipping-to">
+                <div class="c-arrange">
+                    <div class="c-arrange__item">
+                        <h4 class="u-text-weight-bold u-text-capitalize u-border-bottom-none">{.title}</h4>
+                        <div>{.name}</div>
+                    </div>
+                    {?href}
+                        <a href="{.href}" class="c-arrange__item c--shrink u-text-weight-bold u-text-size-small u-padding-top-sm">edit</a>
+                    {/href}
+                </div>
+            </div>
+        {/shipTo}
+        {#registrant}
+            <div class="js-registrant-info c-stack__item">
+                <div class="c-arrange">
+                    <div class="c-arrange__item">
+                        <h4 class="u-text-weight-bold u-border-bottom-none">Registrant Information:</h4>
+                        <div>{.content}</div>
+                    </div>
+                    {?href}
+                        <a href="{.href}" class="c-arrange__item c--shrink u-text-weight-bold u-text-size-small u-padding-top-sm">edit</a>
+                    {/href}
+                </div>
+            </div>
+        {/registrant}
+        {#coregistrant}
+            <div class="js-registrant-info c-stack__item">
+                <div class="c-arrange c--gutters">
+                    <div class="c-arrange__item">
+                        <div class="u-text-weight-bold">Co-Registrant Information:</div>
+                        <div>
+                            {.content}
+                        </div>
+                    </div>
+                    {?deleteHref}
+                        <a href="{.deleteHref}" class="c-arrange__item c--shrink u-text-weight-bold u-text-size-small u-padding-top-sm">delete</a>
+                    {/deleteHref}
+                    {?editHref}
+                        <a href="{.editHref}" class="c-arrange__item c--shrink u-text-weight-bold u-text-size-small u-padding-top-sm">edit</a>
+                    {/editHref}
+                </div>
+            </div>
+        {/coregistrant}
+        {#message}
+            <div class="js-message c-stack__item u-margin-bottom-lg">
+                <div class="c-arrange">
+                    <div class="c-arrange__item">
+                        <div class="u-text-weight-bold">{.title}</div>
+                        <div>
+                            {.content}
+                        </div>
+                    </div>
+                    {?href}
+                        <a href="{.href}" class="c-arrange__item c--shrink u-text-weight-bold u-text-size-small u-padding-top-sm">edit</a>
+                    {/href}
+                </div>
+            </div>
+        {/message}
+    </div>
+
+    <div class="u-border-top u-border-bottom u-padding-top u-padding-bottom u-padding u-bleed-horizontal">
+        <div class="c-arrange c--gutters">
+            {#viewAsGuest}
+                <div class="c-arrange__item">
+                    <a href="{href}" class="c-button c--outline c--small c--full-width">
+                        {text}
+                    </a>
+                </div>
+            {/viewAsGuest}
+
+            <div class="c-arrange__item">
+                {deleteRegistry}
+            </div>
+        </div>
+    </div>
+
+{/isView}

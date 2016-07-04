@@ -1,0 +1,25 @@
+// Home
+// ===
+//
+// 1. The icons here have a lot of extra whitespace around the icon itself, so
+//    the negative margins pull in the outside content closer.
+
+.t-home {
+    .c-autocomplete {
+        // border-top: $border;
+    }
+
+    .x-main {
+        .c-button + .c-button {
+            margin-top: $unit*2;
+        }
+    }
+
+
+}
+
+.t-home__promos {
+    .c-button__icon {
+        margin: 0 (-$unit); // 1
+    }
+}

@@ -1,0 +1,108 @@
+{>"global/base"/}
+
+{<contentBlock}
+
+    <div {?breadcrumbsInitiallyHidden}hidden{/breadcrumbsInitiallyHidden} class="js-breadcrumbs">
+        {>"components/breadcrumbs/breadcrumbs"/}
+    </div>
+
+    <h1 class="c-heading c--1 u-text-align-center u-padding-top u--tight u-margin-bottom-lg js-page-header">
+        {pageTitle}
+    </h1>
+
+    <div class="u-padding">
+        {bannerTop}
+    </div>
+
+    {?isSLI}
+        <div class="js-search-results-text u-text-align-center u-padding-bottom">
+            {searchResultsText}
+        </div>
+    {/isSLI}
+
+    {?isSLI}
+        {?hasFilterAndSort}
+            <div class="c-arrange u-margin-bottom-lg u-padding js-filters">
+                <div class="c-arrange__item u-margin-end-md t-product-list__filter-button">
+                    <button class="c-button c--small c--outline c--strip c--full-width u-text-lowercase u-text-truncate js-open-sort-by">
+                        Sort By:
+                        <span class="u-text-soft js-active-sort-filter">{.activeSortFilter}</span>
+                    </button>
+                </div>
+                <div class="c-arrange__item t-product-list__filter-button">
+                    <button class="c-button c--small c--outline c--strip c--full-width u-text-lowercase u-text-truncate js-open-filters">
+                        Filters:
+                        <span class="u-text-soft js-num-items">{.numItems} items</span>
+                    </button>
+                </div>
+            </div>
+        {/hasFilterAndSort}
+    {/isSLI}
+
+    {#sortby}
+        {>"components/sheet/sheet"/}
+    {/sortby}
+
+    <div hidden class="js-no-search-results">
+        {! To be populated later via ajax !}
+    </div>
+
+    <div class="t-product-list__applied-filters u-margin-bottom-sm js-applied-filters" hidden></div>
+
+    <div class="u-margin-bottom-lg u-padding">
+        <div class="js-product-tiles">
+            <div {?isSLI}hidden{/isSLI} class="js-product-tiles-loader">
+                {>"components/loading/loading" class="t-product-list__loading"/}
+            </div>
+            <div class="c-heading c--2 u-margin-bottom-lg u-text-align-center u-text-capitalize js-product-tiles-heading"></div>
+
+            {?isWebsphere}
+                {#products}
+                    {.form|openTag|s}
+                    {.hiddenInputs}
+                    {@element el=.desktopDropdowns hidden="hidden"/}
+                {/products}
+            {/isWebsphere}
+
+            <div class="js-product-tiles-content">
+                {?isWebsphere}
+                    {! Just some extra whitespace for the initial loading spinner. Will be removed afterwards !}
+                    <div style="height: 300px"></div>
+                {/isWebsphere}
+
+                {>"pages/product-list/partials/product-tiles":products/}
+            </div>
+
+            {?isWebsphere}
+                {products.form|closeTag|s}
+            {/isWebsphere}
+
+            {@element el=.desktopWebsphereProducts hidden="hidden"/}
+        </div>
+    </div>
+
+    <div class="u-margin-bottom-xxlg js-pagination">
+        {?pagination}
+            {>"components/pagination/pagination":pagination/}
+        {/pagination}
+
+        {! Just some dummy element whose id is essential for desktop script !}
+        <div hidden id="bottomItemsPerPage"></div>
+    </div>
+
+    {>"components/sheet/sheet" effect="sheetBottom" closeClass="js-cancel-filters" coverage="100%" bodyContent=filter headerContent="Filters" class="js-filters-sheet" cssClass="t-product-list__filters" bodyClass="js-filter-body u-padding u-padding-top u--none"/}
+
+{/contentBlock}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/product-list/product-list-ui.js
+    (function(require) {
+        require(["global/ui", "pages/product-list/product-list-ui"], function(globalUI, productListUI) {
+            globalUI();
+            productListUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}

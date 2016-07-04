@@ -1,0 +1,23 @@
+<div class="js-desktop-cart-item" hidden>
+    {#originalContent}
+        <div class="{class}">
+            {.content|s}
+        </div>
+    {/originalContent}
+
+    <div hidden>
+        {#personalizationRow}
+            <table hidden>
+                <tbody>
+                    <tr id="{id}" class="js-personalization-content">
+                        {#.content}
+                            <td id="{id}" class="{class}">
+                                {cellContent|s}
+                            </td>
+                        {/.content}
+                    </tr>
+                </tbody>
+            </table>
+        {/personalizationRow}
+    </div>
+</div>

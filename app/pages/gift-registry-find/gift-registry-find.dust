@@ -1,0 +1,66 @@
+{>"global/base"/}
+
+{<contentBlock}
+    <div class="js-error-messages" hidden>
+        {! No errors at the moment !}
+        {>"components/alert/alert"/}
+    </div>
+
+    {>"components/breadcrumbs/breadcrumbs"/}
+
+    <h1 class="c-heading c--1 u-margin-top u-margin-bottom-lg u-text-align-center">
+        {heading}
+    </h1>
+
+    <div class="u-text-align-center u-margin-bottom-xlg js-loader">
+        {>"components/loading/loading"/}
+    </div>
+
+    <div class="u-padding js-page" hidden>
+
+        <div class="js-registry-by-number js-registry-panel">
+            {.findRegistryByNumber}
+        </div>
+
+        <hr class="c-divider c--solid c--grey c--or u-margin-top-md u-margin-bottom-lg">
+
+        <div class="js-registry-by-name js-registry-panel">
+            {.findRegistryByName}
+        </div>
+
+        <div class="u-margin-top-md js-registry-results" hidden>
+
+            <div class="c-table-scroller">
+                <div class="c-arrange">
+                    <table class="js-registry-results-names c-table c--static c-arrange__item c--shrink">
+                        <thead class="c-table__header">
+                        </thead>
+                        <tbody class="c-table__body">
+                        </tbody>
+                    </table>
+                    <div class="js-registry-results-content js-reuslts-table c-scroller c-arrange__item" role="region" aria-label="Search results" data-bind-scope>
+                        <div class="c-scroller__content"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {hiddenData}
+        <div hidden>
+            {errors}
+        </div>
+    </div>
+{/contentBlock}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/gift-registry-find/gift-registry-find-ui.js
+    (function(require) {
+        require(["global/ui", "pages/gift-registry-find/gift-registry-find-ui"], function(globalUI, giftRegistryFindUI) {
+            globalUI();
+            giftRegistryFindUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}

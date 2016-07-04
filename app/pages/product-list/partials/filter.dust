@@ -1,0 +1,15 @@
+<div class="c-accordion bellows c--no-top-border js-filters-bellows">
+    {#filterCategories}
+        <div class="c-accordion__item bellows__item js-filter-section" id="{filterType}">
+            <button class="c-accordion__header bellows__header">
+                {filterTitle}
+                {@icon name="arrow-downward" class="c-accordion__chevron" /}
+            </button>
+            <div class="c-accordion__content bellows__content">
+                <div class="u-padding-bottom-md">
+                    {>"pages/product-list/partials/inner-filter"/}
+                </div>
+            </div>
+        </div>
+    {/filterCategories}
+</div>

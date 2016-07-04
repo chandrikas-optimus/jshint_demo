@@ -1,0 +1,74 @@
+// Option Blocks
+// ===
+//
+
+// Option Blocks Item
+// ---
+//
+// 1. Override default checkbox styles
+// 2. Positioned absolute so that it doesn't take up space and is relative to
+//    .c-option-blocks__item
+// 3. Increase tap size
+// 4. Extend to 44px tap size
+
+.c-option-blocks__item {
+    position: relative;
+
+    display: inline-block;
+    margin-right: $unit;
+    margin-bottom: $unit*1.5;
+
+    &::after {
+        // 3
+        position: absolute;
+        top: -7px; // 4
+        right: 0;
+        bottom: -7px; // 4
+        left: 0;
+    }
+
+    input {
+        position: absolute; // 2
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        opacity: 0;
+    }
+
+    &.c--grey {
+        background-color: $neutral-30;
+
+        .c-option-blocks__inner {
+            border-color: $neutral-30;
+
+            color: $black;
+        }
+    }
+}
+
+
+// Option Blocks Item Inner
+// ---
+
+.c-option-blocks__inner {
+    display: block;
+    min-height: $small-tap-size;
+    padding: 0 $unit;
+    border: $border;
+
+    color: $brand-color;
+    font-weight: normal;
+    line-height: $small-tap-size;
+    white-space: nowrap;
+
+    input:checked + & {
+        border-color: $dark-brand-color;
+
+        background-color: $dark-brand-color;
+
+        color: $white;
+    }
+}

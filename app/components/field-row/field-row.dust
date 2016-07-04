@@ -1,0 +1,5 @@
+<div class="c-field-row {.class}" {attrModifier}>
+    {#fields}
+        {>"components/field/field" /}
+    {/fields}
+</div>

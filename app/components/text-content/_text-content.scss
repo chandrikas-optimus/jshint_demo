@@ -1,0 +1,68 @@
+// Text Content
+// ===
+//
+// Text content styles tag elements in a way that matches their component
+// equivilent in absence of any component classes, or styles tags to have
+// appropriate levels of margins that they would otherwise be lacking. You can
+// think of the c-text-content component as a way of creating a designated
+// WYSIWYG zone.
+//
+// 1. Fix for iOS to line up with other body text
+
+.c-text-content {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .c-heading {
+        margin: $unit*2 0 $unit;
+
+        line-height: 1.15;
+    }
+
+    p {
+        margin: 0 0 $unit;
+    }
+
+    em strong,
+    strong em {
+        font-style: normal;
+    }
+
+    img {
+        height: auto;
+        margin-bottom: $unit;
+    }
+
+    ul:not([class*='c-']) {
+        @extend %c-bullet-list;
+
+        margin: $unit 0;
+
+        ul,
+        ol {
+            margin-left: $unit*2 + 2px; // 1
+        }
+    }
+
+    ol:not([class*='c-']) {
+        @extend %c-number-list;
+
+        margin: $unit 0;
+
+        li:not([class*='c-']) {
+            @extend %c-number-list__item;
+        }
+
+        ul,
+        ol {
+            margin-left: $unit*2 + 2px; // 1
+        }
+    }
+
+    li:not([class*='c-']) {
+        @extend %c-bullet-list__item;
+    }
+}

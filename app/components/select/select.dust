@@ -1,0 +1,4 @@
+<div class="c-select {class} {?isDisabled}c--is-disabled{/isDisabled}">
+    {select}
+    {@icon name="arrow-downward" /}
+</div>

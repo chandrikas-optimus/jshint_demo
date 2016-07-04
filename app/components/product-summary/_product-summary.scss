@@ -1,0 +1,158 @@
+// Product Summary
+// ===
+
+.c-product-summary {
+    font-size: $small-font-size;
+
+    + .c-product-summary {
+        margin-top: $unit*4;
+    }
+
+    + .c-product-summary.c--dashed {
+        margin-top: $unit*2;
+        padding-top: $unit*2;
+        border-top: $border;
+        border-top-style: dashed;
+    }
+}
+
+
+// Image Container
+// ---
+//
+// 1. Position relative so child image can be absolutely positioned
+// 2. Logo aspect ratio of should be 5:4
+// 3. This pseudo element creates the physical space for that the logo component
+//    will actually occupy, so that the svg can be absolutely positioned inside
+
+.c-product-summary__image-container {
+    position: relative; // 1
+
+    overflow: hidden;
+
+    &.c--small {
+        width: 50px;
+    }
+
+    &.c--medium {
+        width: 27vw;
+        max-width: 88px;
+    }
+
+    // 3
+    &::before {
+        content: '';
+
+        display: block;
+        width: 100%;
+        padding-top: 120%; // 2
+    }
+}
+
+
+// Heading
+// ---
+
+.c-product-summary__heading {
+    font-family: $serif-font-family;
+    font-size: $large-font-size;
+    line-height: 1.15;
+}
+
+
+// Image
+// ---
+//
+// 1. Absolutely positioned relative to the parent `c-product-summary__image-container`
+
+.c-product-summary__image {
+    position: absolute; // 1
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+}
+
+
+// Product Options
+// ---
+
+.c-product-summary__product-options {
+    i {
+        &::after {
+            content: ' |';
+        }
+
+        &:last-of-type {
+            &::after {
+                content: initial;
+            }
+        }
+    }
+}
+
+
+// Table
+// ---
+// 1. CF-624: Make sure table cell content is on bottom of cell
+// 2. Tweaking product attribute alignment so values are right up against the key (first cell)
+
+.c-product-summary__table {
+    // display: table; // 2
+}
+
+.c-product-summary__table-row {
+    // display: table-row; // 2
+    display: flex;
+    align-items: flex-end;
+}
+
+.c-product-summary__table-cell {
+    // display: table-cell; // 2
+    line-height: 1.2em;
+    text-transform: capitalize;
+    vertical-align: bottom; // 1
+
+    &:first-child {
+        flex: 0 0 auto;
+        width: auto;
+    }
+
+    &:last-child {
+        flex: 1 1 auto;
+        width: 100%;
+        padding-left: $unit;
+    }
+}
+
+
+// Exipred / Unavailable product summary
+// ---
+
+.c-product-summary.c--unavailable {
+    background-color: rgba($disabled-input-background-color, 0.75);
+
+    .c-product-summary__image-container::after {
+        content: '';
+
+        position: absolute;
+        top: 0;
+        left: 50%;
+
+        display: block;
+        width: 1px;
+        height: 100%;
+
+        background: rgba($black, 0.25);
+
+        transform: rotate(40deg);
+    }
+
+    .c-product-summary__image,
+    .c-check-radio {
+        opacity: 0.5;
+    }
+}

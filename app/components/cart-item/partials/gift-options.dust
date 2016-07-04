@@ -1,0 +1,14 @@
+{?giftOptions}
+    {#giftOptions}
+        <div class="u-margin-top-md u-margin-bottom-md u-padding-top-md u-padding-bottom-md u-border-top-bottom u-border-right-left-none u-border-dashed u-border-gray">
+            {#optionDetails}
+                <div class="u-text-break-word">
+                    {content} {?price}- {price}{/price}
+                </div>
+            {/optionDetails}
+            {#editGiftOptionsLink}
+                <a href="{href}" class="u-text-size-small u-text-weight-bold">{text}</a>
+            {/editGiftOptionsLink}
+        </div>
+    {/giftOptions}
+{/giftOptions}

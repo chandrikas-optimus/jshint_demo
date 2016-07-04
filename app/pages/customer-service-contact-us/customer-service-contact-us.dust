@@ -1,0 +1,79 @@
+{>"global/base"/}
+
+{<contentBlock}
+
+    <div id="gwt-error-placement-div" hidden>
+        {! For desktop to inject errors !}
+    </div>
+
+    <div hidden class="js-error-messages">
+        {! No errors at the moment !}
+        {>"components/alert/alert"/}
+    </div>
+
+    {#pageTitle}
+       <h1 class="c-heading c--1 u-text-align-center u-padding-top u-margin-bottom-lg u-text-capitalize">
+            {.}
+       </h1>
+    {/pageTitle}
+
+    <div class="u-text-align-center u-margin-bottom-lg">
+        <button type="button" class="c-button c--small c--outline c--strip js-customer-service-navigation-button">
+            Customer Service
+            {@icon name="arrow-forward" class="c-button__icon"/}
+        </button>
+    </div>
+
+    {#pageContent}
+        {@element el=.paragraphs addClass="u-padding u-margin-bottom-md" /}
+        {#.boldContent}
+            <p class="u-padding c-section u-margin-bottom-md">
+                 {.}
+            </p>
+        {/.boldContent}
+    {/pageContent}
+
+    {@element el=formHeader addClass="u-padding u-text-align-center u-margin-bottom-md" /}
+
+    {#.contactForm}
+        <div class="u-padding u-margin-bottom-xxlg">
+            {.form|openTag|s}
+                {.hiddenInputs}
+
+                <div class="c-field-row">
+                    {#.inputRow}
+                        {>"components/field/field":./}
+                    {/.inputRow}
+                </div>
+
+                {#.inputs}
+                    <div class="c-field-row">
+                        {>"components/field/field":./}
+                    </div>
+                {/.inputs}
+
+                <div class="c-field-row">
+                    {@element el=.button addClass="c-button c--full-width"/}
+                </div>
+            {.form|closeTag|s}
+        </div>
+    {/.contactForm}
+
+    {@element el=contactInfo addClass="u-padding u-margin-bottom-md" /}
+
+    {>"global/includes/sidenav/sidenav"/}
+
+{/contentBlock}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/customer-service-contact-us/customer-service-contact-us-ui.js
+    (function(require) {
+        require(["global/ui", "pages/customer-service-contact-us/customer-service-contact-us-ui"], function(globalUI, customerServiceContactUsUI) {
+            globalUI();
+            customerServiceContactUsUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}

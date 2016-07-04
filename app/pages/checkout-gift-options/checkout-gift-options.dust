@@ -1,0 +1,46 @@
+{>"global/checkoutBase"/}
+
+{<contentBlock}
+    <h1 class="c-heading c--1 u-margin-bottom-lg u-padding u-text-align-center">
+        {@translate key="gift_step" /}
+    </h1>
+
+    <div class="u-padding">
+
+        <div hidden>
+            {container}
+            <div class="js-select-chevron">
+                {@icon name="chevron-right" title="Arrow right" class="c-select__icon c--large" /}
+            </div>
+        </div>
+
+        <div class="js-error-messages" hidden>
+            {! No errors at the moment !}
+            {>"components/alert/alert"/}
+        </div>
+    </div>
+
+    
+    <div class="js-loader u-text-align-center">
+        {>"components/loading/loading" /}
+    </div>
+
+    <div class="u-padding js-gift-recipients">
+        {! placeholder, rendered in ui !}
+    </div>
+
+    {>"components/sheet/sheet" effect="modalCenter" cssClass="t-gift-options-tooltip-pinny c--no-header-text c--dialog" class="js-tooltip-pinny" bodyClass="js-tooltip-content"/}
+{/contentBlock}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/checkout-gift-options/ui.js
+    (function(require) {
+        require(["global/ui", "pages/checkout-gift-options/checkout-gift-options-ui"], function(globalUI, checkoutGiftOptionsUI) {
+            globalUI();
+            checkoutGiftOptionsUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}

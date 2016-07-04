@@ -1,0 +1,50 @@
+{>"global/checkoutBase"/}
+
+{<contentBlock}
+    <div class="u-padding">
+        {#deliveryNotice}
+            {>"components/delivery-notice/delivery-notice" class="c--alert u-margin-bottom-md" /}
+        {/deliveryNotice}
+
+        <h1 class="c-heading c--1 u-margin-bottom-xlg u-text-align-center">Multiple Addresses</h1>
+
+        {?introText}<p class="u-margin-bottom-lg">{introText}</p>{/introText}
+
+        <hr class="c-divider c--solid c--grey u-bleed-horizontal" />
+
+        <div class="js-multiple-address-container u-margin-top-lg">
+            {! placeholder, rendered in ui !}
+        </div>
+
+        <div class="u-margin-top-xlg js-cta">
+            {! placeholder, rendered in ui !}
+        </div>
+
+    </div>
+
+    <div class="js-desktop" hidden>
+        {hiddenInputs}
+        {desktopContent}
+    </div>
+
+    <div class="js-loader u-text-align-center">
+        {>"components/loading/loading"/}
+    </div>
+
+    {>"components/sheet/sheet" effect="sheetBottom" cssClass="js-no-scrollfix" class="js-address-pinny" bodyClass="js-address-pinny__body" /}
+
+    {>"components/sheet/sheet" effect="modalCenter" cssClass="c--dialog c--no-header-text" class="js-tooltip-pinny" bodyClass="t-cart-tooltip-pinny js-tooltip-content"/}
+{/contentBlock}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/checkout-multi-address/ui.js
+    (function(require) {
+        require(["global/ui", "pages/checkout-multi-address/checkout-multi-address-ui"], function(globalUI, checkoutMultiAddressUI) {
+            globalUI();
+            checkoutMultiAddressUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}

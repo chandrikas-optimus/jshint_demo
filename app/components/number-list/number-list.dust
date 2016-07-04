@@ -1,0 +1,5 @@
+<ol class="c-number-list {.class}">
+    {#items}
+        <li class="c-number-list__item">{.}</li>
+    {/items}
+</ol>

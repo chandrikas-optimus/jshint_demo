@@ -1,0 +1,104 @@
+// Animated Loader
+// ===
+//
+// A single-element CSS series of bouncing dots that can be displayed while
+// content is loading.
+
+.c-loading__item {
+    display: inline-block;
+    width: $unit; // 8px
+    height: $unit; // 8px
+    margin: $sub-unit/2;
+
+    border-radius: 100%;
+    background-color: $brand-color;
+
+    animation-fill-mode: both;
+
+    .c--large & {
+        width: $unit*1.5;
+        height: $unit*1.5;
+        margin: $sub-unit;
+    }
+
+    .c--small &.c--1 {
+        animation: pulse-small 0.8s -0.14s infinite ease-in-out;
+    }
+
+    .c--small &.c--2 {
+        animation: pulse-small 0.8s -0.07s infinite ease-in-out;
+    }
+
+    .c--small &.c--3 {
+        animation: pulse-small 0.8s 0s infinite ease-in-out;
+    }
+
+    &.c--1 {
+        animation: pulse 0.8s -0.14s infinite ease-in-out;
+    }
+
+    &.c--2 {
+        animation: pulse 0.8s -0.07s infinite ease-in-out;
+    }
+
+    &.c--3 {
+        animation: pulse 0.8s 0s infinite ease-in-out;
+    }
+}
+
+
+
+// Standalone placeholder for dynamic content
+// ---
+
+.c-loading.c--placeholder {
+    margin: $unit*5 $unit;
+
+    text-align: center;
+}
+
+
+// Loading Animation
+// ---
+//
+// sass-lint:disable-block no-mergeable-selectors
+
+@keyframes pulse {
+    0% {
+        background-color: darken($brand-color, 2%);
+
+        transform: translateY(10px);
+    }
+
+    50% {
+        background-color: lighten($brand-color, 2%);
+
+        transform: translateY(-10px);
+    }
+
+    100% {
+        background-color: darken($brand-color, 2%);
+
+        transform: translateY(10px);
+    }
+}
+
+@keyframes pulse-small {
+    0% {
+        background-color: darken($brand-color, 5%);
+
+        transform: translateY(4px);
+    }
+
+    50% {
+        background-color: darken($brand-color, 2%);
+
+        transform: translateY(-4px);
+    }
+
+    100% {
+        background-color: darken($brand-color, 5%);
+
+        transform: translateY(4px);
+    }
+}

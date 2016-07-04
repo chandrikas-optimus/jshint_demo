@@ -1,0 +1,37 @@
+{^contentOnly}<div class="js-alert-wrapper">{/contentOnly}
+
+<div class="c-alert {class}">
+    <button type="button" name="button" class="c-alert__dismiss">
+        <span class="u-visually-hidden">Dismiss Alert</span>
+        {@icon name="delete" /}
+    </button>
+
+    <p class="u-margin-bottom-md">
+        {! TODO: how do we count these items? !}
+        <strong>
+            {count}
+            {^plural}item has{/plural}
+            {?plural}items have{/plural}
+             been added to your bag.
+        </strong>
+    </p>
+
+    <div class="c-arrange c--gutters u-margin-bottom-sm">
+        <div class="c-arrange__item c--shrink">
+            <button type="button" class="c-button c--small c--outline js-review-items">
+                Review Items
+            </button>
+        </div>
+        <div class="c-arrange__item">
+            <a class="c-button c--small c--full-width" href="/ShoppingCartView">
+                Checkout
+                {@icon name="arrow-forward" class="c-button__icon" /}
+            </a>
+        </div>
+    </div>
+
+    {!-- Holding area for all added-to-cart pinny data --!}
+    <div class="js-added-to-cart-pinny-data" hidden style="display: none !important;"></div>
+</div>
+
+{^contentOnly}</div>{/contentOnly}

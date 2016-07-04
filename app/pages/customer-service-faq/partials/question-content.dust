@@ -1,0 +1,16 @@
+<div class="c-text-content"/>
+    {#beforeTable}
+        {.}
+    {/beforeTable}
+    {#table}
+        {>"components/table-scroller/table-scroller"/}
+    {/table}
+    {?scroller.table}
+        {#scroller}
+            {>"components/table-scroller/table-scroller"/}
+        {/scroller}
+    {/scroller.table}
+    {?afterTable}
+        {.afterTable}
+    {/afterTable}
+</div>

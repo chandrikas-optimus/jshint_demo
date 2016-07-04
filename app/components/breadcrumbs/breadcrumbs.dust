@@ -1,0 +1,18 @@
+<ul class="c-breadcrumbs {class}">
+    <div class="c-breadcrumbs__scroller">
+
+        {#breadcrumbs}
+            <li class="c-breadcrumbs__item {class}">
+                {?href}
+                    <a href="{href}">
+                        {title}
+                    </a>
+                {:else}
+                    {title}
+                {/href}
+                {@icon name="arrow-forward" class="" /}
+            </li>
+        {/breadcrumbs}
+
+    </div>
+</ul>

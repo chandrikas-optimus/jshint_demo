@@ -1,0 +1,18 @@
+// Label
+// ===
+
+.c-label,
+%c-label {
+    font-weight: normal;
+    font-size: $small-font-size;
+    line-height: $font-size;
+    text-transform: capitalize;
+
+    &:not(.c-field__hint):not([for]) {
+        pointer-events: none;
+    }
+
+    .required {
+        color: $error-color;
+    }
+}

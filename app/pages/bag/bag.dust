@@ -1,0 +1,103 @@
+{>"global/base"/}
+
+{<contentBlock}
+
+    <h1 class="c-heading c--1 u-text-align-center u-padding-top-xlg u-margin-bottom-xxlg">
+        {.pageTitle}
+    </h1>
+
+    <div class="js-error-messages" hidden>
+        {! No errors at the moment !}
+        {>"components/alert/alert"/}
+    </div>
+
+    {^cartContainer}
+        {>"pages/bag/partials/empty"/}
+
+        <div class="c-section c--light u-margin-top-lg">
+            {continueButton}
+        </div>
+    {:else}
+        {#.cartContainer}
+            {.form|openTag|s}
+                {.hiddenInputs}
+
+                <section class="u-padding u-margin-bottom-lg">
+                    {#.products}
+                        {>"pages/bag/partials/product"/}
+                    {/.products}
+                </section>
+
+                <section class="u-padding">
+                    <hr class="c-divider c--grey c--no-margin u-bleed-horizontal">
+                    <div class="t-bag__promo-code c-section u-margin-top-lg u-margin-bottom-lg">
+                        {#promoCodeContent}
+                            <div class="c-field">
+                                <div class="c-field__input">
+                                    <div class="c-arrange u-margin-bottom t-bag__promo-tooltip">
+                                        <label class="c-label">
+                                            {label}
+                                        </label>
+                                        <a href="#" class="t-bag__promo-tooltip-button js-tooltip-button js-promo-tooltip-button" data-target=".js-promo-tooltip">
+                                            {@icon name="ask--no-whitespace--thick" class="c--tiny u-align-middle u-text-brand"/}
+                                        </a>
+                                        <div class="js-promo-tooltip" data-title="Promotion/Source Code" hidden>{tooltipContent}</div>
+                                    </div>
+                                    {@element el=input addClass="c-input js-apply-input"/}
+                                </div>
+                            </div>
+                            <div class="js-promo-errors" hidden>{errorContainer}</div>
+                            {applyButton}
+                        {/promoCodeContent}
+                    </div>
+
+                    {#totals}
+                        <div class="u-margin-bottom-lg">
+                            {#ledgerContent}
+                                {>"components/ledger/ledger"/}
+                            {/ledgerContent}
+                            <div class="c-note u-text-align-center">{note}</div>
+                        </div>
+                    {/totals}
+
+                    <div class="u-margin-bottom-xlg">
+                        {! TODO: nothing gets populated in the PayPal button !}
+                        {checkoutButton}
+                        <p class="c-note u-text-align-center u-margin-bottom">— or —</p>
+                        {continueButton}
+                    </div>
+                </section>
+
+            {.form|closeTag|s}
+        {/.cartContainer}
+    {/cartContainer}
+
+    <div class="t-bag__page-loading js-page-loading" hidden>
+        {>"components/loading/loading" class="c--large"/}
+    </div>
+
+    {itemQuantityUpdateForm}
+    {giftFlagForm}
+    {promoCodeForm}
+    {requiredLabels}
+    {recommendationsContainer}
+
+    {>"components/sheet/sheet" effect="modalCenter" cssClass="c--notice" class="js-tooltip-pinny"/}
+
+    {>"components/sheet/sheet" effect="sheetBottom" class="js-free-gift-pinny" coverage="100%"/}
+    {>"components/sheet/sheet" effect="sheetBottom" class="js-details-pinny" coverage="100%"/}
+
+{/contentBlock}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/bag/bag-ui.js
+    (function(require) {
+        require(["global/ui", "pages/bag/bag-ui"], function(globalUI, bagUI) {
+            globalUI();
+            bagUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}

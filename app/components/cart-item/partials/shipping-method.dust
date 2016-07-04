@@ -1,0 +1,30 @@
+{#shippingMethod}
+    <div class="js-item-shipping-method u-margin-top-lg">
+
+        <h3 class="c-heading c--4 c--no-border u-margin-bottom-md">
+            Choose a Shipping Method
+            <button class="c-button c--plain u-padding-none js-pinny-button u-text-brand u-align-middle">
+                {@icon name="ask--no-whitespace--thick" class="c--tiny"/}
+            </button>
+        </h3>
+
+        <div class="t-checkout-review-and-payment__shipping-options js-option-container">
+            {#shippingOptions}
+                <div class="c-field c--check-radio u-border-top u-padding-top u-padding-bottom u--tight">
+                    <div class="c-field__input js-shipping-option" data-value="{value}">
+                        <label class="u-text-capitalize">{text}</label> {>"components/check-radio/check-radio"/}
+                    </div>
+                </div>
+            {/shippingOptions}
+
+            {shippingSelect}
+        </div>
+
+        {?reviewLink}
+            {#reviewLink}
+                <a href="{href}" class="c-button c--link">{text}</a>
+            {/reviewLink}
+        {/reviewLink}
+
+    </div>
+{/shippingMethod}

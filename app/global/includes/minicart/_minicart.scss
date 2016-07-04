@@ -1,0 +1,47 @@
+// Minicart
+// ===
+
+.c-minicart {
+    // min-height: 100%;
+}
+
+
+// Wrapper
+// ---
+
+.c-minicart__wrapper,
+.c-minicart .pikabu__content {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+
+// Header
+// ---
+
+.c-minicart__header {
+    flex: 0 0 auto;
+    min-height: $x-header__height; // 2
+}
+
+
+// Content
+// ---
+
+.c-minicart__content {
+    position: relative;
+
+    overflow-y: auto;
+    flex: 1 1 auto;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+
+// Empty (placeholder)
+// ---
+
+.c-minicart__placeholder {
+
+}

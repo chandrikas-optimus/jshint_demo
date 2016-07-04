@@ -1,0 +1,5 @@
+<div class="c-configurator bellows {class} {bellowsClass}" {?id}id="{.}"{/id} {?role}role="{.}"{/role} data-adaptivejs-component="bellows">
+    {#items}
+        {>"pages/product-configurator/partials/configurator-bellows-item"/}
+    {/items}
+</div>

@@ -1,0 +1,10 @@
+{! 'Add to Cart' and 'Add to Registry' buttons !}
+<div class="js-call-to-actions u-margin-bottom-lg">
+
+    {>"components/add-to-cart/partials/cart-alert"/}
+    {>"components/add-to-cart/add-to-cart"/}
+
+    <div class="js-add-to-registry-container">
+        {! Will be populated later !}
+    </div>
+</div>

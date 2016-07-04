@@ -1,0 +1,234 @@
+// Forms
+// ===
+
+
+// General Form Elements
+// ---
+//
+// 1. Remove the orange box on input focus on Android
+// 2. For Android 4.0.4
+
+select,
+textarea,
+input,
+%default-input {
+    border: $border;
+
+    border-radius: 0;
+
+    font-family: $font-family;
+    font-size: $font-size;
+
+    &:focus {
+        border: 1px solid $dark-brand-color;
+
+        box-shadow: 0 0 $unit $focus-color;
+    }
+}
+
+select,
+textarea,
+[type='text'],
+[type='search'],
+[type='password'],
+[type='tel'],
+[type='url'],
+[type='number'],
+[type='email'],
+%input {
+    width: 100%;
+    min-height: $tap-size;
+
+    border-radius: 0;
+    background-color: $input-background-color;
+
+    line-height: $line-height;
+
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    &::-webkit-input-placeholder {
+        color: $neutral-50;
+        text-transform: capitalize;
+    }
+
+    &:active {
+        border-color: darken($border-color, 10%);
+    }
+}
+
+select,
+[type='text'],
+[type='search'],
+[type='password'],
+[type='tel'],
+[type='url'],
+[type='number'],
+[type='email'],
+%input {
+    padding: 0 $horizontal-padding;
+}
+
+fieldset {
+    min-width: 0;
+    margin: 0 0 $unit;
+    padding: 0;
+    border: 0;
+}
+
+textarea {
+    padding: $vertical-padding $horizontal-padding;
+}
+
+label {
+    display: inline-block;
+
+    font-family: $font-family;
+    font-size: $font-size;
+
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    &:active {
+        color: $active-link-color;
+    }
+}
+
+
+// Search input
+// ---
+//
+// These properties must be set with a slightly higher specificity for search
+// inputs because Normalize's defaults are a bit too specific
+
+input[type='search'] {
+    box-sizing: border-box;
+
+    -webkit-appearance: none;
+}
+
+
+// Select
+// ---
+//
+// 1. Restore browser default styling. If you’re taking full control of select
+//    styling, remove both these lines.
+
+select {
+    height: $tap-size; // 1
+
+    -webkit-appearance: menulist-button; // 1
+}
+
+
+// Checkbox and Radios
+// ---
+
+[type='checkbox'],
+[type='radio'] {
+    position: relative;
+
+    display: inline-block;
+    width: $unit*3;
+    height: $unit*3;
+    margin-right: $unit;
+
+    background: $neutral-10;
+
+    vertical-align: middle;
+
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    &:active {
+        background: $neutral-40 reverse-gradient($neutral-gradient);
+    }
+
+    &:checked {
+        border: transparent;
+
+        background: $neutral-40;
+
+        &::after {
+            content: '';
+
+            position: absolute;
+
+            display: block;
+        }
+    }
+}
+
+[type='radio'] {
+    border-radius: 100%;
+
+    &::after {
+        top: 50%;
+        left: 50%;
+
+        width: $unit*1.5;
+        height: $unit*1.5;
+
+        border-radius: 100%;
+        background: $neutral-40;
+
+        transform: translate(-50%, -50%);
+    }
+}
+
+
+// Base Button Styles
+// ---
+//
+// Revert button to just plain `div` styles
+
+button {
+    position: relative;
+
+    padding: 0;
+    border: none;
+
+    background: none;
+
+    -webkit-appearance: none;
+}
+
+
+// Disabled
+// ---
+//
+// 1. web-kit default disabled style
+// 2. Disabled style for button, checkbox, radio, input and select
+// 3. Checkbox and Radio style
+// 4. Overwrite dynamic inline styles
+
+[disabled],
+[readonly] {
+    border-color: $disabled-input-border-color;
+
+    opacity: 1;
+    background: $disabled-input-background-color !important; // 4
+
+    color: $disabled-input-color;
+
+    -webkit-text-fill-color: $disabled-input-color; // 1
+
+    // 2
+    &:active,
+    &:checked {
+        border-color: $disabled-input-color;
+
+        background: $disabled-input-background-color;
+    }
+
+    // 3
+    &:active,
+    &:checked {
+        &::after {
+            color: $disabled-input-color;
+        }
+    }
+
+    &[type='radio']::after {
+        background-color: $disabled-input-color;
+    }
+}

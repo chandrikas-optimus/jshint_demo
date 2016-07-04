@@ -1,0 +1,90 @@
+{>"global/checkoutBase"/}
+
+{<contentBlock}
+        <h1 class="c-heading c--1 u-padding-top-md u-margin-bottom-lg u-text-align-center">
+            Sign In/Register
+        </h1>
+
+        <div hidden>{errorContainer}</div>
+
+        <div hidden class="js-error-messages">
+            {! No errors at the moment !}
+            {>"components/alert/alert"/}
+        </div>
+
+        {#loginForm}
+            <div class="u-padding u-margin-top">
+                {form|openTag|s}
+                    {hiddenInputs}
+                    <div class="c-field-row">
+                        {>"components/field/field":.email/}
+                    </div>
+
+                    <div class="c-field-row">
+                        {>"components/field/field":.password/}
+                    </div>
+
+                    {#rememberMe}
+                    <div class="c-field-row">
+                        <div class="c-field__input t-checkout-sign-in__tooltip-fix">
+                            {>"components/check-radio/check-radio" /}
+                            {label}
+                            <button class="js-tooltip-button" data-target=".js-remember-tooltip">{@icon name="ask--no-whitespace--thick" class="c--tiny u-text-brand u-align-middle" /}</button>
+                            <div class="js-remember-tooltip" hidden>{tooltipContent}</div>
+                            <div class="c-field__selection" role="presentation"></div>
+                        </div>
+                    </div>
+                    {/rememberMe}
+
+                    <div class="c-field-row">
+                        {loginButton}
+                    </div>
+                {form|closeTag|s}
+            </div>
+        {/loginForm}
+
+        <div class="c-note u-text-align-center u-margin-top u-margin-bottom">– or –</div>
+
+        {#guestLoginForm}
+            <div class="u-padding u-margin-bottom-xxlg">
+                {form|openTag|s}
+                    {hiddenInputs}
+
+                    <div class="c-field-row">
+                        {createAccountButton}
+                    </div>
+                {form|closeTag|s}
+            </div>
+        {/guestLoginForm}
+
+    {>"components/sheet/sheet"
+        class="js-account-pinny"
+        effect="sheetBottom"
+        coverage="100%"
+        isHeader="true"
+        headerContent="Forgot Password" /}
+
+    {>"components/sheet/sheet"
+        effect="modalCenter"
+        cssClass="c--dialog"
+        class="js-tooltip-pinny"
+        bodyClass="c-sheet__body"
+        headerContent="Remember Me"/}
+
+    {! The forgot password modal needs this !}
+    <div id="container"></div>
+    {forgotPasswordParams}
+{/contentBlock}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/checkout-sign-in/ui.js
+    (function(require) {
+        require(["global/ui", "pages/checkout-sign-in/checkout-sign-in-ui"], function(globalUI, checkoutSignInUI) {
+            globalUI();
+            checkoutSignInUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}

@@ -1,0 +1,63 @@
+// Inline list
+// ===
+//
+// Simple inline display style for <ul> and <ol>
+
+.c-inline-list {
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    font-size: $font-size;
+
+    > li {
+        display: inline;
+    }
+
+    > li + li {
+        margin-left: 2.5em;
+    }
+}
+
+
+// Modifiers: Tighter Inline List
+// ---
+
+.c-inline-list.c--tight {
+
+    > li + li {
+        margin-left: 1em;
+    }
+}
+
+
+// Modifiers: Bullet Inline List
+// ---
+
+.c-inline-list.c--bullet {
+    > li + li {
+        margin-left: 0;
+
+        &::before {
+            content: '\2022';
+
+            padding-right: 1.15em;
+            padding-left: 1.25em;
+
+            font-size: $font-size;
+        }
+    }
+}
+
+
+// Modifiers: Tighter Bullet Inline List
+// ---
+
+.c-inline-list.c--bullet.c--tight {
+    > li + li {
+        &::before {
+            padding-right: 0.15em;
+            padding-left: 0.25em;
+        }
+    }
+}

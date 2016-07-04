@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+{html|openTag|s}
+{head|openTag|s}
+    {config.adaptiveBuildScript}{! Re-inserts Adaptive.js into page. Do not modify or remove!}
+    {+head}
+        {head|innerHTML|s}
+
+        {+style}
+            {?config.isLocal}
+                <link rel="stylesheet" type="text/css" href="{@getUrl path="css/stylesheet.css" /}" />
+            {:else}
+                <link rel="stylesheet" type="text/css" href="{@getUrl path="css/stylesheet.min.css" /}" />
+            {/config.isLocal}
+        {/style}
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        {! Add JS variable for client !}
+        <script type="text/javascript">
+            var isMobify = true;
+        </script>
+
+        {! Do not modify or remove the following Mobify Analytics script tags: !}
+        {config.ajs|s}
+        <script>
+            var analytics = Mobify.analytics = Mobify.analytics || {};
+            analytics.ga = analytics.ga || [];
+            analytics.ua = analytics.ua || function() {
+                (analytics.ua.q = analytics.ua.q || []).push(arguments);
+            };
+        </script>
+    {/head}
+</head>
+{body|openTag|s}
+
+    {! Holds the definitions for SVG icons. These are referenced elswehere with fragment links and the `use` tag !}
+    <div hidden>{iconSprite|s}</div>
+
+    {! <a name="backToTop" aria-hidden="true"><!-- "Back to Top" Anchor Point --></a> !}
+
+    <div class="pikabu">
+        <div class="pikabu__container">
+            {+bodyBlock}
+                <div id="x-wrap">
+                    {+header}
+                        {! Including the global footer template here !}
+                        {>"global/includes/header/header" class=headerClass/}
+                    {/header}
+
+                    {+nav}
+                        {! main site navigation !}
+                        {>"global/includes/nav/nav"/}
+                    {/nav}
+
+                    {+minicart}
+                        {! container for minicart pikabu, empty cart by default!}
+                        {>"global/includes/minicart/minicart"/}
+
+                        {! needed for minicart ajax request to go through !}
+                        <div hidden>
+                            <div id="gwt_minicart_div"></div>
+                        </div>
+                    {/minicart}
+
+                    {+otherGlobal}
+                        {! GWT needs these non-visual data to be on the page !}
+                        <div hidden>
+                            {hiddenGWTData}
+                        </div>
+
+                        {>"components/modal/modal" class="js-welcome-modal t-welcome-modal"/}
+                    {/otherGlobal}
+
+
+                    <main class="x-main" role="main">
+                        {+contentBlock}
+                            {body|innerHTML|s}
+                        {/contentBlock}
+                    </main>
+
+                    {+footer}
+                        {! Including the global footer template here !}
+                        {>"global/includes/footer/footer"/}
+                    {/footer}
+                </div>
+            {/bodyBlock}
+            {+scripts}
+                {desktopScripts}
+
+                {! Site UI scripts !}
+                {?config.isLocal}
+                    <script src="{@getUrl path="js/ui.js" /}"></script>
+                {:else}
+                    <script src="{@getUrl path="js/ui.min.js" /}"></script>
+                {/config.isLocal}
+
+                {+uiScripts}{/uiScripts}
+            {/scripts}
+        </div>
+    </div>
+</body>
+</html>

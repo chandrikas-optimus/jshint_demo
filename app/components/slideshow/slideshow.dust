@@ -1,0 +1,19 @@
+<ul class="c-slideshow {slideshowClass}">
+    {#.productTiles}
+        <li class="c-slideshow__slide {class}" data-bind-click="{bindId}">
+            {>"components/tile/tile"/}
+        </li>
+    {/.productTiles}
+
+    {#.swatchSlides}
+        <li class="c-slideshow__slide {class}" data-bind-click="{bindId}">
+            {>"components/swatches-label/swatches-label"/}
+        </li>
+    {/.swatchSlides}
+
+    {#.slides}
+        <li class="c-slideshow__slide {class}" data-bind-click="{bindId}">
+            {slideContent}
+        </li>
+    {/.slides}
+</ul>

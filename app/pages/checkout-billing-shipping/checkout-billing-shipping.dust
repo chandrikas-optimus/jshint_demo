@@ -1,0 +1,118 @@
+{>"global/checkoutBase"/}
+
+{<contentBlock}
+    <div class="js-error-messages" hidden>
+        {!-- Errors populated in UI scripts --!}
+        {>"components/alert/alert"/}
+    </div>
+
+    <div>
+        {#deliveryNotice}
+            {>"components/delivery-notice/delivery-notice" class="c--alert u-bleed u-margin-bottom-md"/}
+        {/deliveryNotice}
+
+        <h1 class="c-heading c--1 u-margin-bottom-lg u-padding u-text-align-center">{pageTitle}</h1>
+
+        {?mainCopy}
+            <p class="u-padding u-margin-bottom-lg">{mainCopy}</p>
+        {/mainCopy}
+
+        {#form}
+            <div class="u-visually-hidden">
+                {!-- Hide visually, errors will be communicated through alerts --!}
+                {errorContainer}
+            </div>
+
+            <div class="c-accordion bellows js-billing-shipping-bellows" data-bellows-manual-init="true">
+                <div class="c-accordion__item bellows__item bellows--is-open">
+                    <button class="c-accordion__header bellows__header">
+                        {billingTitle}
+                        {@icon name="arrow-downward" class="c-accordion__chevron" /}
+                    </button>
+
+                    <div class="c-accordion__content bellows__content">
+                        <div class="js-loader u-text-align-center">
+                            {>"components/loading/loading" /}
+                        </div>
+                        {! 
+                            This content needs to be hidden so the desktop JS doesn't focus the first input before our transformations run (which then blurs the input)
+                        !}
+                        <div class="js-form-container" hidden>
+                            {billingContainer|openTag|s}
+                            {billingContainer|closeTag|s}
+
+                            <div class="u-margin-top-lg">
+                                {emailContainer}
+
+                                {confirmEmailContainer}
+
+                                <div class="u-margin-top-lg">
+                                    {sendEmailsContainer}
+                                </div>
+                            </div>
+                        </div>
+
+                        {!-- TODO: Maybe not hardcode this custom button? --!}
+                        <!-- CF-499: Commented out due to customer's request to remove -->
+                        <!-- <button type="button" class="c-reveal__trigger u-text-size-default u-margin-bottom js-advance-to-shipping">+ Add Shipping Address (Optional)</button> -->
+                    </div>
+                </div>
+
+                <div class="c-accordion__item bellows__item">
+                    <button class="c-accordion__header bellows__header">
+                        {shippingTitle}
+                        {@icon name="arrow-downward" class="c-accordion__chevron" /}
+                    </button>
+
+                    <div class="c-accordion__content bellows__content">
+                        <div class="c-block-option__container">
+                            {shippingAddressOptions}
+                        </div>
+
+                        {shippingContainer|openTag|s}
+                        {shippingContainer|closeTag|s}
+                    </div>
+                </div>
+            </div> {! end accordion !}
+
+            {?registrationContainer.isPresent}
+                {#registrationContainer}
+                    <div class="js-registration-reveal c-reveal u-padding u-margin-top-xlg">
+                        <div class="c-reveal__trigger c--show">
+                            <h3 class="u-text-size-default u-text-weight-bold u-margin-bottom-sm">{revealTitle}</h3>
+                            {copy}
+                        </div>
+
+                        <div class="c-reveal__content c--is-hidden" aria-hidden="true">
+                            <h3 class="c-heading u-margin-top-lg u-margin-bottom-md">{title}</h3>
+                            <div class="u-margin-bottom-lg">{container}</div>
+                        </div>
+                    </div>
+                {/registrationContainer}
+            {/registrationContainer.isPresent}
+
+            <div class="u-padding u-margin-bottom-lg">
+                {ctaContainer}
+            </div>
+
+        {/form}
+
+        {hiddenForms}
+        {hiddenLabels}
+    </div>
+
+    {>"components/sheet/sheet" effect="sheetTop" cssClass="t-shipping-address-pinny c--dialog c--no-header-text" class="js-tooltip-pinny" bodyClass="t-cart-tooltip-pinny js-tooltip-content"/}
+{/contentBlock}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/checkout-billing-shipping/checkout-billing-shipping-ui.js
+    (function(require) {
+        require(["global/ui", "pages/checkout-billing-shipping/checkout-billing-shipping-ui"], function(globalUI, checkoutBillingShippingUI) {
+            globalUI();
+            checkoutBillingShippingUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}

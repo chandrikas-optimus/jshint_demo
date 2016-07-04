@@ -1,0 +1,16 @@
+{?sectionTitle}
+    <h3 class="c-heading c--4 c--no-border u-margin-bottom-sm">{sectionTitle}:</h3>
+{/sectionTitle}
+
+<div>
+    <div class="u-inline">{?name}{name} |{/name} {?company}{company} |{/company} {?street}{street} |{/street} {apt}</div>
+    <div class="u-inline">{city}, {state} {postalCode} | {?country}{country} |{/country} {phoneNumber}</div>
+</div>
+
+{?editButton.onclick}
+    {#editButton}
+        <button class="c-button c--small c--plain c--brand u-padding-none u-text-weight-bold" onclick="{onclick}">
+            {text}
+        </button>
+    {/editButton}
+{/editButton.onclick}

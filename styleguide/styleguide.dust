@@ -1,0 +1,26 @@
+{! Holds the definitions for SVG icons. These are referenced elswehere with fragment links and the `use` tag !}
+<div hidden>{iconSprite|s}</div>
+
+<div class="almanac" id="x-wrap">
+    <header class="almanac__header">
+        <span class="almanac__heading">Living Style Guide</span>
+    </header>
+
+    <main class="almanac__body">
+        {! --------------------- !}
+        {!   Table of Contents   !}
+        {! --------------------- !}
+        <button class="almanac__toc-fixed-button js-toc-trigger">Menu</button>
+        <div class="js-toc-content" id="tableOfContents"></div>
+
+        {! -------------- !}
+        {!   Components   !}
+        {! -------------- !}
+        {>"styleguide-components"/}
+    </main>
+
+    <footer class="almanac__footer">
+        <span class="almanac__heading">Living Style Guide</span>
+        <span class="almanac__ipa"><strong>awl</strong> - m<em>uh</em> - nak</span>
+    </footer>
+</div>

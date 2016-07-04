@@ -1,0 +1,18 @@
+// Section
+// ===
+
+.c-section {
+    background: $neutral-20;
+
+    &:not(.c--no-padding) {
+        padding: $vertical-padding $horizontal-padding;
+    }
+
+    &.c--light {
+        background: $white;
+    }
+
+    &.c--bordered {
+        border: $border;
+    }
+}

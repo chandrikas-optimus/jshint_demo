@@ -1,0 +1,11 @@
+<ol class="c-checkout-steps {class}">
+    {#steps}
+        <li class="c-checkout-steps__item js-checkout-step {stepClass} {status}">
+            <div class="c-checkout-steps__circle">
+                <span aria-hidden="true">{stepCurrent}</span>
+                <span class="u-visually-hidden">{stepCurrent} of {stepCount}: {stepTitle}</span>
+            </div>
+            <span class="c-checkout-steps__half-step"></span>
+        </li>
+    {/steps}
+</ol>

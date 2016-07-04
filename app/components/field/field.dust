@@ -1,0 +1,42 @@
+{! NOTE: at a minimum, you'd typically need to pass in only `input` and `label` !}
+
+<div class="c-field {.class} {?.isSelect}c--select{/.isSelect} {?.isCheckRadio}c--check-radio{/.isCheckRadio} {?.actions}c--align-top{/actions} ">
+
+    <div class="c-field__input">
+        {?.hint}
+            <span class="c-field__hint">
+                {.hint}
+            </span>
+        {/.hint}
+
+        {?.hiddenElements}
+            <div hidden>
+                {.hiddenElements}
+            </div>
+        {/.hiddenElements}
+
+        {?.isCheckRadio}
+            {>"components/check-radio/check-radio" /}
+
+            {@element el=.label addClass="c-label"/}
+        {:else}
+            {@element el=.label addClass="c-label"/}
+
+            {^.isSelect}
+                {@element el=.input addClass="c-input"/}
+            {:else}
+                {>"components/select/select" class=selectClass /}
+            {/.isSelect}
+        {/.isCheckRadio}
+
+        {?.isCheckRadio}
+            <div class="c-field__selection" role="presentation"></div>
+        {/.isCheckRadio}
+    </div>
+
+    {>"components/error-text/error-text"/}
+
+    {?.caption}
+        <span class="c-field__caption needsclick">{.caption|s}</span>
+    {/.caption}
+</div>

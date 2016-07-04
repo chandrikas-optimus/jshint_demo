@@ -1,0 +1,59 @@
+{>"global/base"/}
+
+{<contentBlock}
+
+    {>"components/breadcrumbs/breadcrumbs"/}
+
+    {#pageTitle}
+       <h1 class="c-heading c--1 u-text-align-center u-padding-top-md u-margin-bottom-xlg u-text-capitalize">
+            {.}
+       </h1>
+    {/pageTitle}
+
+    {#intro}
+        {@element el=. addClass="u-padding u-margin-bottom-md" /}
+    {/intro}
+
+    {#.paymentInfo}
+        <section class="u-padding u-margin-bottom-md">
+            {! TODO: apply .c-ledger component when ready !}
+            {?.rows}
+                <div class="c-section u-border u-margin-bottom-lg">
+                    <div class="c-ledger">
+                        {#.rows}
+                            <dl class="c-ledger__entry">
+                                {#.key}<dt class="c-ledger__description">{.}</dt>{/.key}
+                                {#.value}<dt class="c-ledger__number">{.}</dt>{/.value}
+                            </dl>
+                        {/.rows}
+                    </div>
+                </div>
+            {/.rows}
+
+            {?.editButton}
+                <div class="c-field-row">
+                    {@element el=.editButton addClass="c-button c--full-width u-margin" /}
+                </div>
+            {/.editButton}
+
+            {?.removeButton}
+                <div class="c-field-row">
+                    {@element el=.removeButton addClass="c-button c--outline c--full-width" /}
+                </div>
+            {/.removeButton}
+        </section>
+    {/.paymentInfo}
+{/contentBlock}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/account-payment-info/account-payment-info-ui.js
+    (function(require) {
+        require(["global/ui", "pages/account-payment-info/account-payment-info-ui"], function(globalUI, accountPaymentInfoUI) {
+            globalUI();
+            accountPaymentInfoUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}

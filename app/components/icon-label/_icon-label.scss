@@ -1,0 +1,27 @@
+// Icon Label Component
+// ===
+//
+// An icon with labels. Used in the header and other places where icons need labels.
+
+.c-icon-label {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    .c-icon {
+        flex: 0 0 auto;
+    }
+}
+
+.c-icon-label__label {
+    display: block;
+    margin-top: -$sub-unit;
+
+    color: $label-color;
+    font-size: $xx-small-font-size;
+    line-height: 1;
+    letter-spacing: 0.035em;
+    text-transform: lowercase;
+}

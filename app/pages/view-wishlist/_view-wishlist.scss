@@ -1,0 +1,40 @@
+// View Wishlist
+// ===
+//
+// 1. CF-724: Override inline styles
+
+.t-view-wishlist {
+    [id='gwt-product-detail-info-modal'] {
+        display: none;
+    }
+
+    [class*='gwt-shoppingcart-thumbnail-image'] {
+        margin: -2px 0;
+    }
+
+    .c-cart-item__name {
+        padding-right: 0;
+    }
+
+    .c-cart-item {
+        .c-button.c--brand {
+            color: $brand-color !important; // 1
+        }
+    }
+
+    .c-button {
+        overflow: hidden;
+    }
+
+    [class*='facebookLike'] {
+        margin-top: -2px;
+    }
+
+    [class*='twitterShare'] {
+        width: 61px;
+    }
+
+    [class*='plusContent'] {
+        width: 60px;
+    }
+}

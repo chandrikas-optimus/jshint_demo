@@ -1,0 +1,41 @@
+{>"global/base"/}
+
+{<contentBlock}
+    {>"components/breadcrumbs/breadcrumbs"/}
+
+    {#pageTitle}
+       <h1 class="c-heading c--1 u-text-align-center u-padding-top u--tight u-margin-bottom-lg u-text-capitalize">
+            {.}
+       </h1>
+    {/pageTitle}
+
+    <div class="u-text-align-center u-margin-bottom-lg">
+        <button type="button" class="c-button c--small c--outline c--strip js-customer-service-navigation-button">
+            Customer Service
+            {@icon name="arrow-forward" class="c-button__icon"/}
+        </button>
+    </div>
+
+    <div class="u-text-align-center" hidden>
+        {@element el=frame /}
+    </div>
+
+    <div id="js-size-chart-content">
+        {>"components/loading/loading" class="c--placeholder"/}
+    </div>
+
+    {>"global/includes/sidenav/sidenav"/}
+{/contentBlock}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/customer-service-size-chart/customer-service-size-chart-ui.js
+    (function(require) {
+        require(["global/ui", "pages/customer-service-size-chart/customer-service-size-chart-ui"], function(globalUI, customerServiceSizeChartUI) {
+            globalUI();
+            customerServiceSizeChartUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}

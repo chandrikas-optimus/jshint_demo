@@ -1,0 +1,27 @@
+{#.}
+    <table class="c-table {modifierClass}">
+        <thead class="c-table__header">
+            {#.headerRows}
+            <tr>
+                {#.rowData}
+                    <th>
+                        {.title}
+                    </th>
+                {/.rowData}
+
+            </tr>
+            {/.headerRows}
+        </thead>
+        <tbody class="c-table__body">
+            {#.tableRows}
+                <tr>
+                    {#.rowData}
+                        <td>
+                            {.content}
+                        </td>
+                    {/.rowData}
+                </tr>
+            {/.tableRows}
+        </tbody>
+    </table>
+{/.}

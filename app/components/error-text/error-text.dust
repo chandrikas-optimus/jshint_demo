@@ -1,0 +1,4 @@
+<span class="c-error-text {.errorClasses}" {^.error}hidden{/.error} {?.errorID}id="{.errorID}"{/.errorID} {?hideError}style="display:none;"{/hideError}>
+    {@icon name="alert" /}
+    {.error}{.errorPlaceholder}
+</span>

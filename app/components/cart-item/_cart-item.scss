@@ -1,0 +1,117 @@
+// Cart Item
+// ===
+
+.c-cart-item {
+    & + & {
+        margin-top: $unit*3;
+        padding-top: $unit*3;
+        border-top: $border;
+    }
+
+    &.c--dashed {
+        + .c-cart-item {
+            border-top: 1px dashed $border-color;
+        }
+    }
+}
+
+
+// Cart Item Image
+// ---
+
+.c-cart-item__image {
+    flex: 0 0 76px;
+    width: 76px;
+}
+
+
+// Cart Product Image
+// ---
+//
+// 1. Position c-zoom for magnifik
+// 2. Fix empty space
+
+.c-cart-item__product-image {
+    position: relative; // 1
+
+    min-height: 90px;
+    margin-bottom: $unit;
+
+    background: $neutral-20;
+
+    &:empty {
+        display: none;
+    }
+
+    a {
+        display: block; // 2
+    }
+
+    img {
+        vertical-align: top; // 2
+    }
+}
+
+
+// Cart Item Details
+// ---
+//
+// 1. Position rel/abs (a)
+
+.c-cart-item__details {
+    position: relative; // 1-a
+
+    padding-left: $unit*1.5;
+
+    font-size: $small-font-size;
+}
+
+
+// Cart Item Name
+// ---
+//
+// 1. Length of remove button
+
+.c-cart-item__name {
+    padding-right: 60px; // 1
+
+    font-family: $serif-font-family;
+    line-height: 1.15;
+}
+
+
+// Cart Item Number
+// ---
+
+.c-cart-item__item-number {
+    font-family: $serif-font-family;
+    font-style: italic;
+}
+
+
+// Cart Item Options
+// ---
+
+
+
+
+// Cart Item Personalization
+// ---
+
+.c-cart-item__block {
+    &:empty {
+        display: none;
+    }
+}
+
+
+// Cart Item Side Button
+// ---
+//
+// 1. Position rel/abs (a)
+
+.c-cart-item__side {
+    position: absolute; // 1-a
+    top: 0;
+    right: 0;
+}

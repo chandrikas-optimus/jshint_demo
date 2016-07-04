@@ -1,0 +1,34 @@
+{?.viewFewerLink}
+    <div class="u-text-align-center">
+        <strong>{.viewFewerLink}</strong>
+    </div>
+
+{:else}
+
+    <ul class="c-pagination">
+        <li class="c-pagination__prev">
+            <a {?paginationLinkPrev}href="{paginationLinkPrev}"{:else}disabled{/paginationLinkPrev}>
+                {@icon name="arrow-backward" class="" /}
+            </a>
+        </li>
+        <li class="c-pagination__next">
+            <a {?paginationLinkNext}href="{paginationLinkNext}"{:else}disabled{/paginationLinkNext}>
+                {@icon name="arrow-forward" class="" /}
+            </a>
+        </li>
+        <li class="c-pagination__current">
+            Page: {paginationCurrent}
+        </li>
+        <li class="c-pagination__all">
+            {#paginationLinkAll}
+                {?.element}
+                    {.element}
+                {:else}
+                    <a href="{.href}" onclick="{.onclick}">
+                        View All
+                    </a>
+                {/.element}
+            {/paginationLinkAll}
+        </li>
+    </ul>
+{/.viewFewerLink}
