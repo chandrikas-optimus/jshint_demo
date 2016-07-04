@@ -1,0 +1,45 @@
+// Global Footer
+// ===
+//
+// 1. Cover border of bellows below.
+//
+// sass-lint:disable no-qualifying-elements
+
+.x-footer__social {
+    margin-bottom: -1px; // 1
+    padding-top: $unit*4;
+    padding-bottom: $unit*4;
+
+    background-image: url('../img/watercolour-footer.jpg');
+    background-position: center center;
+    background-size: cover;
+
+    [id='emailSignUp'] {
+        border-color: rgba($black, 0.4);
+        border-right: 0;
+    }
+}
+
+.x-footer__bellows {
+    .c-accordion__content .u-margin-bottom-md {
+        margin-bottom: 0 !important;
+    }
+
+    a.c-list-item {
+
+        &:active,
+        &:focus {
+            color: $brand-color;
+
+            fill: $brand-color;
+        }
+    }
+}
+
+.x-footer__epilogue {
+    text-transform: capitalize;
+
+    a {
+        text-decoration: underline;
+    }
+}

@@ -1,0 +1,27 @@
+// Back to Top
+// ===
+
+.c-back-to-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: $label-color;
+    font-size: $x-small-font-size;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+
+// Icon
+// ---
+//
+// 1. Shift the icon to the left to better "align" the back-to-top content to
+//    center of it's container. Remember the icon has empty-white space that
+//    makes the content appear off-center if not accounted for.
+// 2. `14px` is the amount of extra white-space on one side of the
+//    `arrow-upward` icon
+
+.c-back-to-top__icon {
+    margin-left: -14px; // 1, 2
+}

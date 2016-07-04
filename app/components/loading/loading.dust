@@ -1,0 +1,6 @@
+<div class="c-loading {class}">
+    <div class="c-loading__item c--1"></div>
+    <div class="c-loading__item c--2"></div>
+    <div class="c-loading__item c--3"></div>
+    <p class="u-visually-hidden">Loading...</p>
+</div>

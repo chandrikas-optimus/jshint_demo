@@ -1,0 +1,69 @@
+<div class="u-margin-bottom-lg">
+    {tooltip}
+</div>
+
+<div class="c-grid c--4up c--gutters u-margin-bottom-lg {addToCartClass}">
+    {#swatches}
+        <div class="c-grid__span">
+            {>"components/swatches-label/swatches-label" swatchClass="c--full"/}
+        </div>
+    {/swatches}
+</div>
+
+<div class="u-margin-bottom-lg">
+    {#options}
+        <div class="js-configurator-option u-text-capitalize {addToCartClass}">
+            <div class="c-field c--condensed">
+                <div class="c-field__input">
+                    <label class="c-label">
+                        {selectLabel}
+                        <span class="u-text-warning">*</span>
+                    </label>
+                    {>"components/select/select" class="c--condensed"/}
+                </div>
+            </div>
+        </div>
+    {/options}
+</div>
+
+<div class="u-margin-bottom-lg">
+    {?personalize}
+        <a class="js-section-personalize-btn c-action {addToCartClass}" {?.href}href="{.href}"{/.href}>
+            {?personalize.button}
+                {personalize.button}
+            {:else}
+            <label class="c-action__label">
+                Personalize <span class="u-text-warning">*</span>
+            </label>
+            {/personalize.button}
+
+            <div class="c-action__arrow">
+                {@icon name="arrow-forward" class="c-button__icon" /}
+            </div>
+        </a>
+    {/personalize}
+</div>
+
+{?warning}
+    <div class="c-arrange u-margin-bottom-lg u-text-soft">
+        <div class="c-arrange__item c--shrink">
+            {@icon name="warning" class="c--small" /}
+        </div>
+
+        <div class="c-arrange__item u-padding-top-md u-text-size-xsmall">
+            {warning}
+        </div>
+    </div>
+{/warning}
+
+<div class="js-section-errors u-margin-bottom-lg u-text-warning" hidden></div>
+
+<div class="u-border-top u-padding u-padding-top u-bleed-horizontal">
+    <div class="c-arrange c--gutters">
+        {#navigationButtons}
+            <div class="c-arrange__item">
+                <button class="c-button c--small c--full-width {buttonClass}" type="button" {?isDisabled}disabled{/isDisabled}>{buttonLabel}</button>
+            </div>
+        {/navigationButtons}
+    </div>
+</div>

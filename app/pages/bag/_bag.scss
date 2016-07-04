@@ -1,0 +1,85 @@
+// Bag / Cart
+// ===
+//
+// 1. So we're able to apply a bottom margin to it.
+// 2. Align icon with top of text and edge of container
+// 3. To keep tooltip button inside the box.
+
+.t-bag {
+    [class*='checkout-with-paypal-button'] {
+        border-color: darken($dark-brand-color, 5%);
+
+        background: $dark-brand-color;
+    }
+
+    .c-product-summary__heading {
+        display: block; // 1
+    }
+}
+
+.t-bag__promo-tooltip {
+    position: relative;
+
+    .c-label {
+        padding-right: $unit*3;
+    }
+}
+
+.t-bag__promo-tooltip-button {
+    position: absolute;
+    top: 0;
+    right: 0; // 2
+}
+
+.t-bag__gift-tooltip-button {
+    position: relative;
+
+    display: block;
+}
+
+.t-bag__promo-code {
+    .edit-promo {
+        display: flex;
+
+        font-weight: bold;
+    }
+
+    .label-promo-code {
+        flex: 1;
+    }
+
+    .edit-promo-link {
+        @extend %c-button;
+
+        min-height: auto;
+        padding: 0;
+    }
+}
+
+
+// Page loading
+// ---
+
+.t-bag__page-loading {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: $orchestra-layer;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    .c-loading {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        left: 0;
+        z-index: $frontrow-layer;
+
+        display: block;
+        margin: 0;
+
+        text-align: center;
+    }
+}

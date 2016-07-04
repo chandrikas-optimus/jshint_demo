@@ -1,0 +1,454 @@
+{!--
+Please try and keep the components in an alphabetical order
+A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+--!}
+
+<article class="almanac__item almanac--space-child" id="typography">
+    {>"templates/typography"/}
+</article>
+
+<article class="almanac__item almanac--space-child" id="accordion">
+    <div class="c-accordion bellows js-bellows">
+        {#accordion}
+            {>"components/accordion/accordion-item"/}
+        {/accordion}
+    </div>
+
+    <div class="c-accordion c--bordered bellows js-bellows">
+        {#accordion}
+            {>"components/accordion/accordion-item"/}
+        {/accordion}
+    </div>
+</article>
+
+<article class="almanac__item almanac--space-child" id="action">
+    {#action}
+        {>"components/action/action"/}
+    {/action}
+</article>
+
+<article class="almanac__item almanac--space-child" id="alert">
+    {#alert}
+        {>"components/alert/alert":. /}
+    {/alert}
+</article>
+
+<article class="almanac__item almanac--space-child almanac--no-padding" id="autocomplete">
+    {#autocomplete}
+        {>"components/autocomplete/autocomplete":. /}
+    {/autocomplete}
+</article>
+
+<article class="almanac__item almanac--space-child" id="back-to-top">
+    {>"components/back-to-top/back-to-top"/}
+</article>
+
+<article class="almanac__item almanac--space-child" id="badge">
+    {>"components/badge/badge" label="I am used for notifications!"/}
+</article>
+
+
+
+<article class="almanac__item almanac--space-child" id="breadcrumbs">
+    {>"components/breadcrumbs/breadcrumbs"/}
+</article>
+
+
+
+<article class="almanac__item almanac--space-child" id="bullet-list">
+    <p class="c-note">Un-ordered lists without these component classes are left unstyled, <strong>unless</strong> they are inside a <code>c-text-content</code> wrapper.</p>
+    <ul class="c-bullet-list">
+        <li class="c-bullet-list__item">Something</li>
+        <li class="c-bullet-list__item">Something Else</li>
+        <li class="c-bullet-list__item">The Nose Knows</li>
+    </ul>
+</article>
+
+<article class="almanac__item almanac--space-child" id="button">
+    <div><button type="button" class="c-button">Standard Button</button></div>
+    <div><button type="button" class="c-button c--outline">Outline Button</button></div>
+    <div><button type="button" class="c-button c--outline c--neutral">Outline and Neutral Button</button></div>
+    <div><button type="button" class="c-button c--small">Small Button</button></div>
+    <div><button type="button" class="c-button c--small c--outline c--strip">Small, Outline, and Strip Button</button></div>
+    <div><button type="button" class="c-button c--plain">Plain Button</button></div>
+    <div><button type="button" class="c-button c--plain c--brand c--plus u-text-weight-bold">Plain Brand Button</button></div>
+    <div><button type="button" class="c-button c--disabled">Disabled Button</button></div>
+    <div><button type="button" class="c-button c--full-width">Full-Width Button</button></div>
+    <div><button type="button" class="c-button c--full-width">
+        With Icon {@icon name="arrow-forward" class="c-button__icon" /}
+    </button></div>
+    <div><button type="button" class="c-button c--full-width">
+        With Icon and tons of text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor {@icon name="arrow-forward" class="c-button__icon" /}
+    </button></div>
+    <div><button type="button" class="c-button c--full-width">
+        {@icon name="arrow-backward" class="c-button__icon" /} With Icon and tons of text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+    </button></div>
+    <div><button type="button" class="c-button c--large">Large Button</button></div>
+    <div><button type="button" class="c-button c--success">
+        {@icon name="checkmark" class="c-button__icon" /}
+        Added To Shopping Bag
+    </button></div>
+    <div><button type="button" class="c-button c--full-width">
+        {>"components/loading/loading" class="c--small"/}
+    </button></div>
+    <div><button type="button" class="c-button">
+        {@icon name="checkmark" class="c-button__icon" /}
+        Added To Shopping Bag
+    </button></div>
+</article>
+
+<article class="almanac__item" id="check-radio">
+    {#checkRadio}
+        {>"components/check-radio/check-radio":. /}
+    {/checkRadio}
+</article>
+
+<article class="almanac__item almanac--space-child" id="divider">
+    <div>
+        <p class="c-note">Default (dashed)</p>
+        <hr class="c-divider" />
+    </div>
+
+    <div>
+        <p class="c-note"><code>c--solid</code></p>
+        <hr class="c-divider c--solid" />
+    </div>
+
+    <div>
+        <p class="c-note"><code>c--double</code></p>
+        <hr class="c-divider c--double" />
+    </div>
+</article>
+
+<article class="almanac__item almanac--space-child" id="drawer">
+    <div class="c-drawer c--from-left u-padding-all" style="max-height: 400px;">
+        <h2>This is a drawer</h2>
+        <br />
+        <h3>Theme: (default)</h3>
+        <br />
+        <h3>Modifier: <code>c--from-left</code></h3>
+        <br />
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <br />
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <br />
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+
+    <div class="c-drawer c--pink c--from-right u-padding-all" style="max-height: 400px;">
+        <h2>This is a drawer</h2>
+        <br />
+        <h3>Theme: <code>c--pink</code></h3>
+        <br />
+        <h3>Modifier: <code>c--from-right</code></h3>
+        <br />
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <br />
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <br />
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+</article>
+
+<article class="almanac__item almanac--space-child" id="error-text">
+    {#errorText}
+        {>"components/error-text/error-text"/}
+    {/errorText}
+</article>
+
+<article class="almanac__item almanac--space-child" id="featured-image">
+    {#featuredImage}
+        {>"components/featured-image/featured-image"/}
+    {/featuredImage}
+</article>
+
+<article class="almanac__item" id="field-row">
+    {#fieldRow}
+        {>"components/field-row/field-row" /}
+    {/fieldRow}
+</article>
+
+<article class="almanac__item almanac--space-child" id="flip">
+    {>"components/flip/flip" /}
+    <button type="button" name="button" class="js-toggle-flip u-text-brand">Toggle the Flip Component</button>
+</article>
+
+<article class="almanac__item almanac--space-child" id="icon">
+    {>"templates/icons"/}
+</article>
+
+<article class="almanac__item almanac--space-child" id="icon-label">
+    {#iconLabel}
+        {>"components/icon-label/icon-label"/}
+    {/iconLabel}
+</article>
+
+<article class="almanac__item almanac--space-child" id="ledger">
+    {#ledger}
+        {>"components/ledger/ledger" /}
+    {/ledger}
+</article>
+
+<article class="almanac__item almanac--space-child" id="list-item">
+    <p class="c-note"><strong>Note:</strong> To be used in conjunction with <code>c-stack</code></p>
+    <ul class="c-stack">
+        {#listItem}
+            <li class="c-stack__item c--small">
+                {>"components/list-item/list-item"/}
+            </li>
+        {/listItem}
+    </ul>
+
+    <ul class="c-stack" style="background-color: #5C8745; color: white;">
+        {#listItem}
+            <li class="c-stack__item c--small">
+                {>"components/list-item/list-item"/}
+            </li>
+        {/listItem}
+    </ul>
+</article>
+
+<article class="almanac__item almanac--space-child" id="loading">
+    {>"components/loading/loading"/}
+    {>"components/loading/loading" class="c--large"/}
+</article>
+
+<article class="almanac__item almanac--space-child" id="logo">
+    <div>{>"components/logo/logo" class="c--full-width"/}</div>
+    <div>{>"components/logo/logo"/}</div>
+    <div>{>"components/logo/logo" class="c--small"/}</div>
+</article>
+
+<article class="almanac__item" id="modal">
+    {#modal}
+        <div style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);">
+            {>"components/modal/modal" /}
+        </div>
+    {/modal}
+</article>
+
+<article class="almanac__item almanac--space-child" id="option-blocks">
+    {#optionBlocks}
+        {>"components/option-blocks/option-blocks"/}
+    {/optionBlocks}
+</article>
+
+<article class="almanac__item" id="pagination">
+    {#pagination}
+        {>"components/pagination/pagination"/}
+    {/pagination}
+</article>
+
+<article class="almanac__item almanac--space-child" id="price">
+    <div>
+        <div class="c-price">
+            <ins class="c-price__sale">$50.00</ins>
+            <del class="c-price__original">$75.00</del>
+        </div>
+    </div>
+    <div>
+        <div class="c-price">
+            <span class="c-price__retail">Starting at $55.00</span>
+        </div>
+    </div>
+</article>
+
+<article class="almanac__item almanac--no-padding" id="product-summary">
+    <div class="c-stack u-padding-all">
+        {#productSummary}
+            <div class="c-stack__item c--medium">
+                {>"components/product-summary/product-summary":./}
+            </div>
+        {/productSummary}
+    </div>
+
+    <div class="c-stack u-padding-all" style="color: white; background-color: #824565;">
+        {#productSummary}
+            <div class="c-stack__item c--medium">
+                {>"components/product-summary/product-summary":./}
+            </div>
+        {/productSummary}
+    </div>
+</article>
+
+<article class="almanac__item almanac--space-child" id="ratio">
+    <div class="c-ratio" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2); width: 50%; margin-left: auto; margin-right: auto;">
+        <div class="c-ratio__item" style="display: flex; align-items: center; justify-content: center;">
+            1:1
+        </div>
+    </div>
+
+    <div class="c-ratio c--4by5" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2); width: 50%; margin-left: auto; margin-right: auto;">
+        <div class="c-ratio__item" style="display: flex; align-items: center; justify-content: center;">
+            4:5
+        </div>
+    </div>
+
+    <div class="c-ratio c--4by3" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2); width: 50%; margin-left: auto; margin-right: auto;">
+        <div class="c-ratio__item" style="display: flex; align-items: center; justify-content: center;">
+            4:3
+        </div>
+    </div>
+
+    <div class="c-ratio c--16by9" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2); width: 50%; margin-left: auto; margin-right: auto;">
+        <div class="c-ratio__item" style="display: flex; align-items: center; justify-content: center;">
+            16:9
+        </div>
+    </div>
+</article>
+
+<article class="almanac__item almanac--space-child" id="reveal">
+    <p class="c-note">The reveal component disappears as it reveals the hidden comment. Optionally, it can provide a "Hide" button after the content has been revealed.</p>
+    {#reveal}
+        {>"components/reveal/reveal":. /}
+    {/reveal}
+</article>
+
+<article class="almanac__item almanac--space-child" id="scroller">
+    <p class="c-note">Slideshow inside scroller component</p>
+    {>"components/scroller/scroller":./}
+</article>
+
+<article class="almanac__item almanac--space-child almanac--no-padding" id="search">
+    {>"components/search/search" value="search or catalog #" /}
+</article>
+
+<article class="almanac__item almanac--space-child" id="section">
+    <div class="c-section">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <br />
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+
+    <div class="c-section c--no-padding">
+        <p class="c-note"><strong>Note:</strong> Padding can be removed with <code>c--no-padding</code></p>
+    </div>
+</article>
+
+<article class="almanac__item almanac--space-child" id="select">
+    {#select}
+        {>"components/select/select":. /}
+    {/select}
+</article>
+
+<article class="almanac__item" id="sheet">
+    {#sheet}
+        <div style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);">
+            {>"components/sheet/sheet" /}
+        </div>
+    {/sheet}
+</article>
+
+<article class="almanac__item almanac--space-child" id="stack">
+    <div class="c-stack">
+        <div class="c-stack__item">Stack different kinds of content, which adds space between them</div>
+        <div class="c-stack__item">Stack different kinds of content, which adds space between them</div>
+        <div class="c-stack__item">Stack different kinds of content, which adds space between them</div>
+    </div>
+
+    <div class="c-stack c--ruled">
+        <div class="c-stack__item">Optionally, the Stack can be given borders to appear between them</div>
+        <div class="c-stack__item">Optionally, the Stack can be given borders to appear between them</div>
+        <div class="c-stack__item">Optionally, the Stack can be given borders to appear between them</div>
+    </div>
+
+    <div class="c-stack c--ruled">
+        <div class="c-stack__item c--small">Optionally, the stack can have smaller spacing</div>
+        <div class="c-stack__item c--small">Optionally, the stack can have smaller spacing</div>
+        <div class="c-stack__item c--small">Optionally, the stack can have smaller spacing</div>
+    </div>
+
+    <div class="c-stack c--ruled">
+        <div class="c-stack__item c--xlarge">Optionally, the stack can have larger spacing</div>
+        <div class="c-stack__item c--xlarge">Optionally, the stack can have larger spacing</div>
+        <div class="c-stack__item c--xlarge">Optionally, the stack can have larger spacing</div>
+    </div>
+
+    <div class="c-stack c--dashed">
+        <div class="c-stack__item">Optionally, the stack can have dashed borders</div>
+        <div class="c-stack__item">Optionally, the stack can have dashed borders</div>
+        <div class="c-stack__item">Optionally, the stack can have dashed borders</div>
+    </div>
+</article>
+
+<article class="almanac__item almanac__space-child" id="star-rating">
+    {#starRating}
+        {>"components/star-rating/star-rating"/}
+    {/starRating}
+</article>
+
+<article class="almanac__item" id="stepper">
+    {>"components/stepper/stepper"/}
+</article>
+
+<article class="almanac__item" id="steps">
+    {#steps}
+        {>"components/steps/steps"/}
+    {/steps}
+</article>
+
+<article class="almanac__item" id="swatches">
+    {#swatches}
+        {>"components/swatches/swatches"/}
+    {/swatches}
+</article>
+
+<article class="almanac__item" id="swatches-label">
+    <p class="c-note">You will need to also use margin and padding utilities in order to get the proper spacing around the edge gradient and the first-second tile. Or perhaps create a modifier?</p>
+    {#swatchesLabel}
+        {>"components/scroller/scroller"/}
+    {/swatchesLabel}
+</article>
+
+<article class="almanac__item almanac--space-child" id="tabs">
+    {#tabs}
+        {>"components/tabs/tabs":. /}
+    {/tabs}
+</article>
+
+<article class="almanac__item" id="table">
+    {#table}
+        {>"components/table/table"/}
+    {/table}
+</article>
+
+<article class="almanac__item" id="table-scroller">
+
+    {>"components/table-scroller/table-scroller"/}
+
+</article>
+
+<article class="almanac__item almanac--space-child" id="tag">
+    <span class="c-tag c--light">Spring Forward</span>
+    <span class="c-tag c--dark">Build A Treehouse</span>
+</article>
+
+<article class="almanac__item almanac--space-child" id="text-content">
+    <p class="c-note">Text content styles tag elements in a way that matches their component equivilent in absence of any component classes, or styles tags to have appropriate levels of margins that they would otherwise be lacking.</p>
+    <p class="c-note">You can think of the <code>c-text-content</code> component as a way of creating a designated WYSIWYG zone.</p>
+    <div class="c-text-content">
+        <h1>Level 1 Heading</h1>
+        <h2>Level 2 Heading</h2>
+        <h3>Level 3 Heading</h3>
+        <h4>Level 4 Heading</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+        <ul>
+            <li>Look Ma, no classes!</li>
+            <li>Look Ma, no classes!</li>
+            <li>Look Ma, no classes!</li>
+        </ul>
+    </div>
+</article>
+
+<article class="almanac__item" id="tile">
+    {#tile}
+        {>"components/tile/tile"/}
+    {/tile}
+</article>
+
+<article class="almanac__item" id="zoom">
+    <div style="position: relative; height: 100px;">
+        {>"components/zoom/zoom"/}
+    </div>
+</article>

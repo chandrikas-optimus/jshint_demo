@@ -1,0 +1,3 @@
+<a class="c-back-to-top js-to-top">
+    {@icon name="arrow-upward" class="c-back-to-top__icon" /} Back to Top
+</a>

@@ -1,0 +1,49 @@
+{>"global/base"/}
+
+{<contentBlock}
+    <div class="t-my-account__body">
+
+        <h1 class="c-heading c--1 u-text-align-center u-padding-top u--loose u-margin-bottom-xlg u-text-capitalize">
+            {.pageTitle}
+        </h1>
+
+        {?passwordResetText}
+            <p class="c-arrange c--align-middle u-text-brand u-padding">
+                {@icon name="checkmark" class="t-account-change-email__checkmark"/}
+                <span>{passwordResetText}</span>
+            </p>
+        {/passwordResetText}
+
+        {#intro}
+            {@element el=. addClass="u-padding u-margin-bottom-lg" /}
+        {/intro}
+
+        <ul class="c-stack c--ruled c--full-padding u-border-top u-border-bottom u-margin-bottom-xlg">
+            {#links}
+                <li class="c-stack__item c--small u-text-capitalize u-padding-left u--tiny">
+                    {>"components/list-item/list-item":. class="c--small c--default-fonts"/}
+                </li>
+            {/links}
+        </ul>
+
+        {?signOutButton}
+            <div class="u-padding u-margin-bottom-lg">
+                {@element el=.signOutButton addClass="c-button c--full-width c--outline js-sign-out-button"/}
+            </div>
+        {/signOutButton}
+
+    </div>
+{/contentBlock}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/my-account/my-account-ui.js
+    (function(require) {
+        require(["global/ui", "pages/my-account/my-account-ui"], function(globalUI, myAccountUI) {
+            globalUI();
+            myAccountUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}

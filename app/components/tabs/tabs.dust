@@ -1,0 +1,18 @@
+<div class="c-tabs {class}">
+    {>"components/tabs/partials/tab-controls"/}
+
+    <div class="c-tabs__body" aria-controls="c-tab-controls">
+        {#tabs}
+            <section id="{.id}" class="c-tabs__content {.class} c--{.labelId}" role="tabpanel" aria-labelledby="{.labelId}"  aria-hidden="{.hidden}">
+                <h2 class="u-visually-hidden">{.title}</h2>
+                {#content}
+                    {?contentTemplate}
+                        {>"{contentTemplate}"/}
+                    {:else}
+                        {.}
+                    {/contentTemplate}
+                {/content}
+            </section>
+        {/tabs}
+    </div>
+</div>

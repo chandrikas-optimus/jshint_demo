@@ -1,0 +1,20 @@
+{?link}
+    {link|openTag|s} {! We want to preserve all the attributes of the <a> tag !}
+        <div class="c-icon-label {class}">
+            {#icon}
+                {@icon name=. /}
+            {/icon}
+
+            {link|innerHTML|s}
+        </div>
+    {link|closeTag|s}
+{:else}
+    <div class="c-icon-label {.class}">
+        {@icon name=icon/}
+        {?noWrapper}
+            {text}
+        {:else}
+            <span class="c-icon-label__label">{text}</span>
+        {/noWrapper}
+    </div>
+{/link}

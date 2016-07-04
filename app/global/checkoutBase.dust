@@ -1,0 +1,12 @@
+{>"global/base"/}
+
+{<header}
+    {>"global/includes/checkout-header/checkout-header"/}
+{/header}
+
+{<footer}
+    {!-- Custom "Return to cart" sheet --!}
+    {>"components/sheet/sheet" effect="modalCenter" cssClass="c--dialog" class="js-custom-return-modal" /}
+
+    {>"global/includes/checkout-footer/checkout-footer"/}
+{/footer}

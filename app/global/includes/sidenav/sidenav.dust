@@ -1,0 +1,5 @@
+{#sidenav}
+    {#sidenav}
+        {>"components/sheet/sheet" class="js-sidebox-nav" effect="sheetBottom" coverage="100%"/}
+    {/sidenav}
+{/sidenav}

@@ -1,0 +1,43 @@
+// Tables
+// ===
+
+table {
+    @extend %c-table;
+
+    border-collapse: collapse;
+    width: 100%;
+    margin: $unit 0;
+}
+
+th {
+    padding: $unit 0;
+    border-bottom: 1px solid darken($border-color, 15%);
+
+    font-weight: bold;
+    text-align: left;
+}
+
+td {
+    padding: $unit 0;
+    border-bottom: $border;
+}
+
+th,
+td {
+    @extend %c-table__data;
+}
+
+tr,
+td,
+th {
+    vertical-align: middle;
+}
+
+
+thead {
+    @extend %c-table__header;
+}
+
+tbody {
+    @extend %c-table__body;
+}

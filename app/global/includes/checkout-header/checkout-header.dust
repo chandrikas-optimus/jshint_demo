@@ -1,0 +1,26 @@
+{#header}
+    <header class="t-checkout-header" role="banner">
+
+        <div class="t-checkout-header__top c-arrange c--justify-between c--align-middle u-padding">
+            <a href="{logoLink}" class="t-checkout-header__logo c-arrange__item c--shrink">
+                <h1 class="u-visually-hidden">Chasing Fireflies</h1>
+                {>"components/logo/logo" class="u-align-middle" /}
+            </a>
+            <div class="c-arrange c--align-middle">
+                {@icon name="password" title="Secure Icon" /}
+                <div class="u-text-size-xxsmall">
+                    <p>Secure Checkout</p>
+                    <p>{phoneNumber}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="t-checkout-header__bottom">
+            <div class="t-checkout-header__progress-label">{progressBarTitle}</div>
+            {#progressBar}
+                {>"components/checkout-steps/checkout-steps"/}
+            {/progressBar}
+        </div>
+
+    </header>
+{/header}

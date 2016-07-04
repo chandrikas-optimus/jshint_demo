@@ -1,0 +1,76 @@
+@charset 'UTF-8';
+
+// Variables
+// ---
+//
+// Variables are scaffolded from github.com/mobify/vellum
+
+@import 'global/styles/variables';
+
+
+// Vendor
+// ---
+
+@import "global/styles/vendor";
+
+
+// Animations
+// ---
+
+@import 'global/styles/animations';
+
+
+// Sass utilities
+// ---
+//
+// Libraries of mixins/functions
+
+@import 'global/styles/utilities';
+
+
+// Base
+// ---
+//
+// Default styles for html elements.
+
+// Normalize styles across mobile browsers using github.com/mobify/level
+@import 'level/level';
+
+// Provides a base for look and feel; alter as needed.
+// Base styles are generated from github.com/mobify/vellum
+@import 'global/styles/base';
+
+
+// Components
+// ---
+//
+// Styles for a set of reusable, composable UI modules. These are the building
+// blocks for a site, and should comprise the bulk of the styles.
+
+@import "global/styles/components";
+
+
+// Page styles
+// ---
+//
+// Page-specific styles. Can be used for layout and – sparingly – for
+// page-specific tweaks.
+
+@import "global/styles/pages";
+
+
+// Overrides
+// ---
+//
+// These overrides are for styling components and templates (pages) that need to
+// be pulled in to the site as-is or cannot be placed in their original location
+// (such as bower components).
+
+@import 'global/styles/overrides/desktop';
+
+
+// Modules
+// ---
+
+@import 'global/styles/modules';
+

@@ -1,0 +1,31 @@
+{#footer}
+    <footer class="t-footer__checkout u-margin-top-lg u-margin-bottom-lg" role="contentinfo">
+        {! NOTE: hasReturnButton defaults to false, set to true as needed in individual checkout pages !}
+
+        {?hasReturnButton}
+            <div class="u-padding">
+
+                <button type="button" class="c-button c--outline c--full-width u-margin-bottom-lg u-text-transform-initial js-custom-return-modal__trigger">Return to Shopping Bag</button>
+
+                {!-- Set to a JS function string on individual checkout pages --!}
+                {?returnButtonAction}
+                    <div class="u-visually-hidden js-custom-return-action">
+                        {returnButtonAction}
+                    </div>
+                {/returnButtonAction}
+
+            </div>
+        {/hasReturnButton}
+
+        <hr class="c-divider c--solid c--grey c--no-margin u-margin-bottom-md" />
+
+        <div class="c-note u-text-align-center">
+            <small>{copyrightText}</small>
+
+            {! Required for source code to properly populate content !}
+            <div hidden>{sourceCodeHidden}</div>
+            <div>{sourceCode}</div>
+        </div>
+
+    </footer>
+{/footer}

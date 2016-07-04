@@ -1,0 +1,26 @@
+{#blockOption}
+<div class="c-block-option {optionClass}">
+    <div class="c-block-option__input">
+        {optionInput}
+    </div>
+    {#optionSwatch}
+    <div class="c-block-option__swatch">
+        {>"components/swatch/swatch" /}
+    </div>
+    {/optionSwatch}
+    <div class="c-block-option__label-container">
+        {optionLabel}
+        {?optionPrice}- {optionPrice}{/optionPrice}
+        {?optionMessage}
+        <div class="c-block-option__message">
+            {optionMessage}
+        </div>
+        {/optionMessage}
+    </div>
+    {#optionIcon}
+    <div class="c-block-option__icon">
+        {>"components/icon/icon" /}
+    </div>
+    {/optionIcon}
+</div>
+{/blockOption}

@@ -1,0 +1,61 @@
+{>"global/base"/}
+
+{<contentBlock}
+    <div class="u-padding">
+        {>"global/partials/gift-registry/manage-registry"/}
+
+        {>"components/add-to-cart/partials/cart-alert"/}
+        {>"components/sheet/sheet" effect="sheetBottom" class="js-generic-pinny" coverage="100%" /}
+    </div>
+
+    <div hidden>
+        {hiddenForms}
+        {hiddenLabels}
+        {wishlistLink}
+        {registryConfirmationData}
+    </div>
+
+    <div class="js-select-registry-list" hidden>
+        <div class="c-stack u-margin-top-sm">
+            {#chooseRegistry.registries}
+                <div class="c-stack__item">
+                    <a href="{href}" class="u-display-block u-text-black-link {class}" {?value}data-value={value}{/value}>{label}</a>
+                </div>
+            {/chooseRegistry.registries}
+        </div>
+    </div>
+
+    {>"components/sheet/sheet"
+        effect="sheetBottom"
+        class="js-reg-nav-pinny"
+        coverage="100%"
+        headerContent=chooseRegistry.label/}
+
+    {>"components/sheet/sheet"
+        effect="sheetBottom"
+        class="js-dialog-box-pinny"
+        coverage="100%"/}
+
+    {>"components/sheet/sheet"
+        effect="modalCenter"
+        cssClass="c--dialog"
+        class="js-registry-confirmation-pinny" /}
+
+    {>"components/sheet/sheet"
+        effect="modalCenter"
+        cssClass="c--dialog"
+        class="js-product-details-pinny" /}
+{/contentBlock}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/gift-registry-manage/ui.js
+    (function(require) {
+        require(["global/ui", "pages/gift-registry-manage/gift-registry-manage-ui"], function(globalUI, giftRegistryManageUI) {
+            globalUI();
+            giftRegistryManageUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}

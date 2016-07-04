@@ -1,0 +1,224 @@
+{#paymentForm}
+    <div class="u-bleed-horizontal u-margin-top-xlg u-margin-bottom-sm">
+        <hr class="c-divider c--solid c--grey">
+    </div>
+
+    {?shipToMutipleAddresses}
+        {shipToMutipleAddresses}
+    {/shipToMutipleAddresses}
+
+    <h2 class="u-margin-top-md u-margin-bottom-lg">Payment Information</h2>
+
+    <div>
+        {#billingAddress}
+            <div class="u-margin-bottom-lg">
+                {>"components/address-card/address-card"/}
+            </div>
+        {/billingAddress}
+
+        {form|openTag|s}
+            {hiddenInputs}
+
+            <div class="js-card-type" hidden>
+                {#paymentMethod}
+                    {label}
+
+                    {select}
+                {/paymentMethod}
+            </div>
+            <div class="u-border u-margin-bottom-md" hidden>
+                {#creditCardPaymentType}
+                    <div class="c-block-option js-form-toggle" data-target=".js-cc-form">
+                        <div class="c-block-option__input">
+                            {input}
+                        </div>
+                        <div class="c-block-option__label">
+                            {label}
+                        </div>
+                    </div>
+                {/creditCardPaymentType}
+                {#paypalPaymentType}
+                    <div class="c-block-option js-form-toggle" hidden>
+                        <div class="c-block-option__input">
+                            {input}
+                        </div>
+                        <div class="c-block-option__label">
+                            {label}
+                            {tooltipLink|openTag|s}
+                                {@icon name="ask" /}
+                            {tooltipLink|closeTag|s}
+                        </div>
+                    </div>
+                {/paypalPaymentType}
+            </div>
+
+            <div class=" u-margin-bottom-md js-cc-form js-form-container">
+                <div class="c-field-row">
+                    {#ccNumber}
+                        <div class="c-field">
+                            {label}
+
+                            <div class="c-field__credit-card u-margin-top-sm js-cc-input-container {?cardType}c--{cardType}{/cardType}">
+                                <div class="c-input js-cc-input">
+                                    {@icon name="payment" class="" /}
+
+                                    {inputScript}
+                                </div>
+                            </div>
+                        </div>
+                    {/ccNumber}
+                </div>
+                <div class="c-field-row">
+                    {#cardID}
+                        <div class="c-field">
+                            <div class="c-field__input">
+                                <div class="c-field__hint">
+                                    <a aria-role="button" class="c-button c--plain c--no-min-height  u-padding-none js-ccID-trigger">{@icon name="ask--no-whitespace--thick" class="c--tiny u-text-brand u-align-middle"/}</a>
+                                </div>
+
+                                {@element el=.label addClass="c-label"/}
+
+                                <div class="u-margin-top-sm">
+                                    {@element el=.input/}
+                                    {@element el=cvvInput/}
+                                    {@element el=.inputScript/}
+                                </div>
+                            </div>
+                        </div>
+                    {/cardID}
+                </div>
+
+                {#expiry}
+                    <div class="c-field-row u-margin-bottom-lg">
+                        <div class="c-field">
+                            <div class="c-field__input">
+                                <label class="c-label">{label}</label>
+                                <div class="c-arrange c--gutters u-margin-top-sm">
+                                    <div class="c-arrange__item">
+                                        {>"components/select/select" select=month/}
+                                    </div>
+
+                                    <div class="c-arrange__item">
+                                        <div hidden>{yearLabel}</div>
+
+                                        {>"components/select/select" select=year/}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {/expiry}
+
+                {#saveCC}
+                    <div class="c-field-row u-margin-bottom-md">
+                        <div class="c-field c--check-radio">
+                            <div class="c-field__input">
+                                {>"components/check-radio/check-radio" /}
+                                {@element el=.label addClass="c-label"/}
+                            </div>
+                        </div>
+                    </div>
+                {/saveCC}
+
+                {#emailOptIn}
+                    {?input}
+                        <div class="c-field-row u-margin-bottom-md">
+                            <div class="c-field c--check-radio">
+                                <div class="c-field__input">
+                                    {>"components/check-radio/check-radio" /}
+                                    {@element el=.label addClass="c-label"/}
+                                </div>
+                            </div>
+                        </div>
+                    {/input}
+                {/emailOptIn}
+            </div>
+
+            {#ctas}
+                {container|openTag|s}
+                    <div class="js-desktop-place-order" hidden>
+
+                        {placeOrder}
+                    </div>
+                {container|closeTag|s}
+            {/ctas}
+        {form|closeTag|s}
+
+        <div class="t-checkout-review-and-payment__code-buttons u-margin-bottom-sm">
+            {#promoCodeForm}
+                {>"pages/checkout-review-and-payment/partials/small-form-with-apply"
+                    tooltipClass="js-promo-tooltip"
+                    contentClass="t-checkout-review-and-payment__promo-code" /}
+            {/promoCodeForm}
+
+            <hr class="c-divider c--grey c--no-margin">
+
+            {#giftCartForm}
+                {>"pages/checkout-review-and-payment/partials/small-form-with-apply" tooltipClass="js-gift-card-tooltip"
+                contentClass="c-section" /}
+            {/giftCartForm}
+        </div>
+
+        {#totals}
+            <div>
+                {?title}
+                    <p class="u-padding-bottom-sm u-text-weight-bold">{title}</p>
+                {/title}
+
+                {>"components/ledger/ledger"/}
+            </div>
+        {/totals}
+
+
+        <div hidden>
+            <a href="#" class="c-button c--plain c--brand c--plus u-padding-none u-text-weight-bold js-toggle" data-target=".js-field-container">Add a Special Date (optional)</a>
+
+            <div class="u-margin-top-xxlg u-margin-bottom-lg u-padding-sides-sm js-field-container" hidden>
+                {#specialDate}
+                    <p class="u-margin-bottom-sm u-text-size-small">{infoText}</p>
+
+                    <div class="c-field-row" id="{containerID}">
+                        <div class="c-field">
+                            <div class="c-field__calendar">
+                                {hiddenInput}
+
+                                {input}
+
+                                {button|openTag|s}
+                                    {@icon name="address" /}
+                                {button|closeTag|s}
+                            </div>
+                        </div>
+                    </div>
+                {/specialDate}
+            </div>
+        </div>
+
+        <hr class="c-divider c--grey c--no-margin" hidden>
+
+        {#birthdayReminders}
+        <div class="c-reveal u-padding-top-lg u-padding-bottom-lg">
+
+            <button class="c-reveal__trigger u-text-size-default u-text-capitalize c--show needsclick u-padding-top-0" type="button" style="opacity: 1;">+ {title}</button>
+
+            <div class="c-reveal__content c--is-hidden js-field-container t-checkout-review-and-payment__birthday-reminder" style="opacity: 0;" aria-hidden="true">
+                <h3 class="u-text-capitalize u-margin-bottom-md">{title}</h3>
+                <p>{infoText}</p>
+
+                {formContainer}
+
+                <button class="c-reveal__trigger u-padding-top-lg u-text-size-default u-text-capitalize c--hide needsclick" type="button">
+                    - Hide {title}
+                </button>
+
+            </div>
+        </div>
+        {/birthdayReminders}
+
+        <hr class="c-divider c--grey c--solid c--no-margin u-bleed-horizontal">
+
+        <div class="u-margin-top-lg js-place-order">
+            {ctas.placeOrderBottom}
+        </div>
+    </div>
+{/paymentForm}

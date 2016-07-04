@@ -1,0 +1,36 @@
+{@icon name="address"/}
+{@icon name="alert"/}
+{@icon name="arrow-backward"/}
+{@icon name="arrow-downward"/}
+{@icon name="arrow-forward"/}
+{@icon name="arrow-upward"/}
+{@icon name="ask"/}
+{@icon name="bag"/}
+{@icon name="checkmark"/}
+{@icon name="delete"/}
+{@icon name="favourite"/}
+{@icon name="history"/}
+{@icon name="info"/}
+{@icon name="mail"/}
+{@icon name="menu"/}
+{@icon name="minus"/}
+{@icon name="password"/}
+{@icon name="payment"/}
+{@icon name="plus"/}
+{@icon name="registry"/}
+{@icon name="search"/}
+{@icon name="settings"/}
+{@icon name="share"/}
+{@icon name="star"/}
+{@icon name="tag"/}
+{@icon name="user"/}
+{@icon name="warning"/}
+{@icon name="zoom"/}
+
+<hr>
+
+{@icon name="facebook"/}
+{@icon name="twitter"/}
+{@icon name="pinterest"/}
+{@icon name="instagram"/}
+{@icon name="google-plus"/}

@@ -1,0 +1,53 @@
+// Global Header
+// ===
+//
+// 1. CF-700: only apply border to header not global flip component, border only fix CF-615.
+
+.x-header {
+    border-bottom: $border;
+
+    .c-flip__face.c--back {
+        border-bottom: $border; // 1
+    }
+}
+
+
+// Cart Count
+// ---
+//
+// 1. Absolutely position this "cart count" relative to the parent `<button>`
+// 2. Center the number such that it sits inside the "bag" icon
+
+.x-header__cart-count {
+    position: absolute; // 1
+    top: 52%; // 2
+    left: 50%; // 2
+
+    color: $dark-brand-color;
+    font-weight: 300;
+    font-size: $small-font-size;
+
+    transform: translate(-50%, -50%); // 2
+}
+
+
+// Badge
+// ---
+//
+// 1. Absolutely position this "cart count" relative to the parent `<button>`
+// 2. Position the badge so it sits up and to the left of the bag icon
+
+.x-header__badge {
+    position: absolute; // 1
+    top: $sub-unit; // 2
+    left: $sub-unit; // 2
+}
+
+// Shade
+// ---
+//
+// 1. Don't cover header with search shade as it will block clicks.
+
+.x-header__shade {
+    top: $unit*7 !important; // 1
+}

@@ -1,0 +1,47 @@
+// Product Configurator
+// ===
+//
+// 1. Capitalize each new word.
+// 2. Hide desktop modal content until ready.
+// 3. Override inline styles
+
+.t-product-configurator {
+    [class*='gwt-InlineLabel'] {
+        display: inline-block; // 1
+
+        text-transform: capitalize; // 1
+
+        &:nth-child(2) {
+            margin-left: $unit;
+            padding-left: $unit;
+            border-left: $border;
+        }
+    }
+
+    [class*='gwt-DialogBox'] {
+        position: static !important;
+
+        display: none; // 2
+
+        &.js-ready {
+            display: block; // 2
+            overflow: hidden !important; // 3
+            width: 100% !important; // 3
+        }
+    }
+
+    [class*='gwt_price_as_shown_label'] {
+        color: $label-color;
+        font-size: $small-font-size;
+    }
+
+    .pinny__content {
+        .c-slideshow__slide {
+            width: 85px;
+        }
+    }
+}
+
+.t-product-configurator__preview-main-image {
+    border-bottom: $border;
+}

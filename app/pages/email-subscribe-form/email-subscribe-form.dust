@@ -1,0 +1,60 @@
+{>"global/base"/}
+
+{<contentBlock}
+    {?success}
+        {successContent}
+    {:else}
+        {#emailForm}
+            {form|openTag|s}
+                {hiddenInputs}
+
+                {?heading}
+                    <h2 class="u-margin-bottom-lg u-text-capitalize">{heading}</h2>
+                {/heading}
+
+                {?description}
+                    <p class="u-margin-bottom-lg">{description}</p>
+                {/description}
+
+                {?email}
+                    <div class="c-field-row">
+                        {>"components/field/field":.email/}
+                    </div>
+                {/email}
+
+                {?confirmEmail}
+                    <div class="c-field-row">
+                        {>"components/field/field":.confirmEmail/}
+                    </div>
+                {/confirmEmail}
+
+                <div class="c-field-row">
+                    {@element el=.button addClass="c-button c--full-width js-email-subscribe"/}
+                </div>
+            {form|closeTag|s}
+        {/emailForm}
+    {/success}
+{/contentBlock}
+
+{<header}{/header}
+
+{<footer}{/footer}
+
+{<nav}{/nav}
+
+{<minicart}{/minicart}
+
+{<otherGlobal}{/otherGlobal}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/email-subscribe-form/email-subscribe-form-ui.js
+    (function(require) {
+        require(["global/ui", "pages/email-subscribe-form/email-subscribe-form-ui"], function(globalUI, emailSubscribeFormUI) {
+            globalUI();
+            emailSubscribeFormUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}

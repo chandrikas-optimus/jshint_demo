@@ -1,0 +1,67 @@
+// Manage Gift Registry
+// ===
+
+.t-gift-registry-manage {
+
+    [id='gwt-product-addition-info-panel'] {
+        display: none !important;
+    }
+
+    [class*='gwt-shoppingcart-thumbnail-image'] {
+        margin: -2px 0;
+    }
+
+    [class*='GR_shippingChoices_panel'] {
+        margin: 0;
+
+        tr {
+            border-bottom: $border;
+        }
+
+        td {
+            display: flex;
+            align-items: center;
+            min-height: $tap-size;
+            padding: $unit*1.5;
+            border: 0;
+        }
+    }
+
+    [class*='facebookLike'] {
+        margin-top: -2px;
+    }
+
+    [class*='twitterShare'] {
+        width: 61px;
+    }
+
+    [class*='plusContent'] {
+        width: 60px;
+    }
+
+    .c-cart-item__name {
+        padding-right: 0;
+    }
+
+    .c-zoom {
+        width: $unit*4;
+        height: $unit*4;
+
+        &:not(.c--top-right)::after {
+            content: '';
+
+            position: absolute;
+            top: -6px; // 3
+            right: -6px; // 3
+            bottom: -6px; // 3
+            left: -6px; // 3
+
+            display: block;
+        }
+
+        .c-icon {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

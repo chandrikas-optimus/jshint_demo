@@ -1,0 +1,251 @@
+// Sheet
+// ===
+
+$header__tap-size: 46px;
+
+
+// The root
+// ---
+//
+// 1. Ensure that the sheet appears above everything!
+// 2. Remove transform
+
+.c-sheet,
+%c-sheet {
+    position: relative; // 1
+    z-index: $frontrow-layer; // 1
+
+    background-color: $neutral-10;
+
+    &.c--remove-transform {
+        transform: inherit !important; // 2
+    }
+
+    &.c--dark {
+        background-color: $neutral-80;
+
+        .pinny__title {
+            color: $neutral-10;
+        }
+
+        .pinny__close {
+            // scss-lint:disable NestingDepth
+            &:active {
+                background-color: $neutral-70;
+            }
+
+            // scss-lint:disable NestingDepth
+            .c-icon-svg {
+                fill: $neutral-10;
+            }
+        }
+    }
+
+    &.c--white-transparent {
+        background-color: rgba($white, 0.8);
+    }
+
+    &.c--black-transparent {
+        background-color: rgba($black, 0.6);
+    }
+
+    &.c--no-padding {
+        .pinny__content {
+            padding: 0;
+        }
+    }
+
+    &.c--link-list {
+        .pinny__content {
+            padding: $sub-unit $horizontal-padding;
+        }
+    }
+
+    // Flexible height
+    // This is very rough, feel free to improve
+    &.c--notice {
+        top: 20% !important;
+        bottom: auto !important;
+
+        max-height: 60%;
+    }
+}
+
+
+// Modifier: Dialog
+// ---
+//
+// 1. We want the content to dictate the background coverage, not the pinny section.
+// 2. We want the empty area under the dialog content to be clickable to dismiss the pinny.
+// 3. We need to re-attach the pointer-events to pinny wrapper so we can interact with its contents.
+// 4. Vertically center the dialog to the screen
+
+.c-sheet.c--dialog {
+    background: none; // 1
+
+    pointer-events: none; // 2
+
+    .pinny__wrapper {
+        position: absolute; // 4
+        top: 50%; // 4
+
+        width: 100%;
+        height: auto; // 1
+        max-height: 100%; // 1
+
+        background: $neutral-10; // 1
+
+        transform: translateY(-50%); // 4
+
+        pointer-events: auto; // 3
+    }
+
+
+    // Sheet Dialog Content Container
+    // ---
+
+    .pinny__content {
+        flex: 0 1 auto;
+    }
+}
+
+
+// Sheet: header
+// ---
+//
+// 1. Position cancel button
+
+.c-sheet__header,
+%c-sheet__header {
+    position: relative; // 1
+
+    min-height: $x-header__height;
+    border-bottom: $border;
+
+    .c--dark & {
+        border-color: $neutral-70;
+    }
+}
+
+
+// Sheet: title
+// ---
+//
+
+.c-sheet__title,
+%c-sheet__title {
+    display: block;
+    padding-top: $unit*2;
+    padding-right: $tap-size;
+    padding-bottom: $unit*2;
+    padding-left: $horizontal-padding;
+
+    color: $neutral-80;
+    font-size: $x-large-font-size;
+    line-height: 1;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+}
+
+
+// Sheet: header close
+// ---
+//
+// 1. less width to match design
+// 2. position in header
+// 3. CF-584: better alignment
+
+.c-sheet__header-close,
+%c-sheet__header-close {
+    position: absolute; // 2
+    top: 0;
+    right: 2px;
+
+    width: $tap-size;
+    height: $tap-size;
+    margin-top: $sub-unit;
+    padding: 0;
+    border: 0;
+
+    border-radius: 0;
+    background: transparent;
+
+    &:active {
+        background-color: $neutral-30;
+    }
+
+    .c-icon-svg {
+        fill: $neutral-80;
+    }
+}
+
+
+// Body
+// ---
+//
+// 1. Used to absolute position the iframe inside Pinny
+// 2. Force iframe to be the height of pinny content
+
+.c-sheet__body,
+%c-sheet__body {
+    padding: $vertical-padding $horizontal-padding;
+
+    &.c--bleed {
+        padding: 0;
+    }
+
+    &.c--iframe {
+        position: relative; // 1
+
+        iframe {
+            position: absolute; // 2
+            top: 0;
+            bottom: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+            padding: $unit $unit 0;
+        }
+    }
+}
+
+
+// Footer
+// ---
+
+.c-sheet__footer,
+%c-sheet__footer {
+    border-top: $border;
+}
+
+// Mask
+// ---
+.c-sheet__mask,
+%c-sheet__mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: $orchestra-layer;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    .c-loading {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        left: 0;
+        z-index: $frontrow-layer;
+
+        display: block;
+        margin: 0;
+
+        text-align: center;
+    }
+
+    input {
+        pointer-events: none;
+    }
+}

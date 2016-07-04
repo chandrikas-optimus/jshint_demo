@@ -1,0 +1,10 @@
+// Desktop Overrides
+// ====
+
+
+// Global error style
+// ---
+
+[class*='gwt-csb-error-panel'] {
+    color: $error-color;
+}

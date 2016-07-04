@@ -1,0 +1,47 @@
+{>"global/base"/}
+
+{<contentBlock}
+
+    <div class="js-error-messages" hidden>
+        {! No errors at the moment !}
+        {>"components/alert/alert"/}
+    </div>
+
+    {>"components/breadcrumbs/breadcrumbs"/}
+
+    {#pageTitle}
+       <h1 class="c-heading c--1 u-text-align-center u-padding-top-md u-margin-bottom-xlg u-text-capitalize">
+            {.}
+       </h1>
+    {/pageTitle}
+
+    {#intro}
+        {@element el=. addClass="u-padding u-margin-bottom-md" /}
+    {/intro}
+
+    {! Container for dynamic address list !}
+    <section class="u-padding u-margin-bottom-md js-address-book-list">
+        {>"components/loading/loading" class="c--placeholder"/}
+    </section>
+    <div hidden>
+        {@element el=.addressListContainer addClass="js-address-book-list-source" /}
+        {removeConfirmDialog}
+    </div>
+
+    {>"components/sheet/sheet" class="js-address-form-sheet" effect="sheetBottom" coverage="100%"/}
+    {>"components/sheet/sheet" class="js-address-remove-sheet" cssClass="c--notice" effect="modalCenter" coverage="90%"/}
+
+{/contentBlock}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/account-address-book/account-address-book-ui.js
+    (function(require) {
+        require(["global/ui", "pages/account-address-book/account-address-book-ui"], function(globalUI, accountAddressBookUI) {
+            globalUI();
+            accountAddressBookUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}

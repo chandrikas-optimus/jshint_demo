@@ -1,0 +1,69 @@
+// Swatches
+// ===
+
+$swatches-size: $tap-size;
+$swatches-small-size: $small-tap-size;
+$swatches-image-size: $unit*3;
+
+
+// Swatches Root
+// ---
+//
+// 1. Bleed: negative horizontal margins pull the swatch items into alignment
+//    along left and right edges.
+
+.c-swatches {
+    margin: 0 -(($swatches-size - $swatches-image-size)/2); // 1
+}
+
+
+// Swatches Item
+// ---
+
+.c-swatches__item {
+    position: relative;
+    float: left;
+
+    display: block;
+    overflow: hidden;
+    width: $swatches-size;
+    height: $swatches-small-size;
+
+    background-image: url('');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: $swatches-image-size $swatches-image-size;
+
+    &.c--more {
+        background-image: none; // 2
+    }
+}
+
+
+// Swatches Item: 'More' icon
+// ---
+
+.c-swatches__dots,
+.c-swatches__text {
+    position: absolute;
+    right: 0;
+    left: 0;
+
+    line-height: 1;
+    text-align: center;
+}
+
+.c-swatches__dots {
+    top: 0;
+
+    color: $neutral-80;
+    font-size: $x-large-font-size;
+    letter-spacing: 2px;
+}
+
+.c-swatches__text {
+    top: $sub-unit*5; // 20px
+
+    color: $neutral-50;
+    font-size: $xx-small-font-size;
+}

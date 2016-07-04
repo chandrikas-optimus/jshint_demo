@@ -1,0 +1,192 @@
+// Modal
+// ===
+//
+// The modal component is for a center-aligned (vertically and horizontally)
+// modal element with an option background. The modal has no header, but does
+// have a close button.
+
+$header__tap-size: 46px;
+
+
+// The root
+// ---
+//
+// 1. Ensure that the sheet appears above everything!
+// 2. Remove transform
+// 3. Absolutely position the pseudo background element relative to the
+//    parent `c-modal`
+
+.c-modal,
+%c-modal {
+    position: relative; // 1
+    z-index: $frontrow-layer; // 1
+
+    background-color: $neutral-10;
+
+    &.c--remove-transform {
+        transform: inherit !important; // 2
+    }
+
+    &.c--boxed {
+        top: 20% !important;
+        right: 5% !important;
+        bottom: 20% !important;
+        left: 5% !important;
+    }
+
+    &.c--fixed-size {
+        width: 80% !important;
+        height: 330px !important;
+    }
+
+    &.c--center {
+        left: 50% !important;
+
+        transform: translateX(-50%) !important;
+    }
+
+    &.c--white-transparent {
+        background-color: rgba($white, 0.8);
+    }
+
+    &.c--no-padding {
+        .pinny__content {
+            padding: 0;
+        }
+    }
+
+    &[style*='background-image'] {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+}
+
+
+// Modifier: Dialog
+// ---
+//
+// 1. We want the content to dictate the background coverage, not the pinny section.
+// 2. We want the empty area under the dialog content to be clickable to dismiss the pinny.
+// 3. We need to re-attach the pointer-events to pinny wrapper so we can interact with its contents.
+// 4. Vertically center the dialog to the screen
+
+// .c-modal.c--dialog {
+//     background: none; // 1
+//
+//     pointer-events: none; // 2
+//
+//     .pinny__wrapper {
+//         position: absolute; // 4
+//         top: 50%; // 4
+//
+//         width: 100%;
+//         height: auto; // 1
+//         max-height: 100%; // 1
+//
+//         background: $neutral-10; // 1
+//
+//         transform: translateY(-50%); // 4
+//
+//         pointer-events: auto; // 3
+//     }
+//
+//
+//     // Sheet Dialog Content Container
+//     // ---
+//
+//     .pinny__content {
+//         flex: 0 1 auto;
+//     }
+// }
+
+
+// Sheet: header
+// ---
+//
+// 1. Position cancel button
+// 2. Since there's no text in there header, fill this space to ensure nothing
+//    overlaps with the close button
+
+.c-modal__header,
+%c-modal__header {
+    position: relative; // 1
+
+    padding-top: $tap-size; // 2
+}
+
+
+// Sheet: header close
+// ---
+//
+// 1. less width to match design
+// 2. position in header
+// 3. Need the button to be above any absolutely positioned content that may
+//    cover it
+
+.c-modal__header-close,
+%c-modal__header-close {
+    position: absolute; // 2
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: $orchestra-layer; // 3
+
+    min-width: 36px; // 1
+    min-height: $header__tap-size;
+    padding: 0;
+    border: 0;
+
+    border-radius: 0;
+    background: transparent;
+
+    color: $link-color;
+
+    &:active {
+        background-color: $neutral-30;
+    }
+
+    .c-icon-svg {
+        fill: $neutral-80;
+    }
+}
+
+
+// Body
+// ---
+//
+// 1. Used to absolute position the iframe inside Pinny
+// 2. Force iframe to be the height of pinny content
+
+.c-modal__body,
+%c-modal__body {
+    padding: $vertical-padding $horizontal-padding;
+
+    &.c--bleed {
+        padding: 0;
+    }
+
+    &.c--iframe {
+        position: relative; // 1
+
+        iframe {
+            position: absolute; // 2
+            top: 0;
+            bottom: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+            padding: $unit $unit 0;
+        }
+    }
+}
+
+
+// Footer
+// ---
+
+.c-modal__footer,
+%c-modal__footer {
+    border-top: $border;
+}

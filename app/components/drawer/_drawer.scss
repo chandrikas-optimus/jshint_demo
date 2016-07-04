@@ -1,0 +1,40 @@
+// Drawer
+// ===
+//
+// A drawer is a container that slides in from off screen and is styled in a way
+// that gives the illusion that it is beneath the content it slid in with (i.e.
+// the main site content).
+//
+// The "shadow" (inset) defaults to the right side, can be set to the left.
+
+.c-drawer {
+    overflow: scroll;
+
+    background-image: url('../img/watercolour-nav.jpg');
+    background-size: cover;
+}
+
+
+// Direction
+// ---
+//
+// Set the direction from which the drawer is coming from. This determines what
+// side the "shadow" is on, and implies what direction the drawer animates.
+
+.c-drawer.c--from-left {
+    box-shadow: inset (-10px) 0 15px (-10px) rgba($black, 0.4);
+}
+
+.c-drawer.c--from-right {
+    box-shadow: inset 10px 0 15px (-10px) rgba($black, 0.4);
+}
+
+
+// Themes
+// ---
+//
+// Different background choices
+
+.c-drawer.c--pink {
+    background-image: url('../img/watercolour-cart.jpg');
+}

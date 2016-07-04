@@ -1,0 +1,21 @@
+<div>
+    {shipToStore}
+
+    {#shippingAddress}
+        {?shippingAddress}
+            <div class="u-margin-bottom-md">
+                {>"components/address-card/address-card" /}
+            </div>
+        {/shippingAddress}
+    {/shippingAddress}
+
+    <div class="t-checkout-review-and-payment__order-items">
+        {#orderItems}
+            <div class="t-checkout-review-and-payment__order-item">
+                {>"components/items-shipping/items-shipping"/}
+
+                <hr class="c-divider c--grey c--solid u-bleed-horizontal u-margin-top-xlg u-margin-bottom-xlg">
+            </div>
+        {/orderItems}
+    </div>
+</div>

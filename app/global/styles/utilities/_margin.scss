@@ -1,0 +1,141 @@
+// Vertical Margins
+//
+// Granular control over vertical spacing independent of a component.
+//
+// Suffixes:
+// 0:  none
+// sm: small
+// md: medium
+// lg: large
+
+.u-margin-top-0 {
+    margin-top: 0 !important;
+}
+
+.u-margin-top-sm {
+    margin-top: $sub-unit !important; // 4px
+}
+
+.u-margin-top {
+    margin-top: $unit !important; // 8px
+}
+
+.u-margin-top-md {
+    margin-top: $unit*1.5 !important; // 12px
+}
+
+.u-margin-top-lg {
+    margin-top: $unit*2 !important; // 16px
+}
+
+.u-margin-top-xlg {
+    margin-top: $unit*3 !important; // 24px
+}
+
+.u-margin-top-xxlg {
+    margin-top: $unit*4 !important; // 32px
+}
+
+.u-margin-bottom-0 {
+    margin-bottom: 0 !important;
+}
+
+.u-margin-bottom-sm {
+    margin-bottom: $sub-unit !important; // 4px
+}
+
+.u-margin-bottom {
+    margin-bottom: $unit !important; // 8px
+}
+
+.u-margin-bottom-md {
+    margin-bottom: $unit*1.5 !important; // 12px
+}
+
+.u-margin-bottom-lg {
+    margin-bottom: $unit*2 !important; // 16px
+}
+
+.u-margin-bottom-xlg {
+    margin-bottom: $unit*3 !important; // 24px
+}
+
+.u-margin-bottom-xxlg {
+    margin-bottom: $unit*4 !important; // 32px
+}
+
+.u-margin-bottom-neg {
+    margin-bottom: -$unit !important;
+}
+
+.u-margin-bottom-neg-lg {
+    margin-bottom: -$unit*2 !important;
+}
+
+.u-margin-top-neg {
+    margin-top: -$unit !important;
+}
+
+// Horizontal Margins
+//
+// Granular control over horizontal spacing independent of a component.
+//
+// `start` and `end` are writing-direction independent forms for `left` and
+// `right`. For right-to-left localizations, create an alternate version of this
+// stylesheet with the property directions reversed, e.g.
+//
+// .u-margin-start-0  {
+//     margin-right: 0 !important;
+// }
+//
+// Suffixes:
+//
+// 0:  none
+// sm: small (4px)
+// md: medium (8px)
+// lg: large (16px)
+// xlg: extra large (24px)
+
+.u-margin-start-0 {
+    margin-left: 0 !important;
+}
+
+.u-margin-start {
+    margin-left: $unit*1.5 !important;
+}
+
+.u-margin-start-sm {
+    margin-left: $sub-unit !important;
+}
+
+.u-margin-start-md {
+    margin-left: $unit !important;
+}
+
+.u-margin-start-lg {
+    margin-left: $unit * 2 !important;
+}
+
+.u-margin-end-0 {
+    margin-right: 0 !important;
+}
+
+.u-margin-end {
+    margin-right: $unit*1.5 !important;
+}
+
+.u-margin-end-sm {
+    margin-right: $sub-unit !important;
+}
+
+.u-margin-end-md {
+    margin-right: $unit !important;
+}
+
+.u-margin-end-lg {
+    margin-right: $unit * 2 !important;
+}
+
+.u-margin-end-xlg {
+    margin-right: $unit * 3 !important;
+}

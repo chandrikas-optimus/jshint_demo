@@ -1,0 +1,138 @@
+// Typography
+// ===
+
+// Fonts
+// ---
+
+@font-face {
+    font-family: 'Fira Sans';
+    font-style: normal;
+    font-weight: normal;
+
+    src: url('../fonts/subset-FiraSans-Regular.woff2') format('woff2'),
+    url('../fonts/subset-FiraSans-Regular.woff') format('woff'),
+    url('../fonts/subset-FiraSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Fira Sans';
+    font-style: normal;
+    font-weight: 300;
+
+    src: url('../fonts/subset-FiraSans-Light.woff2') format('woff2'),
+    url('../fonts/subset-FiraSans-Light.woff') format('woff'),
+    url('../fonts/subset-FiraSans-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Fira Sans';
+    font-style: normal;
+    font-weight: bold;
+
+    src: url('../fonts/subset-FiraSans-Bold.woff2') format('woff2'),
+    url('../fonts/subset-FiraSans-Bold.woff') format('woff'),
+    url('../fonts/subset-FiraSans-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Fira Sans';
+    font-style: italic;
+    font-weight: normal;
+
+    src: url('../fonts/subset-FiraSans-Italic.woff2') format('woff2'),
+    url('../fonts/subset-FiraSans-Italic.woff') format('woff'),
+    url('../fonts/subset-FiraSans-Italic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Adobe Caslon Pro';
+    font-style: italic;
+    font-weight: normal;
+
+    src: url('../fonts/subset-ACaslonPro-Italic.woff2') format('woff2'),
+    url('../fonts/subset-ACaslonPro-Italic.woff') format('woff'),
+    url('../fonts/subset-ACaslonPro-Italic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Adobe Caslon Pro';
+    font-style: normal;
+    font-weight: normal;
+
+    src: url('../fonts/subset-ACaslonPro-Regular.woff2') format('woff2'),
+    url('../fonts/subset-ACaslonPro-Regular.woff') format('woff'),
+    url('../fonts/subset-ACaslonPro-Regular.ttf') format('truetype');
+}
+
+
+
+// Headers
+// ---
+//
+// 1. CF-199: Fira Sans needs letterspacing for easier readability. Counter this
+//    spacing for the Adobe Caslon font ($header-font-family).
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+%headings {
+    display: block;
+    margin: 0;
+}
+
+h1,
+%h1 {
+    font-family: $header-font-family;
+    font-weight: normal;
+    font-size: $xx-large-font-size;
+    letter-spacing: -0.01em; // 1
+}
+
+h2,
+%h2 {
+    font-weight: 300;
+    font-size: $x-large-font-size;
+}
+
+h3,
+%h3 {
+    font-weight: 300;
+    font-size: $large-font-size;
+}
+
+h4,
+h5,
+h6,
+%h4,
+%h5,
+%h6 {
+    border-bottom: $border;
+
+    font-weight: bold;
+    font-size: $font-size;
+}
+
+
+// Minor text elements
+// ---
+
+p {
+    margin: 0;
+}
+
+a {
+    color: $link-color;
+    text-decoration: none;
+
+    &:active,
+    &:focus {
+        color: $active-link-color;
+    }
+}
+
+blockquote {
+    color: $neutral-50;
+}

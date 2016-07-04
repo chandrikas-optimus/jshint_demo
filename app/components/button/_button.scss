@@ -1,0 +1,259 @@
+// sass-lint:disable no-qualifying-elements
+
+// Button
+// ===
+//
+// Style an element as a button. Best applied to native interactive elements
+// such as form controls and links.
+//
+// Example Markup:
+//
+// <button class="c-button" type="[button|submit]">{buttonText}</button>
+// <input class="c-button" type='submit' value="{submitText}">
+// <a class="c-button" href="{url}">{linkText}</a>
+
+
+// Button element
+// ---
+//
+// 1. Normalize border-radius across element types in iOS.
+// 2. Inherit font styles from ancestor.
+// 3. Normalize `line-height` (for `input`, it can't be changed from `normal`
+//    in Firefox 4+).
+// 4. Ensure button text can wrap (`input` defaults to `pre`).
+// 5. Prevent button text from being selectable.
+// 6. Corrects inability to style tappable `input` types in iOS.
+// 7. Inherit font color from ancestor for all states
+// 8. Create positioning context for children/generated content.
+// 9. Fixes issue where events can't bedelegated on BODY for elementes without pointer cursor
+// N.B. "Disabled" state for links must be managed in JavaScript.
+
+.c-button,
+%c-button {
+    position: relative; // 8
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: $tap-size;
+    padding: $vertical-padding $horizontal-padding;
+
+    border-radius: 0; // 1
+
+    cursor: pointer; // 9
+    user-select: none; // 5
+
+    -webkit-appearance: none; // 6
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+button.c-button,
+[type='submit'].c-button,
+[type='submit'].c-button__inner {
+    display: inline-table; // 1
+
+    text-align: center;
+}
+
+
+// Default Theme (mustn't be Plain)
+// ---
+
+.c-button:not(.c--plain) {
+    border: 1px solid $brand-color;
+
+    background: $light-brand-color;
+
+    color: $black;
+    font-weight: 300;
+    font-size: $large-font-size; // 2
+    line-height: 1; // 3
+    letter-spacing: 0.05em;
+    white-space: normal; // 4
+    text-align: center;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+
+// Button: Outlined
+// ---
+//
+// 1. `inherit` is to override the default `.c-button`'s color
+
+.c-button.c--outline {
+    border: 1px dashed $neutral-50;
+
+    background: rgba(255, 255, 255, 0);
+
+    color: inherit; // 1
+
+    &:active {
+        color: $brand-color;
+    }
+}
+
+
+// Button: Outlined
+// ---
+//
+// 1. `inherit` is to override the default `.c-button`'s color
+
+.c-button.c--flat {
+    border: 0;
+
+    background: $white;
+
+    color: inherit; // 1
+
+    &:active {
+        color: $brand-color;
+    }
+}
+
+
+// Button: Neutral
+// ---
+//
+// Light neutral background color
+
+.c-button.c--neutral {
+    background: $neutral-20;
+}
+
+// Button: Disabled
+// ---
+//
+// 1. Add text colour to `disabled` attr style
+
+.c-button:disabled,
+.c-button.c--disabled {
+    border-color: $neutral-40;
+
+    background: $neutral-30;
+
+    color: $neutral-50;
+
+    pointer-events: none;
+}
+
+
+// Button: Full Width
+// ---
+
+.c-button.c--full-width {
+    width: 100%;
+}
+
+
+// Button: Large
+// ---
+//
+// This is meant to match the height of the x-header and c-nav's header
+
+.c-button.c--large {
+    min-height: $x-header__height;
+}
+
+
+// Button: Small
+// ---
+//
+// 1. Increase tap size
+// 2. Extend to 44px tap size
+
+.c-button.c--small {
+    height: $small-tap-size;
+    min-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    font-size: $small-font-size;
+    line-height: $small-tap-size;
+
+    &::after {
+        // 1
+        content: '';
+
+        position: absolute;
+        top: -7px; // 2
+        right: 0;
+        bottom: -7px; // 2
+        left: 0;
+    }
+
+    .c-button__icon {
+        width: $small-tap-size;
+        height: $small-tap-size;
+        margin: (-6px) (-$sub-unit) (-$sub-unit);
+    }
+}
+
+
+// Button: Strip
+// ---
+
+.c-button.c--strip {
+    border-right: 0;
+    border-left: 0;
+}
+
+
+// Button: Success
+// ---
+
+.c-button.c--success {
+    border-color: darken($dark-brand-color, 10%);
+
+    background: $dark-brand-color;
+
+    color: $white;
+}
+
+
+// Plus/minus text to button
+// ---
+
+.c-button.c--plus {
+    &::before {
+        content: '+ \00a0';
+    }
+}
+
+.c-button.c--minus {
+    &::before {
+        content: '- \00a0';
+    }
+}
+
+
+// Brand color
+// ---
+
+.c-button.c--brand {
+    color: $brand-color;
+}
+
+
+// No min-height
+// ---
+
+.c-button.c--no-min-height {
+    min-height: initial;
+}
+
+// Button Icon
+// ---
+//
+// 2. Don't collapse if there's too much text
+// 3. Adding because apparantly relying on the parent wrapper having
+//    `align-items: center` isn't enought to make this element align in the mid
+
+.c-button__icon {
+    flex: 0 0 auto; // 2
+    align-self: center; // 3
+    margin-top: -($unit*1.5);
+    margin-bottom: -($unit*1.5);
+
+    vertical-align: middle;
+}

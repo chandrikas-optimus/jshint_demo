@@ -1,0 +1,6 @@
+{#.thumbnails}
+    {! Show thumbnails only if there is more than 1 of them !}
+    {@gt key=.slider.slidesLength value="1"}
+        {>"components/scroller/scroller" scrollerClass="c--fade-before c--fade-after  t-product__variations js-thumbnails"/}
+    {/gt}
+{/.thumbnails}

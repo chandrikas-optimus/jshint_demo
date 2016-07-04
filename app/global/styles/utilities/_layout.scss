@@ -1,0 +1,88 @@
+// Layout
+// ===
+
+
+// Clearfix
+// ---
+
+.u-clearfix {
+    &::after {
+        content: '';
+
+        clear: both;
+
+        display: table;
+    }
+}
+
+
+// Bleed
+// ---
+
+.u-bleed-horizontal {
+    margin: 0 (-$unit)*1.5 !important;
+}
+
+.u-bleed-vertical {
+    margin: (-$unit)*1.5 0 !important;
+}
+
+.u-bleed-top {
+    margin-top: (-$unit)*1.5 !important;
+}
+
+.u-bleed-start {
+    margin-left: (-$unit)*1.5 !important;
+}
+
+.u-bleed-bottom {
+    margin-bottom: (-$unit)*1.5 !important;
+}
+
+.u-bleed-end {
+    margin-right: (-$unit)*1.5 !important;
+}
+
+
+// Shift
+// ---
+
+.u-shift-start {
+    margin-left: -$unit !important;
+}
+
+.u-shift-top {
+    margin-top: -$unit !important;
+}
+
+.u-shift-bottom {
+    margin-bottom: -$unit !important;
+}
+
+.u-shift-end {
+    margin-right: -$unit !important;
+}
+
+
+// Display
+// ---
+
+.u-display-block {
+    display: block;
+}
+
+.u-inline-block {
+    display: inline-block;
+}
+
+.u-inline {
+    display: inline;
+}
+
+
+// Alignment
+// ---
+
+.u-align-middle {
+    vertical-align: middle;
+}

@@ -1,0 +1,128 @@
+{>"global/base"/}
+
+{<contentBlock}
+
+    {>"components/breadcrumbs/breadcrumbs"/}
+
+    <div hidden class="js-error-messages">
+        {! No errors at the moment !}
+        {>"components/alert/alert"/}
+    </div>
+
+    <div class="u-margin-bottom-md u-padding">
+
+        <div class="u-text-align-center">
+            <h1 class="c-heading c--1 u-padding-top u--tight u-margin-bottom">
+                {.productInfo.title|s}
+            </h1>
+
+            <ul class="c-inline-list c--bullet c--tight u-margin-bottom-sm">
+                {?.productInfo.description}
+                    <li class="js-item-description">
+                        <em class="u-text-italic u-text-size-small u-text-capitalize">
+                            {.productInfo.description}
+                        </em>
+                    </li>
+                {/.productInfo.description}
+
+                <li class="js-item-number">
+                    <em class="u-text-italic u-text-size-small u-text-capitalize">
+                        #{.productInfo.partNumber}
+                    </em>
+                </li>
+            </ul>
+
+            <div class="js-pricing">
+                {! will be populated later !}
+            </div>
+        </div>
+
+    </div>
+
+    <div class="js-product-image u-margin-bottom-md">
+        {#.mainImage}
+            <a class="js-magnifik" href="{.imageZoomSrc}" hidden>
+                <img src="{.imageSrc}">
+            </a>
+        {/.mainImage}
+
+        {! On page load, this main image/photo is shown immediately while the
+           thumbnails and other images would come in later. This way it would
+           seem like the page load faster.
+        !}
+        <div class="c-featured-image c--remove-bottom">
+            {#.mainImage}
+                <img src="{.imageSrc}">
+            {/.mainImage}
+            {>"components/zoom/zoom" zoomClass="js-zoom"/}
+        </div>
+    </div>
+
+    <div class="js-thumbnails-and-swatches u-margin-bottom-md">
+        {! placeholder for ui !}
+        {>"components/loading/loading" class="u-text-align-center u-margin-top-xlg u-margin-bottom-xlg"/}
+    </div>
+
+    <div class="u-margin-bottom-lg" hidden>
+        {+productOptions}
+            {! This is where the single and bundle PDPs differ !}
+        {/productOptions}
+    </div>
+
+    <div class="u-padding">
+        {>"pages/product/partials/add-to-cart-registry"/}
+    </div>
+
+    {>"components/accordion/accordion":productDescriptions accordionClass="u-margin-bottom-lg" /}
+
+    <div class="u-margin-bottom-xlg u-padding">
+        <div class="js-share c-arrange c--justify-between">
+            {! Facebook and Pinterest would be inserted later !}
+        </div>
+        <div class="u-text-weight-bold u-margin-top-md">
+            <a onclick="javascript:doTellAFriendClickAction()">
+                + Tell a Friend
+            </a>
+        </div>
+    </div>
+
+    {?.hasRecommendation}
+        {#.youMayAlsoLike}
+            <div class="t-product__recommended">
+                <h2 class="c-heading c--2 u-margin-bottom-lg u-text-align-center">You may also like...</h2>
+                {>"components/scroller/scroller" scrollerClass="c--fade-before c--fade-after"/}
+            </div>
+        {/.youMayAlsoLike}
+    {/hasRecommendation}
+
+    {>"components/sheet/sheet" class="js-sizing-chart"/}
+
+    {>"components/sheet/sheet" effect="sheetBottom" class="js-taf-pinny" content=tellAFriendContainer coverage="100%" /}
+
+    {>"components/sheet/sheet" effect="sheetBottom" class="js-wishlist-pinny" coverage="100%" /}
+
+    {>"components/sheet/sheet" effect="sheetBottom" class="js-generic-pinny" coverage="100%" /}
+
+    {>"components/sheet/sheet" effect="sheetBottom" class="js-sign-in-pinny" coverage="100%" /}
+
+    {>"components/sheet/sheet" effect="sheetBottom" cssClass="t-personalization-pinny js-no-scrollfix" class="js-personalization-pinny" content=personalizationContainer coverage="100%" mask="true"/}
+
+    {!-- CF-463: Hidden elements for personalization to populate correctly --!}
+    <div class="u-visually-hidden" hidden>
+        {hiddenDesktopElements}
+    </div>
+
+{/contentBlock}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/product/product-ui.js
+    (function(require) {
+        require(["global/ui", "pages/product/product-ui"], function(globalUI, productUI) {
+            globalUI();
+            productUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}

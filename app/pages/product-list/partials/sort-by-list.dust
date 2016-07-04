@@ -1,0 +1,11 @@
+<ul class="c-stack c--border-bottom js-sort-by-filters">
+    {#filters}
+        <li class="c-stack__item {.stackItemClass}">
+            {>"components/list-item/list-item"/}
+        </li>
+    {/filters}
+</ul>
+
+<div class="u-margin-top-lg u-padding">
+    <button class="c-button c--full-width js-save-sort-by">Save</button>
+</div>

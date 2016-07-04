@@ -1,0 +1,3 @@
+<div class="c-logo {class}">
+    {@icon name="logo" class="c-logo__svg" /}
+</div>

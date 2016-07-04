@@ -1,0 +1,30 @@
+<div class="pinny__wrapper {class}" {?id}id="{id}"{/id} {?role}role="{role}"{/role} hidden
+    data-effect="{effect}"
+    data-coverage="{coverage}"
+    data-duration="{duration}"
+    data-passive="{passive}"
+    data-css-class="c-modal {cssClass}"
+    {?background}style="background-image: url({background});"{/background}>
+
+    <div class="pinny__header c-modal__header {?theme}c--{theme}{/theme} {headerClass}" {?headerStyle}style="{headerStyle}"{/headerStyle}>
+        {!}<h2 class="pinny__title c-modal__title">{headerContent}</h2>{!}
+
+        {?closeButtonText}
+            <button class="pinny__close">{closeButtonText}</button>
+        {:else}
+            <button class="pinny__close c-modal__header-close">
+                {@icon name="delete" /}
+            </button>
+        {/closeButtonText}
+    </div>
+
+    <div class="pinny__content pinny--is-scrollable c-modal__body needsclick {?theme}c--{theme}{/theme} {?hasIframe}c--iframe{/hasIframe} {bodyClass}" {?bodyStyle}style="{bodyStyle}"{/bodyStyle}>
+        {bodyContent}
+    </div>
+
+    {?footerContent}
+        <div class="pinny__footer c-modal__footer {?theme}c--{theme}{/theme} {footerClass}" {?footerStyle}style="{footerStyle}"{/footerStyle}>
+            {footerContent}
+        </div>
+    {/footerContent}
+</div>

@@ -1,0 +1,56 @@
+<h3 class="c-cart-item__name u-margin-bottom-sm">
+    {itemName|s}
+</h3>
+
+<div class="c-cart-item__item-number u-margin-bottom-sm">
+    Item {itemNumber}
+</div>
+
+<div class="c-cart-item__options u-text-capitalize js-options">
+    {! populated later !}
+</div>
+
+<div class="u-margin-bottom-sm js-availability">
+    {! populated later !}
+</div>
+
+<div class="u-text-weight-bold u-padding-bottom-md js-product-details-button">
+    {! populated later !}
+</div>
+
+<div class="c-cart-item__personalization u-padding-top-md u-padding-bottom-md u-border-top u-border-bottom-none u-border-right-left-none u-border-dashed u-border-gray u-text-capitalize js-personalization" hidden>
+    {! populated later !}
+</div>
+
+{?dateAdded}
+    <div class="u-margin-bottom-md u-padding-top-md u-padding-bottom-md u-border-top-bottom u-border-right-left-none u-border-dashed u-border-gray">
+        Date Added: {dateAdded}
+    </div>
+{/dateAdded}
+
+{?quantity}
+    <div class="c-arrange c--align-middle u-margin-bottom-md u-padding-top-md u-padding-bottom-md u-border-top-bottom u-border-right-left-none u-border-dashed u-border-gray">
+        <div class="c-arrange__item">
+            Quantity
+        </div>
+        <div class="c-arrange__item c--shrink">
+            {#quantity}
+                {?.stepperDisabled}
+                    {qtyTitle} {count}
+                {:else}
+                    {>"components/stepper/stepper" decreaseIcon="minus" decreaseTitle="Reduce Quantity" increaseIcon="plus" increaseTitle="Increase Quantity" decreaseClass="js-stepper js--minus" increaseClass="js-stepper js--add" countClass="js-val" class="t-cart__stepper js-qty"/}
+                {/.stepperDisabled}
+            {/quantity}
+        </div>
+    </div>
+{/quantity}
+
+{#price}
+    {>"components/price/price"/}
+{/price}
+
+{#qtySteppers}
+    {?.stepperDisabled}
+        <div class="c-registry-item__view-quantity">{qtyTitle} {count}</div>
+    {/.stepperDisabled}
+{/qtySteppers}

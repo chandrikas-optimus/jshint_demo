@@ -1,0 +1,69 @@
+{>"global/base"/}
+
+{<contentBlock}
+    {@element el=.desktopErrorContainer hidden="hidden"/}
+    <div hidden class="js-error-messages">
+        {! No errors at the moment !}
+        {>"components/alert/alert"/}
+    </div>
+
+    {#pageTitle}
+       <h1 class="c-heading c--1 u-text-align-center u-padding-top u-margin-bottom-lg u-text-capitalize">
+            {.}
+       </h1>
+       <hr class="c-divider c--solid c--grey u-margin-bottom-md">
+    {/pageTitle}
+
+    {! In order for the client script to pick up the hidden content, id is required !}
+    <div class="c-stack u-padding" id="subscriptions">
+        {#products}
+            <div class="c-stack__item c--medium js-suggestion">
+                {>"pages/customer-service-catalog-request/partials/catalog":. leftColumnClass="c--shrink" imageContainerClass="c--medium" /}
+            </div>
+        {/products}
+        <hr class="c-divider c--solid c--bleed c--grey u-margin-top-md">
+    </div>
+
+    {! Needed for form to functioning correctly !}
+    {mainContent}
+    {relativeInfo}
+
+    {! Container for dynamic address list !}
+    {@element el=.infoForm hidden="hidden"/}
+    <section class="u-padding u-margin-bottom-md js-form-address">
+        {>"components/loading/loading" class="c--placeholder"/}
+    </section>
+    {! Container for the email form !}
+    <section class="u-padding js-form-email u-margin-bottom">
+    </section>
+    {@element el=brandContent addClass="u-padding u-margin-bottom-xlg c-note" /}
+
+    <hr class="c-divider c--double u-margin-start u-margin-end">
+    {#birthdayHeader}
+       <h2 class="u-padding u-padding-top u-margin-bottom-lg u-text-capitalize">
+            {.}
+       </h2>
+    {/birthdayHeader}
+    {! Container for dynamic birthday form !}
+    <section class="u-padding js-form-birthday u-margin-bottom">
+        {>"components/loading/loading" class="c--placeholder"/}
+    </section>
+    {@element el=birthdayContent addClass="u-padding u-margin-bottom-xlg c-note" /}
+    {! Container for the submit button !}
+    <section class="u-margin-bottom-md js-form-submit u-padding">
+    </section>
+
+{/contentBlock}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/customer-service-catalog-request/customer-service-catalog-request-ui.js
+    (function(require) {
+        require(["global/ui", "pages/customer-service-catalog-request/customer-service-catalog-request-ui"], function(globalUI, customerServiceCatalogRequestUI) {
+            globalUI();
+            customerServiceCatalogRequestUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}

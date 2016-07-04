@@ -1,0 +1,30 @@
+{>"global/base"/}
+
+{<contentBlock}
+    {>"components/breadcrumbs/breadcrumbs"/}
+
+    <h1 class="c-title u-margin-bottom-lg u-text-align-center">
+        {heading}
+    </h1>
+
+    <div class="u-padding-sides-md">
+        {noWishlistsMessageDOM}
+        {createWishlistButtonDOM}
+    </div>
+
+    {>"components/sheet/sheet" effect="sheetBottom" class="js-wishlist-pinny" coverage="100%" /}
+{/contentBlock}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/wishlist-landing/wishlist-landing-ui.js
+    (function(require) {
+        require(["global/ui", "pages/wishlist-landing/wishlist-landing-ui"], function(globalUI, wishlistLandingUI) {
+            globalUI();
+            wishlistLandingUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}
+

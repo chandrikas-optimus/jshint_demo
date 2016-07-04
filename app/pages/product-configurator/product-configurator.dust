@@ -1,0 +1,86 @@
+{>"pages/product/product"/}
+
+{<productOptions}
+
+    {>"pages/product-configurator/partials/preview-banner"/}
+
+    <div class="js-product-options">
+        {! placeholder for ui !}
+    </div>
+
+    <div class="js-summary-action-bar u-padding u-padding-bottom u-border-bottom u-padding-top-lg" hidden>
+        <div class="c-arrange c--align-middle">
+            <div class="c-arrange__item">
+                <p class="js-shipping-message u-text-size-small u-text-dark-brand u-padding-top-sm u-margin-bottom">Available to Ship.</p>
+                <p class="u-text-size-small">Quantity: 1</p>
+            </div>
+            <div class="c-arrange__item c--shrink">
+                <div class="c-arrange c--gutters">
+                    <div class="c-arrange__item">
+                        <button type="button" class="js-reset-configurator">
+                            {>"components/icon-label/icon-label" icon="history" text="Restart" /}
+                        </button>
+                    </div>
+                    <div class="c-arrange__item">
+                        <button type="button" class="js-share-my-design">
+                            {>"components/icon-label/icon-label" icon="share" text="Share" /}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div hidden>
+        {#tooltipData}
+            <div class="js-configurator-section__data-tooltip-{tooltipIndex}"><p>{tooltip}</p></div>
+        {/tooltipData}
+
+        {chokingHazard}
+    </div>
+
+    {>"components/sheet/sheet"
+        class="js-preview-pinny"
+        effect="sheetBottom"
+        coverage="100%"
+        isHeader="true"
+        headerContent="Preview"/}
+
+    {>"components/sheet/sheet"
+        class="js-confirmation-pinny"
+        cssClass="c--dialog"
+        effect="modalCenter"
+        isHeader="true"
+        coverage="80%"
+        headerContent="Confirmation"
+        /}
+    {>"components/sheet/sheet"
+        class="js-share-my-design-pinny"
+        effect="sheetBottom"
+        isHeader="true"
+        coverage="100%"
+        headerContent="Copy Link"
+        /}
+{/productOptions}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/product-configurator/product-configurator-ui.js
+    (function(require) {
+        require([
+            "global/ui",
+            "pages/product/product-ui",
+            "pages/product-configurator/product-configurator-ui"
+        ], function(
+            globalUI,
+            productUI,
+            productConfiguratorUI
+        ) {
+            globalUI();
+            productUI();
+            productConfiguratorUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}

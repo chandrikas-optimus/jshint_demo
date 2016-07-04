@@ -1,0 +1,256 @@
+// Field
+// ===
+//
+// 1. Fix for iOS6.
+// 2. Position the selection background.
+// 3. Avoid positioned elements in this case.
+// 4. Center and position absolute the label inside of the input field.
+// 5. Position the select element to make room for the label.
+// 6. Adjust for optical alignment.
+// 7. Mimic label + input margining.
+
+.c-field {
+    position: relative;
+
+    flex: 1 1 auto;
+    width: 100%; // 1
+
+    &.c--condensed {
+        .c-field__input {
+            display: flex;
+            align-items: center;
+            border: $border;
+
+            background: $white;
+        }
+
+        .c-label {
+            flex: 0 0 auto;
+            padding: 0 $horizontal-padding;
+            border-right: 1px solid $light-border-color;
+        }
+
+        .c-select {
+            flex: 1 1 auto;
+            margin: 0;
+            border: 0;
+
+            background: none;
+        }
+    }
+
+
+    // Shrink
+    // ---
+
+    &.c--shrink {
+        flex: 0 0 auto;
+        width: auto;
+    }
+
+
+    // Error style
+    // ---
+
+    &.c--error {
+        label,
+        .c-label {
+            // Client inject inline style for some elements
+            color: $error-color !important;
+        }
+
+        input,
+        .c-input,
+        .c-select {
+            border-color: $error-color;
+        }
+    }
+
+
+    // Check Radio
+    // ---
+
+    &.c--check-radio {
+        position: relative; // 2
+
+        display: block;
+        min-height: initial;
+
+        label,
+        .c-label {
+            display: flex;
+            overflow: hidden;
+            align-items: center;
+            flex: 1;
+            margin: 0;
+
+            text-align: left;
+        }
+
+        [type='checkbox'],
+        [type='radio'] {
+            float: left;
+
+            + label,
+            + .c-label {
+                min-height: 48px;
+                padding: $vertical-padding ($unit*2);
+            }
+        }
+
+        [type='radio'] {
+            &:checked + label,
+            &:checked + .c-label {
+                color: $link-color;
+            }
+
+            &[disabled] {
+                opacity: .6;
+
+                pointer-events: none;
+            }
+        }
+
+        .c-check-radio__icon {
+            top: $sub-unit*3;
+        }
+
+        .c-field__input {
+            position: static; // 3
+
+            display: flex;
+
+            &.c--align-top {
+                align-items: flex-start;
+            }
+        }
+    }
+
+    // Button In Field
+    // ---
+
+    > .c-button {
+        margin-top: $sub-unit;
+    }
+
+
+    // Space out labels and inputs
+    // ---
+
+    label + input,
+    label + select,
+    label + textarea,
+    .c-label + input,
+    .c-label + select,
+    .c-label + textarea,
+    .c-label + .c-input,
+    .c-label + .c-select:not(.c--condensed) {
+        margin-top: $sub-unit;
+    }
+}
+
+
+// Field: input
+// ---
+//
+// 1. Used to position the floating label
+// 2. Fix Android issue with margin collapsing
+
+.c-field__input {
+    position: relative; // 1
+
+    flex: 1 1 auto;
+    width: 100%;
+
+    // 2
+    &::before {
+        content: '';
+
+        clear: both;
+
+        display: table;
+    }
+}
+
+
+// Field: Hint
+// ---
+//
+// 1. Optical alignment with label, which sits along the same plain.
+
+.c-field__hint {
+    @extend %c-label;
+
+    position: absolute;
+    top: 5px; // 1
+    right: 0;
+
+    display: block;
+
+    font-weight: bold;
+
+    .c-button {
+        min-width: $small-tap-size;
+        min-height: $small-tap-size;
+        margin-top: -10px;
+    }
+}
+
+
+// Field: Credit Card
+// ---
+
+.c-field__credit-card {
+    position: relative;
+
+    input {
+        padding-left: $unit*5;
+    }
+
+    .c-icon {
+        position: absolute;
+        top: 50%;
+        left: 0;
+
+        transform: translateY(-50%);
+
+        user-select: none;
+    }
+}
+
+
+// Field: Calendar
+// ---
+
+.c-field__calendar {
+    position: relative;
+
+    input {
+        padding-right: $unit*5;
+    }
+
+    .c-field__calendar-icon {
+        position: absolute;
+        top: 50%;
+        right: 0;
+
+        line-height: 0;
+
+        transform: translateY(-50%);
+    }
+}
+
+
+// Field: Defaults
+// ---
+//
+// Poached from Ballard by Marlow. Something is probably wrong with this. I'm sorry in advance.
+
+.c-field__caption,
+%c-field__caption-defaults {
+    margin-top: $sub-unit;
+
+    color: $label-color;
+    font-size: $x-small-font-size;
+    line-height: $tight-line-height;
+}

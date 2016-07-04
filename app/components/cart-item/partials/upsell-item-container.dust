@@ -1,0 +1,9 @@
+{#upsellItem}
+    <div class="u-margin-top-hg">
+        <div>{title}</div>
+
+        <div class="u-border js-upsell"></div>
+
+        <div class="js-upsell-desktop" hidden>{widget}</div>
+    </div>
+{/upsellItem}

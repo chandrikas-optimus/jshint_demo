@@ -1,0 +1,9 @@
+<div class="c-search {class}">
+    {! c-search__text-input class added in header context !}
+    {input}
+
+    <button type="button" name="button" class="c-search__delete u-text-collapse {deleteClass}">
+        {@icon name="delete" /}
+        <span class="u-visually-hidden">Delete</span>
+    </button>
+</div>

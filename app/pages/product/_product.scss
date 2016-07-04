@@ -1,0 +1,143 @@
+// Product Detail page
+// ===
+//
+// 1. Use a wildcard class selector in order to select all product details pages
+//    including single and bundle.
+// 2. These are required to get the ellipsis to show up after two lines as line-
+//    clamp only works with -webkit-box. Do not change to `display: flex;`
+// 3. CF-559: [UAT] When item is expanded, product name should be shown in full
+
+// 1
+[class*='t-product'] {
+    .x-main {
+        // Product Option Bellows
+        // ===
+
+        .t-product__options {
+            .c-accordion__item.bellows--is-open .c-accordion__header,
+            .c-accordion__item.bellows--is-opening .c-accordion__header {
+                border-color: transparent;
+
+                font-weight: inherit;
+            }
+
+            .c-accordion__content {
+                background: $neutral-20;
+            }
+
+            // 4
+            .bellows__item:not(.bellows--is-open) .c-product-summary__heading {
+                display: -webkit-box; // 2
+                overflow: hidden; // 2
+
+                text-overflow: ellipsis; // 2
+
+                -webkit-line-clamp: 2; // 2
+                -webkit-box-orient: vertical; // 2
+            }
+        }
+
+        .c-product-summary__heading {
+            padding-top: $sub-unit;
+        }
+
+        .c-product-summary__image {
+            border: 1px solid rgba($black, 0.05);
+        }
+
+        .c-button__icon {
+            margin-left: -$unit;
+        }
+
+        .m-close {
+            .c-icon {
+                position: fixed;
+                z-index: $stage-layer;
+
+                background: $white;
+            }
+        }
+
+        [class*='facebookLike'] {
+            margin-top: -2px;
+        }
+
+        [class*='twitterShare'] {
+            width: 61px;
+        }
+
+        [class*='plusContent'] {
+            width: 60px;
+        }
+
+        [class*='gwt-personalize-edit-remove-link-panel-style'],
+        [class*='gwt-personalization-image-picker-description'] {
+            display: none;
+        }
+
+        .t-product__size-chart-link {
+            margin-bottom: -$sub-unit;
+        }
+
+        .c-inline-list.c--bullet.c--tight > li + li::before {
+            font-size: $x-small-font-size;
+        }
+    }
+
+    #gwt-personalization-modal-V2 {
+        // CF-340:
+        // Must use css to immediately hide this desktop modal.
+        // It'll be shown later via personalization-ui.js (buildPinny function).
+        display: none;
+    }
+}
+
+.t-product__variations {
+    .c-slideshow__slide {
+        width: 84px;
+    }
+}
+
+.t-product__checkbox-container {
+    display: flex;
+    align-items: center;
+
+    .c-input {
+        border-color: $neutral-50;
+    }
+
+    .c-check-radio__icon {
+        transform: translate3d(-52%, -50%, 0);
+    }
+}
+
+.t-product__recommended {
+    .c-slideshow__slide {
+        width: 146px;
+    }
+}
+
+.t-product__error-panel:empty {
+    margin-bottom: 0 !important;
+}
+
+
+// need to hide the desktop modal
+[class*='gwt-added-to-wish-list-modal'] {
+    display: none;
+
+    &.js-ready {
+        display: block;
+    }
+}
+
+// Fix for CF-346, though if this starts to crop up a lot we could move it into the c-select styles
+.t-product__select {
+    select {
+        text-transform: capitalize;
+    }
+}
+
+.t-product__personalization > [class*="gwt-HTML"] {
+    display: none;
+}

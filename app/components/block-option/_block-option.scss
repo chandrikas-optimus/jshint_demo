@@ -1,0 +1,84 @@
+// Block Option
+// ===
+//
+// A unified component that can accomadate multiple kinds of options.
+
+.c-block-option {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: ($sub-unit * 3) ($unit * 2);
+
+    background: $white;
+
+    & + .c-block-option {
+        margin-top: 0;
+        border-top: $border-light;
+    }
+
+    // Fix CF-503: alignment issue on iPhone 5 - iOS 9
+    .c-check-radio {
+        display: block;
+        flex: 0 0 $unit*3;
+        margin-right: $unit;
+
+        input {
+            margin-right: 0;
+        }
+    }
+}
+
+
+// Block Option: Container
+// ---
+
+.c-block-option__container {
+    border: $border;
+}
+
+
+// Block Option: Input
+// ---
+//
+// 1. To prevent the column from collapsing on iOS
+
+.c-block-option__input {
+    flex: 0;
+    min-width: $unit * 3; // 1
+}
+
+
+// Block Option: Label + Message
+// ---
+//
+// 1. So margin doesn't appear if all alone
+
+.c-block-option__label-container {
+    flex: 1;
+    margin: 0;
+
+    font-size: $font-size;
+    line-height: $tight-line-height;
+
+    label:only-child {
+        margin: 0; // 1
+    }
+}
+
+.c-block-option__message {
+    @extend %c-field__caption-defaults;
+
+    font-family: $font-family;
+}
+
+
+// Block Option: Swatch & Additional Images
+// ---
+
+.c-block-option__swatch {
+    margin-right: $sub-unit * 3;
+}
+
+.c-block-option__icon {
+    margin-left: $unit * 2;
+}

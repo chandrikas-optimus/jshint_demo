@@ -1,0 +1,48 @@
+// Price
+// ===
+
+.c-price {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    color: $font-color !important;
+    font-size: $font-size;
+    line-height: 1.15;
+}
+
+
+// Retail
+// ---
+//
+// The standard price tag for a product
+
+.c-price__retail {
+    text-decoration: none;
+}
+
+
+// Sale
+// ---
+//
+// When a price goes on sale, it really stands out!
+
+.c-price__sale {
+    margin-right: $sub-unit;
+
+    color: $sale-color;
+    text-decoration: none;
+}
+
+
+// Invalid
+// ---
+//
+// This is the old price after a product has gone on sale and, as such is no
+// longer valid
+
+.c-price__original {
+    color: $neutral-50;
+    font-weight: 300;
+    text-decoration: line-through;
+}

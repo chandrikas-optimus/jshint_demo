@@ -1,0 +1,7 @@
+<div class="c-scroller {scrollerClass}" role="region" aria-label="{label}" data-bind-scope="{bindScope}">
+    <div class="c-scroller__content">
+        {#slider}
+            {>"components/slideshow/slideshow" /}
+        {/slider}
+    </div>
+</div>

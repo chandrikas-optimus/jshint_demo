@@ -1,0 +1,18 @@
+<ul class="c-swatches u-clearfix {class}">
+
+    {#swatches}
+        <li class="c-swatches__item js-swatches-item" data-product-photo="{photoURL}" style="background-image: url(' {swatchURL} ');">
+            <h4 class="u-visually-hidden">Color: {swatchName}</h4>
+        </li>
+    {/swatches}
+
+    {?linkToMoreSwatches}
+        <li class="c-swatches__item c--more">
+            <a href="{linkToMoreSwatches}">
+                <span class="c-swatches__dots">...</span>
+                <span class="c-swatches__text">more</span>
+            </a>
+        </li>
+    {/linkToMoreSwatches}
+
+</ul>

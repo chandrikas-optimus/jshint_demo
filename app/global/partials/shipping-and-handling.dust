@@ -1,0 +1,35 @@
+{heading}
+
+{contentsBeforeTable}
+
+{#shippingTimeTable}
+    {?shippingTimeTableScroller}
+        {>"components/table-scroller/table-scroller"/}
+    {:else}
+        {#.items}
+            {>"components/table/table" modifierClass="c--whitespace-normal"/}
+        {/.items}
+    {/shippingTimeTableScroller}
+{/shippingTimeTable}
+
+{personalizedShippingTableHeader}
+
+{#personalizedShippingTable}
+    {?personalizedShippingTableScroller}
+        {>"components/table-scroller/table-scroller"/}
+    {:else}
+        {#.items}
+            {>"components/table/table" modifierClass="c--whitespace-normal"/}
+        {/.items}
+    {/personalizedShippingTableScroller}
+{/personalizedShippingTable}
+
+{personalizedShippingContent}
+
+{tableHeader}
+
+{#table}
+    {>"components/table-scroller/table-scroller"/}
+{/table}
+
+{contentsAfterTable}

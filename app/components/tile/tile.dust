@@ -1,0 +1,51 @@
+<div class="c-tile {tileClasses}">
+
+    <div class="c-tile__image c-ratio c--4by5 u-margin-bottom-md {?bleed}c--bleed{/bleed}">
+        <div class="c-ratio__item {tileImageClasses} {?error}u-half-opacity{/error}">
+            {?tileHref}<a href="{tileHref}">{/tileHref}
+                {tileImage}
+            {?tileHref}</a>{/tileHref}
+        </div>
+    </div>
+
+    <div class="c-tile__content">
+
+        {?tileHref}<a href="{tileHref}">{/tileHref}
+
+            {?exclusive}
+                <em class="c-heading c--1 u-text-size-small u-margin-bottom-sm u-text-capitalize {?tileHref}u-text-black-link{/tileHref}">{exclusive}</em>
+            {/exclusive}
+
+            <h3 class="c-heading {headingClasses} u-text-black-link">
+                {tileTitle}
+            </h3>
+
+            {?price}
+                <div class="u-margin-top">
+                    {#price}
+                        {! If hidden, this will be populated later on ajax !}
+                        <div {?hidePricesInitially}hidden{/hidePricesInitially} class="js-product-price u-text-line-reset">
+                            {>"components/price/price"/}
+                        </div>
+                    {:else}
+                        {priceHolder}
+                    {/price}
+                </div>
+            {/price}
+
+        {?tileHref}</a>{/tileHref}
+
+        {! If hidden, this will be populated later on ajax !}
+        <div {?hideErrorInitially}hidden{/hideErrorInitially} class="u-text-size-small js-error-text">
+            {error}
+        </div>
+
+        {?swatches.swatches}
+            <div class="u-margin-top-md">
+                {>"components/swatches/swatches":swatches/}
+            </div>
+        {/swatches.swatches}
+
+    </div>
+
+</div>

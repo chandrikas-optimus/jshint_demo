@@ -1,0 +1,29 @@
+// Fill Button Component
+// ===
+//
+// 1. By default hide the icon
+
+.c-fill-button::after {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: none; // 1
+    width: 40px;
+    height: 40px;
+
+    background-image: url("../img/svg/favourite-fill.svg");
+
+    -webkit-mask-image: url("../img/svg/favourite-fill.svg");
+}
+
+.c-fill-button {
+    position: relative;
+}
+
+
+.c-fill-button.c--fill::after {
+    display: block;
+}

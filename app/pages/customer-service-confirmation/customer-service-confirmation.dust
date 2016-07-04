@@ -1,0 +1,38 @@
+{>"global/base"/}
+
+{<contentBlock}
+    {#pageTitle}
+       <h1 class="c-heading c--1 u-text-align-center u-padding-top u--tight u-margin-bottom-lg u-text-capitalize">
+            {.}
+       </h1>
+    {/pageTitle}
+
+    {#.form}
+        <div class="u-padding u-margin-bottom-xxlg">
+            {.form|openTag|s}
+                {.hiddenInputs}
+
+                {#.notes}
+                    {.}
+                {/.notes}
+
+                <div class="c-field-row">
+                    {@element el=.button addClass="c-button c--full-width"/}
+                </div>
+            {.form|closeTag|s}
+        </div>
+    {/.form}
+{/contentBlock}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/customer-service-confirmation/customer-service-confirmation-ui.js
+    (function(require) {
+        require(["global/ui", "pages/customer-service-confirmation/customer-service-confirmation-ui"], function(globalUI, customerServiceConfirmationUI) {
+            globalUI();
+            customerServiceConfirmationUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}

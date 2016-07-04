@@ -1,0 +1,70 @@
+// Flip
+// ===
+//
+// Credit goes to http://jsfiddle.net/rsadwick/zwWHY/
+
+.c-flip {
+    position: relative;
+
+    perspective: 800;
+}
+
+
+// Card
+// ---
+//
+// This controls the animation
+
+.c-flip__card {
+    transform-style: preserve-3d;
+
+    // If you change this duration, please update the value in flip-ui.js too
+    transition: 0.25s ease-in;
+
+    &.c--flipped {
+        transform: rotateX(-180deg);
+    }
+
+    &.c--half-flip {
+        transform: rotateX(-90deg);
+        // animation: half-flip 0.25s 0.25s 1 forwards;
+    }
+}
+
+
+// Face
+// ---
+//
+// There are two faces to the flip component: front and back. The front is
+// visible by default, until the card is "flipped", upon which the front is
+// hidden and the back is revealed.
+//
+// 1. Position relative to the parent `c-flip` container
+// 2. Absolute position is used here because we want the `.c--front` element to
+//    take up it's natural space in the flow, but we want the `.c--back` element
+//    to be directly "behind" it. Unfortunately that means sacraficing the back
+//    element's ability to effect the flow around it.
+// 3. We must give the front a `z-index`, otherwise some elements show through,
+//    despite any `backface-visibility` settings.
+
+.c-flip__face {
+    backface-visibility: hidden;
+
+    &.c--front {
+        position: relative; // 3
+        z-index: $stage-layer; // 3
+    }
+
+    &.c--back {
+        position: absolute; // 1, 2
+        top: 0;
+        left: 0;
+        z-index: $stage-layer;
+
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+
+        transform: rotateX(-180deg);
+    }
+}

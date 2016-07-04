@@ -1,0 +1,106 @@
+// Stack
+// ===
+//
+// A vertical set of items separated by space with optional dividers.
+
+.c-stack {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.c-stack.c--border-bottom {
+    .c-stack__item {
+        border-bottom: 1px solid $neutral-40;
+    }
+}
+
+
+// Stack Item
+// ---
+//
+// 1. Two `$sub-unit/2` are intended to combine to a total of `$unit/2` for the
+//    purpose of spacing. This is necessary due to how `c--ruled` is applied
+
+.c-stack__item {
+    display: block;
+    padding-top: $unit;
+    padding-bottom: $unit;
+
+    &.c--no-space {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    &.c--small {
+        padding-top: $sub-unit/2; // 1
+        padding-bottom: $sub-unit/2; // 1
+    }
+
+    &.c--medium {
+        padding-top: $unit;
+        padding-bottom: $sub-unit;
+    }
+
+    &.c--xlarge {
+        padding-top: $unit*3;
+        padding-bottom: $unit*3;
+    }
+
+    .c-stack:not(.c--full-padding) &:first-child {
+        padding-top: 0;
+    }
+
+    .c-stack:not(.c--full-padding) &:last-child {
+        padding-bottom: 0;
+    }
+}
+
+
+// Modifier: ruled
+// ---
+//
+// Adds horizontal rules (borders) between the items.
+
+.c-stack.c--ruled > .c-stack__item {
+    border-top: $border;
+
+    &:first-child {
+        border-top-width: 0;
+    }
+}
+
+
+// Modifier: dashed
+// ---
+//
+// Adds horizontal rules (borders) between the items.
+
+.c-stack.c--dashed > .c-stack__item {
+    border-top: 1px dashed rgba($black, 0.2);
+
+    &:first-child {
+        border-top-width: 0;
+    }
+}
+
+.c-stack.c--dashed.c--last-child > .c-stack__item {
+    &:last-child {
+        border-bottom: 1px dashed rgba($black, 0.2);
+    }
+}
+
+
+// Modifier: bordered
+// ---
+//
+// Adds outer borders around the entire stack.
+
+.c-stack.c--bordered {
+    border: $border;
+}
+
+.c-stack.c--bordered > .c-stack__item {
+    padding: $unit;
+}

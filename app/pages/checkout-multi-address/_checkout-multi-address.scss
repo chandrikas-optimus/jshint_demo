@@ -1,0 +1,10 @@
+// Multiple Checkout
+// ===
+
+.t-checkout-multi-address {
+    .c-product-summary + .c-product-summary {
+        margin-top: 0;
+        padding-top: $unit*2;
+        border-top: 1px dashed $border-color;
+    }
+}

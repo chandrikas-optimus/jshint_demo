@@ -1,0 +1,39 @@
+{>"global/base"/}
+
+{<contentBlock}
+    <div hidden id="gwt-error-placement-div">
+        {! Error messages to be populated by desktop script !}
+    </div>
+    <div hidden class="js-error-messages">
+        {! No errors at the moment !}
+        {>"components/alert/alert"/}
+    </div>
+
+    <h1 class="u-visually-hidden">
+        {.pageTitle}
+    </h1>
+
+    <div hidden id="container">
+        {! ID needed for desktop scripts to generate their modal !}
+    </div>
+    {hiddenParam}
+
+    {?tabs}
+        {>"components/tabs/tabs" class="c--no-break"/}
+    {/tabs}
+
+    {>"components/sheet/sheet" class="js-forgot-password-sheet" effect="sheetBottom" coverage="100%"/}
+{/contentBlock}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/sign-in/sign-in-ui.js
+    (function(require) {
+        require(["global/ui", "pages/sign-in/sign-in-ui"], function(globalUI, signInUI) {
+            globalUI();
+            signInUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}

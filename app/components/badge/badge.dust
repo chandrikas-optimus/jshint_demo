@@ -1,0 +1,5 @@
+<span class="c-badge {class}">
+    <span class="u-visually-hidden">
+        {label}
+    </span>
+</span>

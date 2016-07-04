@@ -1,0 +1,49 @@
+{>"global/base"/}
+
+{<contentBlock}
+
+    {@element el=.desktopErrorContainer hidden="hidden"/}
+
+    <div hidden class="js-error-messages">
+        {! No errors at the moment !}
+        {>"components/alert/alert"/}
+    </div>
+
+    {#pageTitle}
+       <h1 class="c-heading c--1 u-text-align-center u-padding-top u--loose u-margin-bottom-xlg u-text-capitalize">
+            {.}
+       </h1>
+    {/pageTitle}
+
+    {#formInfo}
+        {@element el=. addClass="u-padding u-margin-bottom-md" /}
+    {/formInfo}
+
+    <section class="u-padding u-margin-bottom-lg js-inquiry-form">
+        {>"components/loading/loading" class="c--placeholder"/}
+    </section>
+
+    {#findNumberModal}
+        {>"components/sheet/sheet" class="js-find-number"/}
+    {/findNumberModal}
+
+    {#balanceInfo}
+        {>"components/sheet/sheet" class="js-balance-info"/}
+    {/balanceInfo}
+
+    {mainContent}
+
+{/contentBlock}
+
+{<uiScripts}
+    <script>
+    // Note: Add any JavaScript that should be run on this page into
+    // app/pages/customer-service-balance-inquiry/customer-service-balance-inquiry-ui.js
+    (function(require) {
+        require(["global/ui", "pages/customer-service-balance-inquiry/customer-service-balance-inquiry-ui"], function(globalUI, customerServiceBalanceInquiryUI) {
+            globalUI();
+            customerServiceBalanceInquiryUI();
+        });
+    })(Adaptive.AMD.require);
+    </script>
+{/uiScripts}

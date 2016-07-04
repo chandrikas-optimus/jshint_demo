@@ -1,0 +1,69 @@
+<h3 class="c-cart-item__name">{itemName|s}</h3>
+
+<div class="c-cart-item__item-number u-margin-bottom-sm">
+    {itemNumberPrefix}{itemNumber}
+</div>
+
+<div class="js-options c-cart-item__options u-margin-bottom-sm"></div>
+
+<div class="js-personalization c-cart-item__personalization  u-text-capitalize"></div>
+
+<div class="js-availability "></div>
+
+{?giftMessage}
+    <div class="u-margin-top-md u-margin-bottom-md">{giftMessage}</div>
+{/giftMessage}
+
+{>"components/cart-item/partials/gift-options"/}
+
+<div class="u-margin-top-md">
+    {#price}
+        {>"components/price/price"/}
+        
+        <div class="c-note">
+            {! CF-619: Match the labels on the PDP !}
+            {! See the ticket comments for a table showing the labels !}
+            {?tier1}
+                {priceSingle}
+            {/tier1}
+
+            {?tier2}
+                <span class="u-text-sale">Sale {itemSalePrice}</span>
+                <del>Was {priceSingle}</del>
+            {/tier2}
+
+            {?tier2Promo}
+                <span class="u-text-sale">Promo {discountPrice}</span>
+                <del>Was {priceSingle}</del>
+            {/tier2Promo}
+
+            {?tier3}
+                <span class="u-text-sale">Promo {discountPrice}</span>
+                <del>Was {itemSalePrice}</del>
+                <del>{priceSingle}</del>
+            {/tier3}
+
+            {?freeItemMessage}
+                <div class="c-note">
+                    {freeItemMessage}
+                </div>
+            {:else}
+                <span> (x{quantity})</span>
+            {/freeItemMessage}
+        </div>
+
+        {?promoText}
+            <div class="c-note">
+                {promoText}
+                <a href="#" class="js-tooltip-button js-promo-tooltip-button u-inline-block" data-target=".js-promo-tooltip">
+                    {@icon name="ask--no-whitespace--thick" class="c--tiny u-text-brand u-margin-start-sm u-align-middle"/}
+                </a>
+                <div class="js-promo-tooltip" data-title="Promotion" hidden>{promoTooltip}</div>
+            </div>
+        {/promoText}
+    {/price}
+</div>
+
+{#shippingSurcharge}
+    <p> {message} </p>
+{/shippingSurcharge}

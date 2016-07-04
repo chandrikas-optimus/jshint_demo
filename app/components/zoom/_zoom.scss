@@ -1,0 +1,26 @@
+// Zoom
+// ===
+
+.c-zoom {
+    position: absolute;
+    right: $sub-unit;
+    bottom: $sub-unit;
+    z-index: $frontrow-layer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $tap-size;
+    height: $tap-size;
+
+    background: $white;
+
+    color: $black;
+
+    &.c--top-right {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: auto;
+    }
+}

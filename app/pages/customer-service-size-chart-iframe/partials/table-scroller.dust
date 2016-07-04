@@ -1,0 +1,5 @@
+{@element el=headerText addClass="u-margin-bottom-md u-padding-top" /}
+
+{#scrollerTable}
+    {>"components/table-scroller/table-scroller"/}
+{/scrollerTable}

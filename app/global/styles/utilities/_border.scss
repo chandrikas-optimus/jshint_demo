@@ -1,0 +1,82 @@
+// Border Utilities
+// ===
+
+.u-border {
+    border: $border !important;
+}
+
+.u-border-top-bottom {
+    border-top: $border !important;
+    border-bottom: $border !important;
+}
+
+.u-border-right-left-none {
+    border-right: 0 !important;
+    border-left: 0 !important;
+}
+
+
+// Border Top
+// ---
+
+.u-border-top {
+    border-top: $border !important;
+}
+
+.u-border-top-none {
+    border-top: 0 !important;
+}
+
+
+// Border Bottom
+// ---
+
+.u-border-bottom {
+    border-bottom: $border !important;
+}
+
+.u-border-bottom-none {
+    border-bottom: 0 !important;
+}
+
+// Border Right
+// ---
+
+.u-border-right {
+    border-right: $border !important;
+}
+
+.u-border-right-none {
+    border-right: 0 !important;
+}
+
+
+// Border Left
+// ---
+
+.u-border-left {
+    border-left: $border !important;
+}
+
+.u-border-left-none {
+    border-left: 0 !important;
+}
+
+
+// Border color
+// ---
+
+.u-border-gray,
+.u-border-grey {
+    border-color: $light-border-color !important;
+}
+
+
+// Border style
+// ---
+//
+// Please keep border styles after all border to change style.
+
+.u-border-dashed {
+    border-style: dashed !important;
+}

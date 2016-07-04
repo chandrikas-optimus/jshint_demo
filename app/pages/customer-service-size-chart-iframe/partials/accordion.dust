@@ -1,0 +1,11 @@
+{@element el=header addClass="u-padding u-margin-bottom-md" /}
+
+<div class="c-accordion c--no-top-border bellows js-bellows">
+    {>"components/accordion/accordion"/}
+</div>
+
+<h3 class="u-text-size-default u-text-weight-bold u-padding u-margin-bottom-md u-padding-top">
+    {howToMeasureHeader}
+</h3>
+
+{@element el=howToMeasure addClass="u-padding u-margin-bottom-md" /}

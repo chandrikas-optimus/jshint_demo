@@ -1,0 +1,55 @@
+// Action Component
+// ===
+//
+// 1. Set width to 100% in the cases when c-action is a button element
+
+.c-action {
+    display: flex;
+    align-items: center;
+    width: 100%; // 1
+    min-height: $tap-size;
+    border: $border;
+
+    border-radius: 0;
+    background-color: $input-background-color;
+
+    line-height: $line-height;
+
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    &:active {
+        border-color: darken($border-color, 10%);
+    }
+
+    &.c--borderless {
+        border: 0;
+    }
+
+    * {
+        color: $black;
+    }
+}
+
+
+// Action Label
+// ---
+
+.c-action__label {
+    @extend %c-label;
+
+    flex: 1 1 auto;
+    padding-top: $vertical-padding;
+    padding-bottom: $vertical-padding;
+    padding-left: $horizontal-padding;
+
+    text-align: left;
+}
+
+
+// Action Arrow
+// ---
+
+.c-action__arrow {
+    flex: initial;
+}
