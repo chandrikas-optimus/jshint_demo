@@ -1,7 +1,0 @@
-{>"pages/product/partials/thumbnails"/}
-
-{?.swatches.slider.swatchSlides}
-    {#.swatches}
-        {>"components/scroller/scroller" scrollerClass="c--fade-before c--fade-after u-margin-top-md u-margin-bottom-lg js-swatches"/}
-    {/.swatches}
-{/.swatches.slider.swatchSlides}

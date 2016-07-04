@@ -1,7 +1,0 @@
-<ol class="c-steps {activeClass}">
-    {#stepItems}
-        <li class="c-steps__item" aria-label="Step {step}">
-            {step}
-        </li>
-    {/stepItems}
-</ol>

@@ -1,9 +1,0 @@
-{#.}
-    {?.tableRows}
-        {>"components/table/table":./}
-    {:else}
-        <div class="c-section c--bordered">
-            <p><strong>You don’t have any orders yet.</strong></p>
-        </div>
-    {/.tableRows}
-{/.}

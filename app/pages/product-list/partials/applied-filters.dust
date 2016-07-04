@@ -1,6 +1,0 @@
-{#appliedFilters}
-    <button class="c-button c--simple" onclick="{removeHandler}">
-        {text}
-        {@icon name="delete" title="Remove" class="c--large" /}
-    </button>
-{/appliedFilters}

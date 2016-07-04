@@ -1,4 +1,0 @@
-<a class="c-zoom {zoomClass}" {?isHidden}hidden{/isHidden}>
-    {@icon name="zoom" class="" /}
-    <p class="u-visually-hidden">See a larger product image...</p>
-</a>

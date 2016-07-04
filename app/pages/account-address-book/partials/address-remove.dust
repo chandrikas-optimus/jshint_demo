@@ -1,2 +1,0 @@
-{@element el=.confirmButton addClass="c-button c--full-width u-margin-bottom-md js-address-remove-confirm-button" /}
-{@element el=.cancelButton addClass="c-button c--full-width c--outline u-margin-bottom-md js-address-remove-cancel-button" /}

@@ -1,5 +1,0 @@
-{?src}
-    <div class="c-featured-image {class}">
-        <img src="{src}" alt="{alt}" />
-    </div>
-{/src}

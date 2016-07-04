@@ -1,6 +1,0 @@
-<div class="c-swatches-label {swatchClass} js-swatches-label {?selected}c--selected{/selected}">
-    <div class="c-swatches-label__image">
-        <img src="{swatchURL}" alt="{swatchName}" />
-    </div>
-    <span class="c-swatches-label__text">{swatchName}</span>
-</div>
