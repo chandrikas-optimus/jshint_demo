@@ -66,9 +66,26 @@
     // Max length of a line
     // Mobify - 1000
     // Optimus - 150
-    "maxlen": 1000
+    "maxlen": 1000,
 
     // ---------------------------------------
     // **** Added by Optimus ***
     // ---------------------------------------
+
+    // Set to true, the use of var statements are forbidden
+    // Mobify - false
+    // Optimus - true
+    "varstmt": false,
+
+    // Warns about variables that are used outside of their intended scope
+    "funcscope":false,
+
+    // Suppresses warnings about invalid typeof operator values
+    "notypeof": false,
+
+    // Suppresses warnings about variable shadowing i.e. declaring a variable
+    // that had been already declared
+    // false - check for variables defined in the same scope only
+    // true - check for variables defined in outer scopes as well
+    "shadow" : false
 }
