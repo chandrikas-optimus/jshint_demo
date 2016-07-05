@@ -1,0 +1,74 @@
+{
+    // JSHint options
+    // http://www.jshint.com/docs/options/
+
+    // Environments
+    // ------------
+    //
+    "predef": [ "Mobify", "define", "require", "Zepto", "Adaptive" ],
+    "browser": true,
+    "jquery": true,
+    // Warn about using undeclared variables
+    "undef": true,
+    // This will enable / disable console statement warnings
+    "devel": false,
+    // Enforce === instead of ==
+    "eqeqeq": true,
+    // Force hasOwnProperty checks within `for in`
+    "forin": true,
+    // Prohibits overwriting native types like `Array` or `Date`
+    "freeze": true,
+    // Immediate invocations must be wrapped in parentheses
+    "immed": true,
+    // Tab width
+    "indent": 4,
+    // Prevents usage of a variable before declaration, but functions can be
+    // used before declaration -- nofunc
+    // true is used to enable for functions also
+    "latedef": "nofunc",
+    // Capitalize constructor functions
+    "newcap": true,
+    // Prevent arguments.callee and arguments.caller
+    "noarg": true,
+    // Warn when you have empty blocks in code
+    "noempty": true,
+    // Warns about non-breaking space
+    "nonbsp": true,
+    "quotmark": "single",
+    // Enforce 'use strict;' in functions to force functions to run in ECMA5
+    // script mode
+    "strict": false,
+    // Maximum formal parameters per function
+    "maxparams": 10,
+    // Maximum nesting depth
+    "maxdepth": 5,
+    // Maximum statements per function
+    "maxstatements": 25,
+    // Enforce reducing cyclomatic complexity
+    "maxcomplexity": 10,
+    // Allow expression statements, like `typeof x !== 'undefined' && x.hello()`
+    // instead of requiring function calls
+    "expr": true,
+
+    // ---------------------------------------
+    // **** Changed from Mobify Code Style ***
+    // ---------------------------------------
+
+    // Warn about declaring but not using variables
+    // Disabled to prevent errors about unused function variables
+    // Mobify - false
+    // Optimus - true
+    "unused": false,
+
+    // Trailing whitespace option is deprecated
+    // No value
+
+    // Max length of a line
+    // Mobify - 1000
+    // Optimus - 150
+    "maxlen": 1000
+
+    // ---------------------------------------
+    // **** Added by Optimus ***
+    // ---------------------------------------
+}
