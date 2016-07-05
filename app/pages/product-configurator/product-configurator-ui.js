@@ -26,7 +26,8 @@ define([
     LoadingTmpl
 ) {
     var getParent = function($innerElement) {
-        return $innerElement.is('.js-configure__configurator-section') ? $innerElement : $innerElement.parents('.js-configure__configurator-section');
+        return $innerElement.is('.js-configure__configurator-section') ?
+            $innerElement : $innerElement.parents('.js-configure__configurator-section');
     };
 
     var getDesktopParent = function(idx) {
