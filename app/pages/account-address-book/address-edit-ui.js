@@ -66,13 +66,13 @@ define([
         };
 
         // Open modal on Add or Edit buttons click
-        $('body').on('click', '.js-add-address, .js-edit-address', function() {
+                    $('body').on('click', '.js-add-address, .js-edit-address', function() {
             window.setTimeout(addressModalCallback);
         });
 
         // Close modal upon successful address save
         hijax.set(
-            'address-update-success',
+            'address-update-success',        
             function(url) {
                 return /AddressAdd|AddressUpdate/.test(url);
             }, {
