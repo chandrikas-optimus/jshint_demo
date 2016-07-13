@@ -119,8 +119,286 @@ rules:
     no-misspelled-properties:
         - 1
         - extra-properties: ['tap-highlight', 'overflow-scrolling']
+    # will enforce that selectors are not allowed to have qualifying elements
     no-qualifying-elements:
-      - 2
-      - allow-element-with-attribute: true
-        allow-element-with-class: false
-        allow-element-with-id: false
+        - 2
+        - allow-element-with-attribute: true
+        - allow-element-with-class: false
+        - allow-element-with-id: false
+    # will enforce that trailing whitespace is not allowed
+    no-trailing-whitespace: 0
+    # will enforce that trailing zeros are not allowed
+    no-trailing-zero: 2
+    # will enforce that protocols and domains are not used within urls
+    no-url-protocols: 2
+    # will enforce that new declarations must begin on new lines
+    one-declaration-per-line: 2
+    # will enforce whether extends should only include placeholder selectors
+    placeholder-in-extend: 2
+    # will enforce a convention for placeholder names.
+    placeholder-name-format:
+        - 2
+        - convention: '[a-z]|-{3}|_{3}|[^_]_[^_]'
+    # will enforce the order in which declarations are written
+    property-sort-order:
+        - 2
+        - ignore-custom-properties: false
+        - order:
+            - content
+            - quotes
+            - counter-reset
+            - counter-increment
+            - position
+            - top
+            - right
+            - bottom
+            - left
+            - z-index
+            - float
+            - clear
+            - display
+            - overflow
+            - overflow-x
+            - overflow-y
+            - clip
+            - table-layout
+            - empty-cells
+            - caption-side
+            - border-spacing
+            - border-collapse
+            - flex-flow
+            - flex-direction
+            - flex-wrap
+            - justify-content
+            - align-items
+            - align-content
+            - flex
+            - flex-grow
+            - flex-shrink
+            - flex-basis
+            - align-self
+            - order
+            - box-sizing
+            - width
+            - min-width
+            - max-width
+            - height
+            - min-height
+            - max-height
+            - margin
+            - margin-top
+            - margin-right
+            - margin-bottom
+            - margin-left
+            - padding
+            - padding-top
+            - padding-right
+            - padding-bottom
+            - padding-left
+            - border
+            - border-width
+            - border-style
+            - border-color
+            - border-top
+            - border-top-width
+            - border-top-style
+            - border-top-color
+            - border-right
+            - border-right-width
+            - border-right-style
+            - border-right-color
+            - border-bottom
+            - border-bottom-width
+            - border-bottom-style
+            - border-bottom-color
+            - border-left
+            - border-left-width
+            - border-left-style
+            - border-left-color
+            - visibility
+            - opacity
+            - border-radius
+            - border-top-left-radius
+            - border-top-right-radius
+            - border-bottom-right-radius
+            - border-bottom-left-radius
+            - border-image
+            - border-image-source
+            - border-image-slice
+            - border-image-width
+            - border-image-outset
+            - border-image-repeat
+            - background
+            - background-color
+            - background-image
+            - background-repeat
+            - background-attachment
+            - background-position
+            - background-position-x
+            - background-position-y
+            - background-origin
+            - background-size
+            - background-clip
+            - box-shadow
+            - box-decoration-break
+            - outline
+            - outline-width
+            - outline-style
+            - outline-color
+            - filter
+            - color
+            - font
+            - font-family
+            - font-style
+            - font-weight
+            - font-variant
+            - font-size
+            - font-size-adjust
+            - line-height
+            - letter-spacing
+            - word-spacing
+            - direction
+            - word-wrap
+            - overflow-wrap
+            - word-break
+            - hyphens
+            - white-space
+            - text-align
+            - text-align-last
+            - text-indent
+            - text-overflow
+            - text-transform
+            - text-decoration
+            - text-shadow
+            - text-rendering
+            - text-size-adjust
+            - vertical-align
+            - tab-size
+            - list-style
+            - list-style-position
+            - list-style-type
+            - list-style-image
+            - transform
+            - transform-function
+            - transform-origin
+            - transform-style
+            - perspective
+            - perspective-origin
+            - backface-visibility
+            - transition
+            - transition-property
+            - transition-duration
+            - transition-timing-function
+            - transition-delay
+            - animation
+            - animation-name
+            - animation-duration
+            - animation-timing-function
+            - animation-delay
+            - animation-iteration-count
+            - animation-direction
+            - animation-fill-mode
+            - animation-play-state
+            - cursor
+            - user-select
+            - resize
+            - pointer-events
+            - '-webkit-appearance'
+            - '-moz-appearance'
+            - '-webkit-overflow-scrolling'
+            - '-webkit-tap-highlight-color'
+            - '-webkit-text-stroke'
+    # will disallow the use of units not specified in global or per-property.
+    # Units specified per-property will override the global units for that property
+    property-units:
+        - 0
+        - global:
+            - ch
+            - em
+            - ex
+            - rem
+            - cm
+            - in
+            - mm
+            - pc
+            - pt
+            - px
+            - q
+            - vh
+            - vw
+            - vmin
+            - vmax
+            - deg
+            - grad
+            - rad
+            - turn
+            - ms
+            - s
+            - Hz
+            - kHz
+            - dpi
+            - dpcm
+            - dppx
+            - '%'
+        - per-property: {}
+    # will enforce whether double quotes ("") should be used for all strings
+    quotes:
+        - 0
+        - style: double
+    # will enforce that values in their shorthand form are as concise as specified
+    shorthand-values:
+        - 2
+        - allowed-shorthands:
+          - 1
+          - 2
+          - 3
+    # will enforce whether selectors should be placed on a new line
+    single-line-per-selector: 2
+    # will enforce whether or not a space should be included after a bang (!)
+    space-after-bang:
+        - 2
+        - include: false
+    # will enforce whether or not a space should be included after a colon (:)
+    space-after-colon:
+        - 2
+        - include: true
+    # will enforce whether or not a space should be included after a comma (,)
+    space-after-comma:
+        - 2
+        - include: true
+    # will enforce whether or not a space should be included before a bang (!)
+    space-before-bang:
+        - 2
+        - include: true
+    # will enforce whether or not a space should be included before a brace ({)
+    space-before-brace:
+        - 2
+        - include: true
+    # will enforce whether or not a space should be included before a colon (:)
+    space-before-colon: 2
+    # will enforce whether or not a single space should be included before and
+    # after the following operators: +, -, /, *, %, <, > ==, !=, <= and >=
+    space-around-operator:
+        - 2
+        - include: true
+    # will enforce whether or not a space should be included before the first
+    # item and after the last item inside parenthesis (())
+    space-between-parens:
+        - 2
+        - include: false
+    # will enforce the last declaration in a block should include a semicolon (;)
+    trailing-semicolon: 2
+    # will enforce that URLs are wrapped in quotes
+    url-quotes: 2
+    # will enforce the use of variables for the values of specified properties
+    variable-for-property:
+        - 2
+        - properties:
+            - font
+    # will enforce a convention for variable names
+    variable-name-format:
+        - 2
+        - allow-leading-underscore: true
+        - convention: '[a-z]|-{3}|_{3}|[^_]_[^_]'
+    # will enforce whether or not values of 0 used for length should be unitless
+    zero-unit: 2
