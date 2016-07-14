@@ -1,4 +1,4 @@
-{
+{   //severity 0 = off, 1 = warning, 2 =  error
     "extends": "./.eslintrc-reset",
     "env": {
         "node": true,
@@ -88,6 +88,16 @@
         "semi": 2,
 
         // Enforce trailing comma style
-        "comma-style": [2, "last"]
+        "comma-style": [2, "last"],
+
+        // Enforce max lines in a file
+        "max-lines": [2, 100],
+
+        // Disallow nested ternary expressions
+        "no-nested-ternary": 2,
+
+        // Disallow ternary operators when simpler alternatives exist 
+        "no-unneeded-ternary": 2
+
     }
 }
