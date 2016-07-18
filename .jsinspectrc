@@ -3,6 +3,6 @@
   "identifiers":   true,
   "ignore":        "app/vendor",
   "jsx":           true,
-  "reporter":      "json",
+  "reporter":      "xml",
   "suppress":      100
 }
